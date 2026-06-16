@@ -1,0 +1,14 @@
+.related-outer-box {
+  width: 100%;
+}
+.related-title-heading {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-bottom: 25px;
+}
+.related-items-flexgrid {
+  display: grid;
+  grid-template-cols: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 25px;
+}

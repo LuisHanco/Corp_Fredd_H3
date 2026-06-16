@@ -1,0 +1,18 @@
+.download-section { max-width: 1280px; margin: 110px auto; padding: 0 40px; }
+.download-panel {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 16px; padding: 50px 60px; color: #ffffff;
+  display: grid; grid-template-cols: 1.25fr 0.75fr; gap: 50px; align-items: center; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+}
+@media (max-width: 900px) { .download-panel { grid-template-cols: 1fr; padding: 40px; gap: 35px; } }
+.pdf-badge { background-color: rgba(220, 38, 38, 0.15); border: 1px solid rgba(220, 38, 38, 0.3); color: #f87171; padding: 6px 14px; border-radius: 4px; font-size: 11px; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+.download-text h2 { font-size: 32px; font-weight: 900; letter-spacing: -1px; margin-bottom: 12px; }
+.download-text p { color: #cbd5e1; font-size: 15px; line-height: 1.6; margin-bottom: 25px; }
+.param-list { display: flex; gap: 30px; flex-wrap: wrap; }
+.param-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #94a3b8; font-weight: 600; }
+.param-icon { color: #dc2626; }
+.download-btn { background-color: #dc2626; color: #ffffff; padding: 20px 30px; border-radius: 8px; display: flex; align-items: center; gap: 20px; box-shadow: 0 15px 30px rgba(220, 38, 38, 0.25); transition: all 0.4s ease; }
+.download-btn:hover { background-color: #b91c1c; transform: translateY(-2px); }
+.dl-btn-icon { font-size: 22px; flex-shrink: 0; }
+.dl-btn-text { display: flex; flex-direction: column; }
+.dl-btn-text span { font-size: 15px; font-weight: 700; }
+.dl-btn-text small { font-size: 11px; color: #fca5a5; margin-top: 2px; }

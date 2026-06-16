@@ -1,0 +1,225 @@
+/* ==========================================================================
+   HOJA DE ESTILOS HERO CORPORATIVO — ESTILO CINEMATOGRÁFICO FULL-BLEED
+   ========================================================================== */
+
+.enterprise-minimal-hero {
+  background-color: #0b0f19; /* Fondo de seguridad oscuro */
+  position: relative;
+  width: 100%;
+  height: 680px;
+  overflow: hidden;
+}
+
+.blueprint-grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.slider-viewport {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   MANEJO MECÁNICO DE DIAPOSITIVAS (FULL BACKGROUND)
+   -------------------------------------------------------------------------- */
+.slide-node {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.active-state {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.hidden-state {
+  opacity: 0;
+  transform: scale(1.02); /* Efecto de alejamiento sutil al cambiar */
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Máscara de degradado hacia la izquierda para un contraste de texto perfecto */
+.slide-dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(11, 15, 25, 0.95) 0%, rgba(11, 15, 25, 0.8) 40%, rgba(11, 15, 25, 0.2) 100%);
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   CONTENEDOR DE TEXTO EDITORIAL
+   -------------------------------------------------------------------------- */
+.hero-content-constrained {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 60px;
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .hero-content-constrained { padding: 0 30px; align-items: center; text-align: center; }
+}
+
+.badge-corporate-tag {
+  background-color: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  color: #fca5a5;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.badge-lead-icon { margin-right: 8px; color: #dc2626; }
+
+.slide-meta-label {
+  font-size: 12px;
+  font-weight: 800;
+  color: #dc2626;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.hero-main-title {
+  font-size: 52px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+  max-width: 800px;
+}
+
+@media (max-width: 640px) { .hero-main-title { font-size: 34px; } }
+
+.hero-synopsis-text {
+  font-size: 17px;
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 620px;
+  font-weight: 400;
+}
+
+.hero-action-row { width: auto; }
+@media (max-width: 640px) { .hero-action-row { width: 100%; } }
+
+.btn-executive-solid {
+  background-color: #dc2626;
+  color: #ffffff;
+  padding: 16px 36px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 25px rgba(220, 38, 38, 0.25);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-executive-solid:hover {
+  background-color: #b91c1c;
+  transform: translateY(-2px);
+}
+
+.btn-slide-arrow { transition: transform 0.2s ease; }
+.btn-executive-solid:hover .btn-slide-arrow { transform: translateX(4px); }
+
+/* --------------------------------------------------------------------------
+   FLECHAS Y DOTS DE CONTROL MINIMALISTA
+   -------------------------------------------------------------------------- */
+.carousel-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.carousel-arrow-btn:hover {
+  background-color: #dc2626;
+  border-color: #dc2626;
+}
+
+.prev-btn { left: 30px; }
+.next-btn { right: 30px; }
+
+@media (max-width: 1024px) {
+  .carousel-arrow-btn { top: auto; bottom: 30px; transform: none; }
+  .prev-btn { left: calc(50% - 60px); }
+  .next-btn { right: calc(50% - 60px); }
+}
+
+.carousel-dots-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) { .carousel-dots-indicator { bottom: 95px; } }
+
+.dot-indicator-item {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  width: 20px;
+  height: 4px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot-indicator-item.dot-active {
+  background-color: #dc2626;
+  width: 36px;
+}

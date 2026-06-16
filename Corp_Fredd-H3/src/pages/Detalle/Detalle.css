@@ -1,0 +1,113 @@
+.product-view-layout {
+  max-width: var(--max-width);
+  margin: 40px auto;
+  padding: 0 40px;
+}
+.main-info-grid {
+  display: grid;
+  grid-template-cols: 1.2fr 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 60px;
+}
+@media (max-width: 768px) {
+  .main-info-grid { grid-template-cols: 1fr; gap: 40px; }
+}
+.main-image-frame {
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  box-shadow: var(--shadow-card);
+}
+.main-image-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.brand-pill {
+  background-color: rgba(225, 29, 72, 0.05);
+  color: var(--h3-red);
+  font-weight: 800;
+  font-size: 11px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+.product-main-title {
+  font-size: 34px;
+  font-weight: 900;
+  color: var(--slate-dark);
+  margin: 12px 0 4px 0;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+.base-code-label {
+  font-size: 13px;
+  color: var(--slate-muted);
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+.product-narrative-desc {
+  font-size: 16px;
+  color: var(--slate-body);
+  margin-bottom: 35px;
+  line-height: 1.7;
+}
+.features-bullet-box {
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  padding: 30px;
+  border-radius: 14px;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow-card);
+}
+.features-bullet-box h3 {
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--slate-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.features-bullet-box ul {
+  list-style: none;
+}
+.features-bullet-box li {
+  font-size: 14px;
+  color: var(--slate-body);
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 20px;
+}
+.features-bullet-box li::before {
+  content: '▪';
+  position: absolute;
+  left: 0;
+  color: var(--h3-red);
+  font-size: 16px;
+  top: -2px;
+}
+.cta-adviser-btn {
+  width: 100%;
+  background-color: var(--slate-dark);
+  color: #ffffff;
+  border: none;
+  padding: 18px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.1);
+  transition: var(--transition-bezier);
+}
+.cta-adviser-btn:hover {
+  background-color: var(--h3-red);
+  box-shadow: 0 10px 20px rgba(225, 29, 72, 0.2);
+}

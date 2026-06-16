@@ -1,0 +1,53 @@
+.technical-sheet-wrapper {
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: var(--shadow-card);
+  margin-top: 60px;
+}
+.table-section-title {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--slate-dark);
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+.table-scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+}
+.dynamic-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.dynamic-matrix-table th {
+  background-color: #f8fafc;
+  color: var(--slate-dark);
+  padding: 16px 20px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--border-light);
+  letter-spacing: 0.5px;
+}
+.dynamic-matrix-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--slate-body);
+  font-size: 14px;
+  font-weight: 600;
+}
+.dynamic-matrix-table tr:last-child td {
+  border-bottom: none;
+}
+.dynamic-matrix-table tr:nth-child(even) td {
+  background-color: #fafafa;
+}
+.dynamic-matrix-table td:first-child {
+  color: var(--slate-dark);
+  font-weight: 700;
+}
