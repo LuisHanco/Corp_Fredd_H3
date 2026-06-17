@@ -16,6 +16,15 @@ import DetailView from './views/DetailView';
 import CatalogosView from './views/CatalogosView';
 import ContactoView from './views/ContactoView'; 
 
+
+
+// Imagenes de Banner
+
+import img1 from './assets/banner/1211.jpg';
+import img2 from './assets/banner/1212.jpg';
+import img3 from './assets/banner/1213.jpg';
+import img4 from './assets/banner/1214.jpg';
+
 export default function App() {
   const [currentPage, setCurrentPage] = useState('inicio');
   const [selectedProduct, setSelectedProduct] = useState(PRODUCTOS[0]);
@@ -30,12 +39,22 @@ export default function App() {
     {
       titulo: 'Más de 32 años haciendo historia',
       subtitulo: 'Líderes en importación y distribución de conexiones industriales de alta resistencia y termoplásticos.',
-      img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600'
+      img: img1
     },
     {
       titulo: 'Conexiones de Alta Performance',
       subtitulo: 'Suministramos la más alta calidad en tuberías, bridas y accesorios.',
-      img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1600'
+      img: img2
+    },
+    {
+      titulo: 'Más de 32 años haciendo historia',
+      subtitulo: 'Líderes en importación y distribución de conexiones industriales de alta resistencia y termoplásticos.',
+      img: img3
+    },
+    {
+      titulo: 'Más de 32 años haciendo historia',
+      subtitulo: 'Líderes en importación y distribución de conexiones industriales de alta resistencia y termoplásticos.',
+      img: img4
     }
   ];
 
