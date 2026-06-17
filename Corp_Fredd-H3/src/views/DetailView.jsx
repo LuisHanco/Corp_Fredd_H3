@@ -1,6 +1,7 @@
-import React from 'react';
-import { ChevronRight, CheckCircle2, Ruler, ShieldAlert, ArrowRight } from 'lucide-react';
-import { PRODUCTOS } from '../data/products';
+import React, { useState } from 'react';
+import { ChevronRight, CheckCircle2, Ruler, ShieldAlert, ArrowRight, FileText, X } from 'lucide-react';
+// Importamos la base de datos para sugerencias y el Catálogo como Ficha Técnica por defecto
+import { PRODUCTOS, CATALOGOS } from '../data/products';
 import './DetailView.css';
 
 export default function DetailView({ 
@@ -14,9 +15,12 @@ export default function DetailView({
   navegarA 
 }) {
   
+  // Estado para controlar el modal de la Ficha Técnica
+  const [urlFichaActiva, setUrlFichaActiva] = useState(null);
+
   if (!selectedProduct) return null;
 
-  // Filtro de sugerencias de la misma categoría de H3
+  // Filtro de sugerencias (misma categoría, excluye el actual)
   const productosSimilares = PRODUCTOS.filter(
     (p) => p.categoria === selectedProduct.categoria && p.id !== selectedProduct.id
   ).slice(0, 4);
@@ -24,6 +28,21 @@ export default function DetailView({
   // Función auxiliar para formatear la categoría (de 'agua-caliente' a 'AGUA CALIENTE')
   const formatoCategoria = (catText) => {
     return catText ? catText.replace(/-/g, ' ').toUpperCase() : '';
+  };
+
+  // Función inteligente para abrir la Ficha Técnica (Local o Drive)
+  const abrirFichaTecnica = () => {
+    // Si el producto tiene ficha propia se usa, sino, usa el Catálogo General H3
+    let url = selectedProduct.fichaTecnica || (CATALOGOS && CATALOGOS.length > 0 ? CATALOGOS[0].enlacePdf : '');
+    
+    if (!url) return;
+
+    // Si el enlace es de Google Drive, lo forzamos a modo 'preview'
+    if (url.includes('drive.google.com')) {
+      url = url.replace(/\/view\?usp=sharing|\/edit\?usp=sharing|\/view|\/edit/g, '/preview');
+    }
+    
+    setUrlFichaActiva(url);
   };
 
   return (
@@ -54,9 +73,11 @@ export default function DetailView({
                 alt={selectedProduct.nombre} 
                 className="full-product-img" 
               />
+              {/* Etiqueta de Marca incrustada en la imagen */}
               <span className="product-brand-floating-tag">{selectedProduct.marca}</span>
             </div>
             
+            {/* Tira de Miniaturas (Responsiva con Scroll en móviles) */}
             {selectedProduct.imagenes && selectedProduct.imagenes.length > 1 && (
               <div className="thumbnails-strip">
                 {selectedProduct.imagenes.map((img, i) => (
@@ -96,6 +117,7 @@ export default function DetailView({
               </ul>
             </div>
 
+            {/* BOTONES DE ACCIÓN (Lado a lado en PC, Apilados en Móvil) */}
             <div className="info-actions-row">
               <button 
                 onClick={() => {
@@ -104,9 +126,15 @@ export default function DetailView({
                 }}
                 className="btn-trigger-quote-main"
               >
-                Solicitar Cotización por Lote
+                Solicitar Cotización
+              </button>
+              
+              <button onClick={abrirFichaTecnica} className="btn-view-tech-sheet">
+                <FileText size={18} />
+                <span>Ver Ficha Técnica</span>
               </button>
             </div>
+
           </div>
         </div>
 
@@ -120,14 +148,14 @@ export default function DetailView({
               onClick={() => setActiveTabDetalle('especificaciones')} 
               className={`tab-nav-btn ${activeTabDetalle === 'especificaciones' ? 'active' : ''}`}
             >
-              <Ruler size={16} />
+              <Ruler size={18} />
               <span>Tabla de Medidas</span>
             </button>
             <button 
               onClick={() => setActiveTabDetalle('descripcion')} 
               className={`tab-nav-btn ${activeTabDetalle === 'descripcion' ? 'active' : ''}`}
             >
-              <ShieldAlert size={16} />
+              <ShieldAlert size={18} />
               <span>Normativas e Instalación</span>
             </button>
           </div>
@@ -201,7 +229,7 @@ export default function DetailView({
                   Todos nuestros accesorios cumplen rigurosamente con los estándares internacionales aplicables para sistemas de presión. Se recomienda realizar las uniones a la temperatura indicada por la normativa del fabricante para garantizar una estanqueidad del 100% en el sistema H3.
                 </p>
                 <p>
-                  Para proyectos industriales complejos o domiciliarios de gran escala, solicite asistencia técnica directa a nuestro equipo de ingeniería durante la etapa de diseño.
+                  Para proyectos industriales complejos o domiciliarios de gran escala, solicite asistencia técnica directa a nuestro equipo de ingeniería durante la etapa de diseño o dimensionamiento.
                 </p>
               </div>
             )}
@@ -217,7 +245,6 @@ export default function DetailView({
               <span className="similares-tagline">Línea H3 Sugerida</span>
               <h3 className="similares-title">Productos Similares</h3>
               <div className="similares-divider"></div>
-              <span className="similares-hint">Desliza para ver más alternativas ➔</span>
             </div>
 
             <div className="similares-responsive-track">
@@ -237,7 +264,6 @@ export default function DetailView({
                       alt={simProd.nombre} 
                       className="similar-stage-img"
                     />
-                    <span className="similar-card-brand">{simProd.marca}</span>
                   </div>
 
                   <div className="similar-card-info">
@@ -245,12 +271,10 @@ export default function DetailView({
                     <h4 className="similar-product-title-clean" title={simProd.nombre}>{simProd.nombre}</h4>
                     <p className="similar-product-desc-clean">{simProd.descripcion}</p>
                     
-                    <div className="similar-card-action-belt">
-                      <span className="btn-similar-view">
-                        <span>Ver Ficha Técnica</span>
-                        <ArrowRight size={13} className="arrow-similar-motion" />
-                      </span>
-                    </div>
+                    <button className="btn-similar-view">
+                      <span>Ver Detalles</span>
+                      <ArrowRight size={14} className="arrow-similar-motion" />
+                    </button>
                   </div>
 
                 </div>
@@ -260,6 +284,37 @@ export default function DetailView({
         )}
 
       </div>
+
+      {/* ==========================================
+          MODAL: VISOR DE FICHA TÉCNICA
+          ========================================== */}
+      {urlFichaActiva && (
+        <div className="ficha-modal-overlay" onClick={() => setUrlFichaActiva(null)}>
+          <div className="ficha-modal-content" onClick={(e) => e.stopPropagation()}>
+            
+            <div className="ficha-modal-header">
+              <span className="ficha-doc-indicator">
+                Ficha Técnica: <span style={{color: '#111827'}}>{selectedProduct.nombre}</span>
+              </span>
+              <button className="btn-close-ficha" onClick={() => setUrlFichaActiva(null)}>
+                <X size={16} />
+                <span>Cerrar</span>
+              </button>
+            </div>
+            
+            <div className="ficha-iframe-container">
+              <iframe 
+                src={urlFichaActiva} 
+                title="Visor de Ficha Técnica" 
+                allow="autoplay" 
+                frameBorder="0"
+              ></iframe>
+            </div>
+
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

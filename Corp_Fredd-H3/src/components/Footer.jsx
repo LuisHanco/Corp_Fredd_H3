@@ -1,6 +1,6 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Clock, ArrowRight, ShieldCheck } from 'lucide-react';
-import logoImg from '../assets/logos/Logo.png';
+import logoImg from '../assets/logos/logoh3max.png';
 import './Footer.css';
 
 export default function Footer({ navegarA, setActiveCategoryFilter }) {
@@ -61,7 +61,7 @@ export default function Footer({ navegarA, setActiveCategoryFilter }) {
               <li>
                 <button onClick={() => { setActiveCategoryFilter('electrobombas'); navegarA('productos'); }} className="footer-nav-btn">
                   <ArrowRight size={12} className="arrow-link-icon" />
-                  <span>Electrobombas HB Max</span>
+                  <span>Electrobombas H3 Max</span>
                 </button>
               </li>
             </ul>

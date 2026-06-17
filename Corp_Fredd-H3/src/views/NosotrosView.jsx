@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
-import { Target, Eye, MapPin, Phone, Clock, ShieldCheck, HardHat, Award, Briefcase } from 'lucide-react';
+import { Target, Eye, MapPin, Phone, Clock, TrendingUp, ShieldCheck, HeartHandshake, Users } from 'lucide-react';
 import './NosotrosView.css';
 
 export default function NosotrosView({ navegarA }) {
-  // Ahora Puno es la sede activa por defecto al cargar la página
+  // Puno es la sede activa por defecto al cargar la página
   const [tiendaActiva, setTiendaActiva] = useState('puno');
 
   const SUCURSALES = {
     puno: {
       ciudad: 'Juliaca - Puno',
-      direccion: 'Jr. Los Ferroviarios N° 456, Cercado - Puno',
-      telefono: '+51 987 654 322',
+      direccion: 'Jr. Cahuide N° 656, Juliaca - Puno',
+      telefono: '+51 (01) 480-1234',
       horario: 'Lun a Vie: 8:00 AM - 6:00 PM',
-      detalles: 'Centro de atención técnica especializado en conexiones y gasfitería.'
+      detalles: 'Planta matriz, centro de distribución y atención técnica especializada en la línea H3.'
     },
     arequipa: {
       ciudad: 'Arequipa',
       direccion: 'Parque Industrial Siglo XX, Mz. D Lote 4 - Arequipa',
       telefono: '+51 987 654 323',
       horario: 'Lun a Sáb: 8:00 AM - 6:30 PM',
-      detalles: 'Planta de almacenamiento estratégico y distribución regional.'
+      detalles: 'Centro de almacenamiento estratégico y logística regional.'
     }
   };
 
@@ -28,96 +28,133 @@ export default function NosotrosView({ navegarA }) {
       <div className="nosotros-container">
         
         {/* Encabezado Principal */}
-        <div className="nosotros-header">
+        <div className="nosotros-header animate-fade-up">
           <span className="nosotros-tagline">Conócenos</span>
           <h1 className="nosotros-title">INDUSTRIAS FREDD S.A.C.</h1>
           <div className="title-divider"></div>
         </div>
 
         {/* 1. Historia y Origen */}
-        <section className="intro-block-grid">
+        <section className="intro-block-grid animate-fade-up delay-100">
           <div className="intro-text">
-            <h2>Más de 32 años liderando el sector industrial</h2>
+            <h2>Fábrica 100% peruana líder en el sector industrial</h2>
             <p>
-              Nacimos con el firme propósito de ser el aliado estratégico de la ingeniería y la construcción en el Perú. Nos especializamos en la importación, almacenamiento y suministro a gran escala de conexiones, tuberías, termoplásticos y una robusta línea ferretera de alta performance.
+              Con más de 32 años de experiencia, Industrias Fredd S.A.C. se consolida como tu aliado estratégico, ofreciendo la entrega más rápida del mercado y una excelente relación calidad-precio en el rubro de conexiones termoplásticas.
             </p>
             <p>
-              Gracias a rigurosos estándares de calidad técnica, hoy abastecemos de forma inmediata a los proyectos mineros, civiles y comerciales más exigentes de todo el territorio nacional, manteniendo intacta nuestra promesa de seguridad y origen certificado.
+              A través de nuestras líneas oficiales <strong>H3</strong> y <strong>HB Max</strong>, abastecemos con stock permanente a los proyectos de ingeniería más exigentes a nivel nacional, garantizando siempre la máxima seguridad y 1 año de garantía post-venta en todos los accesorios.
             </p>
           </div>
           <div className="intro-image-box">
             <img 
-              src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600" 
-              alt="Suministros Ferreteros e Industriales" 
+              src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800" 
+              alt="Planta Industrial Fredd S.A.C." 
               className="about-factory-img" 
+              loading="lazy"
             />
           </div>
         </section>
 
+        {/* NUEVA SECCIÓN: LÍNEA DE TIEMPO / TRAYECTORIA */}
+        <section className="timeline-section animate-fade-up delay-200">
+          <div className="section-header">
+            <span className="section-tagline">Nuestra Historia</span>
+            <h2 className="section-title">Más de 30 Años de Evolución</h2>
+            <div className="title-divider"></div>
+          </div>
+          
+          <div className="timeline-grid">
+            <div className="timeline-item">
+              <div className="timeline-year">1994</div>
+              <div className="timeline-content">
+                <h4>Fundación</h4>
+                <p>Iniciamos operaciones en Juliaca apostando por la industrialización y manufactura 100% peruana.</p>
+              </div>
+            </div>
+            <div className="timeline-item">
+              <div className="timeline-year">2010</div>
+              <div className="timeline-content">
+                <h4>Expansión Regional</h4>
+                <p>Inauguración de nuevos centros logísticos para garantizar envíos rápidos a todo el sur del país.</p>
+              </div>
+            </div>
+            <div className="timeline-item">
+              <div className="timeline-year">2026</div>
+              <div className="timeline-content">
+                <h4>Consolidación H3</h4>
+                <p>Lanzamiento definitivo del Catálogo Oficial H3 y HB Max con estándares ISO internacionales.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* 2. Misión y Visión */}
-        <section className="mv-cards-grid">
+        <section className="mv-cards-grid animate-fade-up delay-100">
           <div className="mv-card">
-            <div className="mv-icon-wrapper blue-icon">
-              <Target size={22} />
+            <div className="h3-red-icon">
+              <Target size={32} strokeWidth={2} />
             </div>
             <h3>Nuestra Misión</h3>
             <p>
-              Proveer soluciones integrales en herramientas y conexiones industriales mediante el suministro de productos certificados de marcas globales, garantizando eficiencia técnica, asesoría especializada y una cadena de distribución rápida y confiable.
+              Hacer del cliente un amigo, asegurando que perciba nuestra calidez humana y que su compra sea totalmente satisfactoria, proveyendo soluciones integrales y certificadas con nuestra línea H3 para todo tipo de proyecto.
             </p>
           </div>
 
           <div className="mv-card">
-            <div className="mv-icon-wrapper orange-icon">
-              <Eye size={22} />
+            <div className="h3-red-icon">
+              <Eye size={32} strokeWidth={2} />
             </div>
             <h3>Nuestra Visión</h3>
             <p>
-              Consolidarnos como el distribuidor ferretero industrial líder en el sur del país, reconocidos por nuestra capacidad tecnológica de catálogo escalable, excelencia operativa y por potenciar el desarrollo técnico de las industrias peruanas.
+              Ser un negocio ordenado en todas sus áreas, donde el cliente satisfaga todas sus necesidades en materia de construcción, conexiones y acabados, consolidando a Industrias Fredd S.A.C. como líder del mercado.
             </p>
           </div>
         </section>
 
         {/* 3. Valores Corporativos */}
-        <section className="valores-section">
-          <div className="valores-header">
-            <h2>Nuestros Pilares Operativos</h2>
-            <div className="heading-divider"></div>
+        <section className="valores-section animate-fade-up delay-200">
+          <div className="section-header">
+            <span className="section-tagline">ADN Corporativo</span>
+            <h2 className="section-title">Nuestros Valores</h2>
+            <div className="title-divider"></div>
           </div>
           
           <div className="valores-grid">
             <div className="valor-item-card">
-              <Award className="valor-icon" size={24} />
-              <h4>Calidad Certificada</h4>
-              <p>Cada lote ingresado a nuestros almacenes pasa por un estricto control de procedencia y cumplimiento de normas ISO.</p>
+              <TrendingUp className="valor-icon" size={36} strokeWidth={1.5} />
+              <h4>Pro actividad</h4>
+              <p>Nos anticipamos a las necesidades del mercado ofreciendo soluciones rápidas y stock permanente.</p>
             </div>
             <div className="valor-item-card">
-              <HardHat className="valor-icon" size={24} />
-              <h4>Seguridad Absoluta</h4>
-              <p>Promovemos el suministro de equipos EPP y materiales que garantizan el bienestar de los operarios en entornos de alto riesgo.</p>
+              <ShieldCheck className="valor-icon" size={36} strokeWidth={1.5} />
+              <h4>Honestidad</h4>
+              <p>Actuamos con total transparencia en cada transacción, garantizando la calidad y origen de H3.</p>
             </div>
             <div className="valor-item-card">
-              <ShieldCheck className="valor-icon" size={24} />
-              <h4>Garantía de Suministro</h4>
-              <p>Mantenemos un stock de seguridad constante para asegurar que las obras y plantas de nuestros clientes nunca se detengan.</p>
+              <HeartHandshake className="valor-icon" size={36} strokeWidth={1.5} />
+              <h4>Vocación de Servicio</h4>
+              <p>Brindamos presencia directa de nuestros asesores para asegurar el éxito en sus proyectos.</p>
             </div>
             <div className="valor-item-card">
-              <Briefcase className="valor-icon" size={24} />
-              <h4>Compromiso Técnico</h4>
-              <p>No solo vendemos productos; ofrecemos soporte técnico y acompañamiento en ingeniería para la selección idónea del material.</p>
+              <Users className="valor-icon" size={36} strokeWidth={1.5} />
+              <h4>Trabajo en Equipo</h4>
+              <p>Colaboramos integrando el esfuerzo de nuestros especialistas para lograr la excelencia operativa.</p>
             </div>
           </div>
         </section>
 
         {/* 4. Presencia Nacional e Interactividad del Mapa */}
-        <section className="map-presence-section">
-          <div className="map-section-header">
-            <h2>Presencia Estratégica en el Sur del Perú</h2>
-            <p className="map-instruction">
-              Selecciona una sucursal en los botones o presiona los puntos parpadeantes en el mapa.
+        <section className="map-presence-section animate-fade-up delay-100">
+          <div className="section-header">
+            <span className="section-tagline">Cobertura</span>
+            <h2 className="section-title">Presencia Estratégica Nacional</h2>
+            <div className="title-divider"></div>
+            <p className="map-instruction" style={{marginTop: '16px'}}>
+              Selecciona una sucursal en el menú o interactúa directamente con el mapa.
             </p>
           </div>
 
-          {/* Barra selectora optimizada para pantallas móviles (Solo 2 botones ahora) */}
+          {/* Selector Móvil de Sedes */}
           <div className="mobile-branch-selector-bar">
             {Object.keys(SUCURSALES).map((key) => (
               <button
@@ -125,7 +162,7 @@ export default function NosotrosView({ navegarA }) {
                 onClick={() => setTiendaActiva(key)}
                 className={`mobile-branch-tab-btn ${tiendaActiva === key ? 'active' : ''}`}
               >
-                {SUCURSALES[key].ciudad}
+                {SUCURSALES[key].ciudad.split(' - ')[0]}
               </button>
             ))}
           </div>
@@ -134,7 +171,12 @@ export default function NosotrosView({ navegarA }) {
             
             {/* Contenedor del Mapa SVG Dinámico */}
             <div className="map-visual-box">
-            <svg 
+              {/* =======================================================
+                  🚨 ¡NO TOCAR! AQUÍ VA TU ETIQUETA <svg> ORIGINAL COMPLETA 
+                  Pega todo tu código <svg viewBox="...">...</svg> aquí
+                  ======================================================= */}
+              
+                       <svg 
   viewBox="0 0 980 980" 
   width="100%" 
   height="100%" 
@@ -310,27 +352,29 @@ export default function NosotrosView({ navegarA }) {
   </circle>
  </g>
 </svg>
+
+              {/* ======================================================= */}
             </div>
 
-            {/* Panel de Datos Dinámicos */}
+            {/* Panel de Datos Dinámicos (Derecha) */}
             <div className="map-info-card-panel">
               <div className="branch-info-card">
                 <div className="card-branch-header">
-                  <span className="branch-label">Sucursal Autorizada</span>
+                  <span className="branch-label">Sucursal Autorizada H3</span>
                   <h3>{SUCURSALES[tiendaActiva].ciudad}</h3>
                 </div>
                 
                 <div className="branch-card-body-rows">
                   <div className="branch-row">
-                    <MapPin size={18} className="branch-card-icon" />
+                    <MapPin size={20} className="branch-card-icon" />
                     <span>{SUCURSALES[tiendaActiva].direccion}</span>
                   </div>
                   <div className="branch-row">
-                    <Phone size={18} className="branch-card-icon" />
+                    <Phone size={20} className="branch-card-icon" />
                     <span>{SUCURSALES[tiendaActiva].telefono}</span>
                   </div>
                   <div className="branch-row">
-                    <Clock size={18} className="branch-card-icon" />
+                    <Clock size={20} className="branch-card-icon" />
                     <span>{SUCURSALES[tiendaActiva].horario}</span>
                   </div>
                 </div>

@@ -1,13 +1,28 @@
 /* =========================================================================
-   ESTILOS COMPLETO Y RESPONSIVO - NOSOTROSVIEW.CSS
+   ESTILOS PREMIUM "NOSOTROS" - LÍNEA H3 (MODO CLARO)
    ========================================================================= */
 
+:root {
+  --h3-red: #E30613;
+  --h3-red-dark: #B3040F;
+  --text-main: #111827;
+  --text-muted: #6B7280;
+  --bg-main: #F9FAFB;
+  --bg-card: #FFFFFF;
+  --border-light: #E5E7EB;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
 .nosotros-page {
-  background-color: #161819; /* Gris oscuro suave para evitar fatiga visual */
-  color: #F3F4F6;
-  padding: 48px 20px;
-  font-family: 'Calibri', 'Arial', sans-serif;
-  min-height: 80vh;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  padding: 64px 20px 80px 20px;
+  font-family: 'Inter', 'Calibri', sans-serif;
+  min-height: 85vh;
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -16,466 +31,474 @@
   margin: 0 auto;
 }
 
-/* =========================================================================
-   ENCABEZADOS Y SECCIONES COMUNES
-   ========================================================================= */
-.nosotros-header {
-  text-align: center;
-  margin-bottom: 48px;
+/* Animaciones de Entrada */
+.animate-fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.nosotros-tagline {
-  color: #0269D3;
-  font-weight: bold;
-  font-size: 12px;
+/* =========================================================================
+   ENCABEZADOS DE SECCIÓN GLOBALES
+   ========================================================================= */
+.nosotros-header, .section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.nosotros-tagline, .section-tagline {
+  color: var(--h3-red);
+  font-weight: 800;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   display: block;
+  margin-bottom: 8px;
 }
 
-.nosotros-title {
-  font-size: 32px;
+.nosotros-title, .section-title {
+  font-size: 36px;
   font-weight: 800;
-  margin: 6px 0 0 0;
-  color: #FFFFFF;
+  margin: 0;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
 }
 
 .title-divider {
-  width: 60px;
+  width: 56px;
   height: 4px;
-  background-color: #F2741D;
-  margin: 12px auto 0 auto;
+  background-color: var(--h3-red);
+  margin: 16px auto 0 auto;
   border-radius: 2px;
 }
 
 /* =========================================================================
-   1. BLOQUE DE INTRODUCCIÓN E HISTORIA (PC)
+   1. HISTORIA Y ORIGEN (INTRO)
    ========================================================================= */
 .intro-block-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 48px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
   align-items: center;
-  margin-bottom: 56px;
+  margin-bottom: 80px;
 }
 
 .intro-text h2 {
-  font-size: 26px;
-  color: #FFFFFF;
-  margin: 0 0 16px 0;
-  line-height: 1.3;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0 0 24px 0;
+  line-height: 1.25;
 }
 
 .intro-text p {
-  font-size: 15px;
-  color: #9CA3AF;
-  line-height: 1.6;
-  margin: 0 0 16px 0;
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0 0 20px 0;
+}
+
+.intro-text strong {
+  color: var(--text-main);
+  font-weight: 800;
+}
+
+.intro-image-box {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
 }
 
 .about-factory-img {
   width: 100%;
-  height: 320px;
+  height: 400px;
   object-fit: cover;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.intro-image-box:hover .about-factory-img {
+  transform: scale(1.03);
 }
 
 /* =========================================================================
-   2. TARJETAS DE MISIÓN Y VISIÓN
+   2. MISIÓN Y VISIÓN
    ========================================================================= */
 .mv-cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-bottom: 56px;
+  gap: 32px;
+  margin-bottom: 80px;
 }
 
 .mv-card {
-  background-color: #1E2122;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: 14px;
-  padding: 32px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  padding: 48px 40px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.mv-icon-wrapper {
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
+.mv-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: #FECACA;
+}
+
+.h3-red-icon {
+  background-color: rgba(227, 6, 19, 0.08);
+  color: var(--h3-red);
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 24px auto;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
+  transition: all 0.3s ease;
 }
 
-.blue-icon { background-color: rgba(2, 105, 211, 0.15); color: #3B82F6; }
-.orange-icon { background-color: rgba(242, 116, 29, 0.15); color: #F2741D; }
+.mv-card:hover .h3-red-icon {
+  background-color: var(--h3-red);
+  color: #FFFFFF;
+  transform: scale(1.1);
+}
 
 .mv-card h3 {
-  font-size: 20px;
-  margin: 0 0 12px 0;
-  color: #FFFFFF;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0 0 16px 0;
 }
 
 .mv-card p {
-  font-size: 14px;
-  color: #9CA3AF;
+  font-size: 15px;
+  color: var(--text-muted);
   line-height: 1.6;
   margin: 0;
 }
 
 /* =========================================================================
-   3. VALORES CORPORATIVOS (PILARES)
+   NUEVA SECCIÓN: LÍNEA DE TIEMPO (TRAYECTORIA)
    ========================================================================= */
-.valores-section {
-  margin-bottom: 64px;
+.timeline-section {
+  padding: 64px 0;
+  margin-bottom: 80px;
+  background-color: #FFFFFF;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-.valores-header {
-  text-align: center;
-  margin-bottom: 32px;
-}
-
-.valores-header h2 {
-  font-size: 24px;
-  color: #FFFFFF;
-  margin: 0;
-}
-
-.valores-grid {
+.timeline-grid {
+  max-width: 1000px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  position: relative;
 }
 
-.valor-item-card {
-  background-color: #1E2122;
-  border: 1px solid rgba(255, 255, 255, 0.02);
-  border-radius: 12px;
-  padding: 24px;
-  transition: border-color 0.2s;
+/* Línea conectora horizontal */
+.timeline-grid::before {
+  content: '';
+  position: absolute;
+  top: 32px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background-color: var(--border-light);
+  z-index: 1;
 }
 
-.valor-item-card:hover {
-  border-color: #0269D3;
+.timeline-item {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.valor-icon {
-  color: #F2741D;
-  margin-bottom: 14px;
+.timeline-year {
+  background-color: var(--bg-card);
+  color: var(--h3-red);
+  font-size: 20px;
+  font-weight: 800;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid var(--h3-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 10px rgba(227, 6, 19, 0.15);
+  transition: all 0.3s ease;
 }
 
-.valor-item-card h4 {
-  font-size: 16px;
+.timeline-item:hover .timeline-year {
+  background-color: var(--h3-red);
   color: #FFFFFF;
-  margin: 0 0 8px 0;
+  transform: scale(1.1);
 }
 
-.valor-item-card p {
-  font-size: 13px;
-  color: #9CA3AF;
+.timeline-content h4 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0 0 12px 0;
+}
+
+.timeline-content p {
+  font-size: 14px;
+  color: var(--text-muted);
   line-height: 1.5;
   margin: 0;
 }
 
 /* =========================================================================
-   4. SECCIÓN DEL MAPA E INTERACTIVIDAD DE SUCURSALES
+   3. VALORES CORPORATIVOS
    ========================================================================= */
-.map-presence-section {
-  background-color: #1E2122;
-  border: 1px solid rgba(255, 255, 255, 0.04);
+.valores-section {
+  margin-bottom: 80px;
+}
+
+.valores-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.valor-item-card {
+  background-color: transparent;
+  border: 1px solid var(--border-light);
+  padding: 32px 24px;
   border-radius: 16px;
-  padding: 40px;
-}
-
-.map-section-header {
   text-align: center;
-  margin-bottom: 24px;
+  transition: all 0.3s ease;
 }
 
-.map-section-header h2 {
-  font-size: 24px;
-  color: #FFFFFF;
-  margin: 0 0 6px 0;
+.valor-item-card:hover {
+  background-color: var(--bg-card);
+  border-color: var(--h3-red);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
 }
 
-.map-instruction {
+.valor-icon {
+  color: var(--h3-red);
+  margin-bottom: 20px;
+}
+
+.valor-item-card h4 {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0 0 12px 0;
+}
+
+.valor-item-card p {
   font-size: 13px;
-  color: #9CA3AF;
+  color: var(--text-muted);
+  line-height: 1.6;
   margin: 0;
 }
 
-/* Barra selectora para pantallas móviles táctiles */
+/* =========================================================================
+   4. PRESENCIA NACIONAL E INTERACTIVIDAD DEL MAPA
+   ========================================================================= */
+.map-presence-section {
+  padding-top: 64px;
+  border-top: 1px solid var(--border-light);
+}
+
 .mobile-branch-selector-bar {
-  display: none; /* Se activa mediante media-query en celulares */
-  gap: 8px;
-  margin-bottom: 20px;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
 }
 
 .mobile-branch-tab-btn {
-  flex: 1;
-  background-color: #141617;
-  color: #9CA3AF;
-  border: 1px solid #374151;
-  padding: 12px 0;
-  border-radius: 8px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  color: var(--text-muted);
+  padding: 12px 28px;
+  border-radius: 30px;
   font-size: 13px;
-  font-weight: bold;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   cursor: pointer;
-  font-family: inherit;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.mobile-branch-tab-btn:hover {
+  border-color: var(--h3-red);
+  color: var(--h3-red);
 }
 
 .mobile-branch-tab-btn.active {
-  background-color: #0269D3;
-  border-color: #0269D3;
+  background-color: var(--h3-red);
   color: #FFFFFF;
+  border-color: var(--h3-red);
+  box-shadow: 0 4px 10px rgba(227, 6, 19, 0.25);
 }
 
-/* Distribución del mapa interactivo */
 .map-layout-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 64px;
   align-items: center;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
+  padding: 48px;
+  box-shadow: var(--shadow-md);
 }
 
 .map-visual-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #141617;
-  border-radius: 12px;
-  padding: 24px;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
 }
 
+/* Ficha de Información de la Sucursal */
+.branch-info-card {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.card-branch-header {
+  background-color: var(--bg-card);
+  padding: 32px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.branch-label {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--h3-red);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.card-branch-header h3 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.branch-card-body-rows {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.branch-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: 15px;
+  color: var(--text-main);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.branch-card-icon {
+  color: var(--h3-red);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.branch-card-footer-brief {
+  background-color: rgba(227, 6, 19, 0.04);
+  border-top: 1px solid var(--border-light);
+  padding: 24px 32px;
+}
+
+.branch-card-footer-brief p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* =========================================================================
+   MEDIA QUERIES (RESPONSIVO MÓVIL)
+   ========================================================================= */
+@media (max-width: 1024px) {
+  .valores-grid { grid-template-columns: repeat(2, 1fr); }
+  .timeline-grid::before { display: none; /* Quitamos la línea en tablet */ }
+  .timeline-grid { gap: 48px; }
+}
+
+@media (max-width: 968px) {
+  .intro-block-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-factory-img { height: 320px; }
+  .mv-cards-grid { grid-template-columns: 1fr; gap: 24px; }
+  .map-layout-grid { grid-template-columns: 1fr; padding: 32px; gap: 40px; }
+  .timeline-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .nosotros-page { padding: 40px 16px; }
+  .nosotros-title, .section-title { font-size: 28px; }
+  .intro-text h2 { font-size: 24px; }
+  .valores-grid { grid-template-columns: 1fr; }
+  .mobile-branch-tab-btn { padding: 10px 20px; font-size: 12px; }
+  .card-branch-header h3 { font-size: 24px; }
+  .timeline-section { padding: 48px 0; }
+}
+
+/* =========================================================================
+   ESTILOS ORIGINALES DEL SVG (¡NO TOCAR!)
+   ========================================================================= */
 .peru-svg-map {
   width: 100%;
   max-width: 380px;
   height: auto;
 }
 
-/* =========================================================================
-   ESTILIZACIÓN DE LAS REGIONES Y DEL PATH PE.SVG
-   ========================================================================= */
 .pe-region-shape {
-  fill: #1ca5db !important; /* El color verde exacto de tu mapa base */
-  stroke: #1babff !important; /* Bordes divisores blancos y limpios */
+  fill: #1ca5db !important; 
+  stroke: #1babff !important; 
   stroke-width: 1.2;
   transition: fill 0.2s ease, stroke 0.2s ease;
 }
 
 .pe-region-shape:hover {
-  fill: #06a6d6 !important; /* Oscurece ligeramente en hover táctil o de mouse */
+  fill: #06a6d6 !important; 
 }
 
-/* Destaca tus departamentos comerciales */
 .pe-region-shape.highlight-branch {
-  fill: #ffffff !important; /* Verde diferencial para indicar presencia comercial */
+  fill: #ffffff !important; 
 }
 
-/* Cuando el departamento completo es seleccionado */
 .pe-region-shape.active-region {
-  fill: rgba(16, 162, 219, 0.904) !important; /* Se tiñe de un naranja industrial suave */
-  stroke: #ffffff !important; /* El borde pasa a ser naranja brillante */
+  fill: rgba(16, 162, 219, 0.904) !important; 
+  stroke: #ffffff !important; 
   stroke-width: 2;
-}
-
-/* =========================================================================
-   EFECTO GPS EN VIVO (ANIMACIÓN DE PARPADEO DEL PUNTO)
-   ========================================================================= */
-.map-marker-group {
-  cursor: pointer;
-}
-
-.core-dot { 
-  fill: #FFFFFF; 
-  transition: fill 0.3s ease;
-}
-
-/* El anillo emite ondas de radar continuas tipo GPS de forma infinita */
-.glowing-ring { 
-  stroke: #07a6f0; /* Color naranja de alerta GPS */
-  stroke-width: 2;
-  fill: rgba(255, 255, 255, 0.15);
-  
-  /* Permite que el círculo parpadee y crezca simétricamente desde su propio centro */
-  transform-origin: center;
-  transform-box: fill-box; 
-  
-  animation: gpsRadarInfinito 1.8s infinite cubic-bezier(0.215, 0.610, 0.355, 1);
-}
-
-/* Cuando la sucursal es seleccionada por el cliente, el GPS cambia a azul */
-.map-marker-group.active .glowing-ring {
-  stroke: #ffffff;
-  fill: rgba(10, 177, 243, 0.87);
-  animation-duration: 1.2s; /* Parpadea más veloz al estar seleccionado */
-}
-
-.map-marker-group.active .core-dot {
-  fill: #ffffff;
-}
-
-@keyframes gpsRadarInfinito {
-  0% { 
-    transform: scale(0.6); 
-    opacity: 1; 
-  }
-  100% { 
-    transform: scale(2.4); 
-    opacity: 0; 
-  }
-}
-
-/* =========================================================================
-   TEXTOS EN EL MAPA (MÁS GRANDES Y CON FONDO DE CONTRASTE AUTOMÁTICO)
-   ========================================================================= */
-.map-marker-text { 
-  font-size: 30px; 
-  font-weight: 500;
-  fill: #000000; 
-  stroke: none;
-  font-family: 'Calibri', sans-serif;
-  transition: all 0.3s ease;
-  pointer-events: none; /* No interfiere con el clic en pantallas móviles */
-
-  /* Múltiples sombras combinadas para simular una burbuja protectora oscura detrás del texto */
-  /* text-shadow: 
-    -2px -2px 0 #141617,  
-     2px -2px 0 #141617,
-    -2px  2px 0 #141617,
-     2px  2px 0 #141617,
-     0px  3px 6px rgba(0,0,0,0.9); */
-}
-
-/* Cambio estético del texto al seleccionarse */
-.map-marker-group.active .map-marker-text {
- fill: #ffffff;  /*  Letra cambia a naranja vibrante 
-  text-shadow: 
-    -2px -2px 0 #FFFFFF,  
-     2px -2px 0 #FFFFFF,
-    -2px  2px 0 #FFFFFF,
-     2px  2px 0 #FFFFFF,
-     0px 4px 8px rgba(7, 178, 221, 0.3);  Fondo pasa a ser blanco limpio */
-}
-
-/* =========================================================================
-   FICHA DE DATOS DE LA SUCURSAL SELECCIONADA
-   ========================================================================= */
-.branch-info-card {
-  background-color: #141617;
-  border: 1px solid #374151;
-  border-radius: 12px;
-  padding: 32px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.branch-label {
-  font-size: 10px;
-  color: #0269D3;
-  text-transform: uppercase;
-  font-weight: 800;
-  display: block;
-  margin-bottom: 4px;
-}
-
-.card-branch-header h3 {
-  font-size: 24px;
-  margin: 0 0 20px 0;
-  color: #FFFFFF;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  padding-bottom: 12px;
-}
-
-.branch-card-body-rows {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.branch-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 14px;
-  color: #D1D5DB;
-  line-height: 1.4;
-}
-
-.branch-card-icon {
-  color: #F2741D;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.branch-card-footer-brief {
-  background-color: rgba(2, 105, 211, 0.06);
-  border-left: 3px solid #0269D3;
-  padding: 12px 16px;
-  border-radius: 0 8px 8px 0;
-}
-
-.branch-card-footer-brief p {
-  margin: 0;
-  font-size: 13px;
-  color: #9CA3AF;
-  line-height: 1.5;
-}
-
-/* =========================================================================
-   MEDIA QUERIES - OPTIMIZACIONES PARA DISPOSITIVOS MÓVILES (RESPONSIVO)
-   ========================================================================= */
-@media (max-width: 1024px) {
-  .valores-grid {
-    grid-template-columns: repeat(2, 1fr); /* Formato 2x2 en tabletas */
-    gap: 16px;
-  }
-}
-
-@media (max-width: 968px) {
-  .intro-block-grid { 
-    grid-template-columns: 1fr; 
-    gap: 24px; 
-  }
-  
-  .about-factory-img { 
-    height: 240px; 
-  }
-  
-  .mv-cards-grid { 
-    grid-template-columns: 1fr; 
-    gap: 16px; 
-  }
-  
-  /* El mapa y la ficha informativa pasan a apilarse ordenadamente en vertical */
-  .map-layout-grid { 
-    grid-template-columns: 1fr; 
-    gap: 24px; 
-  }
-  
-  .map-presence-section { 
-    padding: 24px 16px; 
-  }
-  
-  /* 🚨 ACTIVACIÓN DE BARRA DE BOTONES TÁCTILES COMEDOR EN CELULARES */
-  .mobile-branch-selector-bar { 
-    display: flex; 
-  }
-  
-  .branch-info-card { 
-    padding: 20px; 
-  }
-}
-
-@media (max-width: 640px) {
-  .valores-grid {
-    grid-template-columns: 1fr; /* Lista de valores vertical en pantallas angostas */
-    gap: 12px;
-  }
-  
-  .nosotros-title { font-size: 26px; }
-  .intro-text h2 { font-size: 20px; }
-  .card-branch-header h3 { font-size: 20px; }
 }
