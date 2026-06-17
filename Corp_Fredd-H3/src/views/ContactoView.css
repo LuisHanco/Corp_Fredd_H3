@@ -1,0 +1,250 @@
+/* =========================================================================
+   ESTILOS PREMIUM DE LA FICHA DE CONTACTO (CONTACTOVIEW.CSS)
+   ========================================================================= */
+
+.contacto-page {
+  background-color: #161819; /* Gris oscuro unificado de la plataforma */
+  background-image: radial-gradient(circle at 50% 0%, rgba(2, 105, 211, 0.05) 0%, transparent 60%);
+  color: #FFFFFF;
+  padding: 64px 20px;
+  font-family: 'Calibri', 'Arial', sans-serif;
+  min-height: 85vh;
+  box-sizing: border-box;
+}
+
+.contacto-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* =========================================================================
+   ENCABEZADO DE PÁGINA REFINADO
+   ========================================================================= */
+.page-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.page-subtitle-tag {
+  color: #0269D3;
+  font-weight: bold;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  display: block;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 6px 0 0 0;
+  color: #FFFFFF;
+}
+
+.title-divider {
+  width: 48px;
+  height: 4px;
+  background-color: #F2741D; /* Acento naranja corporativo */
+  margin: 12px auto 0 auto;
+  border-radius: 2px;
+}
+
+/* =========================================================================
+   LAYOUT PARTIDO DE DOS COLUMNAS
+   ========================================================================= */
+.contacto-split-layout {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* =========================================================================
+   TARJETA IZQUIERDA: CANALES DIRECTOS
+   ========================================================================= */
+.channels-sidebar-card {
+  background-color: #1E2122; /* Consistencia de fondo con DetailView */
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-card-title {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 24px 0;
+  color: #FFFFFF;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 12px;
+}
+
+.channels-rows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-contact-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+/* Marco sutil para los iconos */
+.icon-wrapper-accent {
+  background-color: rgba(2, 105, 211, 0.08);
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar-icon-blue {
+  color: #3B82F6;
+}
+
+.row-label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  color: #9CA3AF;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.row-value {
+  display: block;
+  font-size: 14.5px;
+  color: #E5E7EB;
+  margin-top: 4px;
+}
+
+/* =========================================================================
+   TARJETA DERECHA: FORMULARIO DE REQUERIMIENTOS
+   ========================================================================= */
+.form-main-card {
+  background-color: #1E2122;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #9CA3AF;
+  letter-spacing: 0.05em;
+}
+
+/* Campos de entrada estilo Consola */
+.form-ctrl {
+  background-color: #141617;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #FFFFFF;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-ctrl:focus {
+  border-color: #0269D3;
+  box-shadow: 0 0 0 3px rgba(2, 105, 211, 0.15);
+}
+
+.text-area-ctrl {
+  resize: vertical;
+  min-height: 110px;
+}
+
+/* Botón de Envío */
+.btn-submit-contact-form {
+  width: 100%;
+  background-color: #F2741D; /* Color naranja de la marca para CTAs de conversión */
+  color: #FFFFFF;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(242, 116, 29, 0.25);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-submit-contact-form:hover:not(:disabled) {
+  background-color: #d95f14;
+}
+
+.btn-submit-contact-form:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-submit-contact-form:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Alerta de Envío Exitoso */
+.alert-success-box {
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid #10B981;
+  color: #4ade80;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 14.5px;
+  line-height: 1.4;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.success-check-icon {
+  color: #10B981;
+  flex-shrink: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* =========================================================================
+   VISTA RESPONSIVA ADAPTATIVA
+   ========================================================================= */
+@media (max-width: 968px) {
+  .contacto-page {
+    padding: 40px 16px;
+  }
+  
+  .contacto-split-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .form-main-card {
+    padding: 32px 24px;
+  }
+}

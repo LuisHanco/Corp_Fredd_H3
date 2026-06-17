@@ -1,0 +1,81 @@
+import React from 'react';
+import { Search, Menu, X, Phone, Mail } from 'lucide-react';
+import logoImg from '../assets/logos/Logo.png';
+// Importamos su propio archivo CSS tradicional
+import './Header.css';
+
+export default function Header({ currentPage, navegarA, searchQuery, setSearchQuery, handleSearch, mobileMenuOpen, setMobileMenuOpen }) {
+  return (
+    <header className="site-header">
+      {/* Barra superior informativa */}
+      <div className="top-bar">
+        <div className="top-bar-container">
+          <div className="top-bar-contact">
+            <span className="contact-item">
+              <Phone size={13} className="icon-orange" />
+              <span>+51 (01) 480-1234</span>
+            </span>
+            <span className="contact-item hide-mobile">
+              <Mail size={13} className="icon-orange" />
+              <span>ventas@industriasfredd.com</span>
+            </span>
+          </div>
+          <div className="top-bar-tagline">
+            <span>Soporte Técnico Especializado</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Navegación Principal */}
+      <div className="main-nav-container">
+        {/* Bloque Logotipo e Identidad */}
+        <div className="header-logo-block" onClick={() => navegarA('inicio')}>
+          <img src={logoImg} alt="Logo Industrias Fredd" className="header-logo-img" />
+          <div className="header-text-block">
+            <span className="brand-title">INDUSTRIAS FREDD S.A.C</span>
+            <span className="brand-subtitle">Fábrica 100% peruana</span>
+          </div>
+        </div>
+
+        {/* Buscador de escritorio */}
+        <form onSubmit={handleSearch} className="header-search-form hide-mobile">
+          <input 
+            type="text" 
+            placeholder="Buscar productos..." 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="search-input"
+          />
+          <button type="submit" className="search-submit-btn">
+            <Search size={16} />
+          </button>
+        </form>
+
+        {/* Menú de enlaces de escritorio */}
+        <nav className="desktop-menu">
+          <button onClick={() => navegarA('inicio')} className={`menu-link ${currentPage === 'inicio' ? 'active' : ''}`}>Inicio</button>
+          <button onClick={() => navegarA('nosotros')} className={`menu-link ${currentPage === 'nosotros' ? 'active' : ''}`}>Nosotros</button>
+          <button onClick={() => navegarA('productos')} className={`menu-link ${currentPage === 'productos' ? 'active' : ''}`}>Productos</button>
+          <button onClick={() => navegarA('catalogos')} className={`menu-link ${currentPage === 'catalogos' ? 'active' : ''}`}>Catálogos</button>
+          <button onClick={() => navegarA('contacto')} className="btn-contact-submit">Contáctanos</button>
+        </nav>
+
+        {/* Botón menú móvil */}
+        <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="mobile-menu-toggle">
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Menú móvil desplegable */}
+      {mobileMenuOpen && (
+        <div className="mobile-menu-dropdown">
+          <button onClick={() => navegarA('inicio')} className="mobile-menu-link">Inicio</button>
+          <button onClick={() => navegarA('nosotros')} className="mobile-menu-link">Nosotros</button>
+          <button onClick={() => navegarA('productos')} className="mobile-menu-link">Productos</button>
+          <button onClick={() => navegarA('catalogos')} className="mobile-menu-link">Catálogos</button>
+          <button onClick={() => navegarA('contacto')} className="mobile-menu-btn-contact">Contáctanos</button>
+        </div>
+      )}
+    </header>
+  );
+}

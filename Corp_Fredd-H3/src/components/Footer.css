@@ -1,0 +1,304 @@
+/* =========================================================================
+   ESTILOS PREMIUM TRADICIONALES PARA EL PIE DE PÁGINA (FOOTER.CSS)
+   ========================================================================= */
+
+.main-industrial-footer {
+  background-color: #0b0d0e; /* Fondo ultra oscuro para dar contraste con el cuerpo */
+  color: #FFFFFF;
+  font-family: 'Calibri', 'Arial', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: auto; /* Empuja el footer al fondo si hay poco contenido */
+}
+
+/* 1. FRANJA SUPERIOR DE CONFIANZA (TRUSTBAR) */
+.footer-top-trustbar {
+  background-color: #002266; /* Azul profundo industrial */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 24px;
+}
+
+.trustbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  font-size: 13px;
+  color: #e5e7eb;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trust-icon {
+  color: #0269D3;
+}
+
+.trust-highlight {
+  color: #F2741D;
+  font-weight: bold;
+}
+
+.trust-divider {
+  width: 1px;
+  height: 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 2. CUERPO PRINCIPAL DEL FOOTER (DEGRADADO CORPORATIVO) */
+.footer-main-content {
+  background: linear-gradient(180deg, #003399 0%, #002266 100%); /* Degradado oficial azul */
+  padding: 64px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-grid-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2.5fr 1.2fr 1.2fr 1.8fr; /* Distribución proporcional de columnas */
+  gap: 40px;
+}
+
+/* COLUMNA 1: IDENTIDAD Y LOGO MODIFICADO (Logo2.png) */
+.footer-brand-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Optimización para Computadora (PC) */
+.footer-brand-logo-v2 {
+  height: 108px;              /* Altura ideal en pantallas grandes */
+  width: auto;
+  max-width: 140px;          /* Evita que imágenes muy anchas rompan el diseño */
+  object-fit: contain;       /* Mantiene las proporciones reales de Logo2 sin estirarlo */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.footer-brand-logo-v2:hover {
+  transform: scale(1.04);    /* Sutil efecto de aumento interactivo */
+}
+
+.brand-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.brand-name {
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.brand-legal {
+  font-size: 11px;
+  font-weight: bold;
+  color: #F2741D;
+  margin-top: 2px;
+}
+
+.brand-brief {
+  font-size: 13px;
+  color: #e5e7eb;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 320px;
+}
+
+/* CONFIGURACIÓN DE TÍTULOS Y ENLACES */
+.footer-col-title {
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  margin: 0 0 20px 0;
+  padding-bottom: 8px;
+  position: relative;
+}
+
+/* Línea decorativa naranja debajo del título de cada columna */
+.footer-col-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 36px;
+  height: 3px;
+  background-color: #F2741D;
+  border-radius: 2px;
+}
+
+.footer-navigation-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-nav-btn {
+  background: none;
+  border: none;
+  color: #e5e7eb;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.arrow-link-icon {
+  color: #F2741D;
+  opacity: 0.6;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+/* Efectos hover para los botones de navegación */
+.footer-nav-btn:hover {
+  color: #FFFFFF;
+  transform: translateX(4px); /* Desplazamiento fluido */
+}
+
+.footer-nav-btn:hover .arrow-link-icon {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* DIRECCIÓN Y DATOS DE PLANTA */
+.footer-contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-card-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.card-icon-orange {
+  color: #F2741D;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.contact-card-text {
+  font-size: 13px;
+  color: #e5e7eb;
+  line-height: 1.4;
+}
+
+/* 3. FRANJA INFERIOR (COPYRIGHT) */
+.footer-bottom-copyright-bar {
+  background-color: #07090a;
+  padding: 24px;
+}
+
+.copyright-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.copyright-text { margin: 0; }
+.copyright-bold { color: #FFFFFF; font-weight: bold; }
+
+.copyright-legal-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.legal-link {
+  color: #9ca3af;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.legal-link:hover { color: #FFFFFF; }
+.legal-divider { color: rgba(255, 255, 255, 0.1); }
+
+
+/* =========================================================================
+   DISEÑO RESPONSIVO EXCLUSIVO PARA TABLETAS Y CELULARES (MÓVIL)
+   ========================================================================= */
+
+@media (max-width: 1024px) {
+  .footer-grid-wrapper {
+    grid-template-columns: 1fr 1fr; /* Pasa a 2 columnas en tabletas */
+    gap: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Franja superior se apila */
+  .trustbar-container {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  .trust-divider {
+    display: none;
+  }
+
+  /* El contenido principal pasa a 1 sola columna en celular */
+  .footer-grid-wrapper {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  /* Centrado estético del nuevo Logo2 en pantallas de celulares */
+  .footer-logo-container {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer-brand-logo-v2 {
+    height: 108px;            /* Reducción de escala para pantallas táctiles pequeñas */
+    /* max-width: 110px; */
+  }
+
+  .brand-name {
+    font-size: 16px;         /* Equilibrio del texto con el tamaño del logo móvil */
+  }
+
+  .brand-brief {
+    text-align: center;      /* Centrado del párrafo descriptivo */
+    max-width: 100% !important;
+    padding: 0 16px;
+  }
+
+  /* Alineación de la barra de copyright */
+  .copyright-container {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}

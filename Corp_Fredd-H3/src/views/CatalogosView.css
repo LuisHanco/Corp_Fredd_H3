@@ -1,0 +1,312 @@
+/* =========================================================================
+   ESTILOS PREMIUM MINIMALISTAS (ICON-CENTRIC) - CATALOGOSVIEW.CSS
+   ========================================================================= */
+
+.catalogos-page {
+  background-color: #161819; /* Gris oscuro unificado con tu paleta */
+  color: #F3F4F6;
+  padding: 56px 24px;
+  font-family: 'Calibri', 'Arial', sans-serif;
+  min-height: 90vh;
+  box-sizing: border-box;
+}
+
+.catalogos-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* Encabezado */
+.catalogos-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.catalogos-tagline {
+  color: #0269D3;
+  font-weight: bold;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  display: block;
+}
+
+.catalogos-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 6px 0 0 0;
+  color: #FFFFFF;
+}
+
+.catalogos-divider {
+  width: 50px;
+  height: 4px;
+  background-color: #F2741D;
+  margin: 12px auto 0 auto;
+  border-radius: 2px;
+}
+
+.catalogos-subtitle {
+  max-width: 580px;
+  margin: 16px auto 0 auto;
+  font-size: 14.5px;
+  color: #9CA3AF;
+  line-height: 1.6;
+}
+
+/* =========================================================================
+   CONSOLA DE CONTROL DE FILTROS (TOOLBAR)
+   ========================================================================= */
+.catalog-toolbar {
+  background-color: #1E2122;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 24px;
+  border-radius: 16px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.catalog-internal-search-box {
+  position: relative;
+  width: 100%;
+}
+
+.catalog-search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6B7280;
+}
+
+.catalog-search-input-field {
+  width: 100%;
+  background-color: #141617;
+  border: 1px solid #374151;
+  color: #FFFFFF;
+  padding: 14px 16px 14px 48px;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.catalog-search-input-field:focus {
+  border-color: #0269D3;
+  box-shadow: 0 0 0 3px rgba(2, 105, 211, 0.15);
+}
+
+.categories-filter-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.categories-filter-wrapper::-webkit-scrollbar { display: none; }
+
+.categories-filter-bar {
+  display: flex;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.filter-btn {
+  background-color: #141617;
+  border: 1px solid #374151;
+  color: #9CA3AF;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.filter-btn:hover { color: #FFFFFF; border-color: #4B5563; }
+.filter-btn.active {
+  background-color: #0269D3;
+  border-color: #0269D3;
+  color: #FFFFFF;
+}
+
+.toolbar-controls {
+  font-size: 13px;
+  color: #9CA3AF;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 14px;
+}
+.toolbar-controls strong { color: #ffffff; }
+
+/* =========================================================================
+   GRILLA DE CATALOGOS ESTILIZADOS CON ICONO
+   ========================================================================= */
+.catalogos-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.pdf-document-card-clean {
+  background-color: #1E2122;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 28px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 210px; /* Consistencia de tamaño simétrico */
+  box-sizing: border-box;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto Hover Premium */
+.pdf-document-card-clean:hover {
+  transform: translateY(-4px);
+  border-color: #0269D3;
+  box-shadow: 0 12px 24px -10px rgba(2, 105, 211, 0.2);
+}
+
+.pdf-card-main-content {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Contenedor del ícono grande */
+.pdf-icon-frame-large {
+  background-color: rgba(2, 105, 211, 0.1);
+  color: #0269D3;
+  padding: 16px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(2, 105, 211, 0.05);
+}
+
+.pdf-document-card-clean:hover .pdf-icon-frame-large {
+  background-color: #0269D3;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(2, 105, 211, 0.25);
+}
+
+.pdf-text-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.pdf-year-meta-tag {
+  background-color: #141617;
+  border: 1px solid #374151;
+  color: #9CA3AF;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  width: max-content;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.pdf-title-clean {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+  /* Recorte a 2 líneas máximo para mantener simetría visual en las cajas */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pdf-size-meta {
+  font-size: 12px;
+  color: #6B7280;
+  margin: 0;
+}
+.pdf-size-meta strong {
+  color: #9CA3AF;
+}
+
+/* Footer de la tarjeta */
+.pdf-card-footer-action {
+  margin-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 16px;
+}
+
+.btn-view-pdf-premium {
+  width: 100%;
+  background-color: #141617;
+  border: 1px solid #374151;
+  color: #cbd5e1;
+  padding: 11px 0;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.pdf-document-card-clean:hover .btn-view-pdf-premium {
+  background-color: #0269D3;
+  border-color: #0269D3;
+  color: #ffffff;
+}
+
+/* Alertas de Vacío */
+.no-results-box-catalogos { background-color: #1E2122; border: 1px dashed #374151; border-radius: 12px; padding: 48px; text-align: center; color: #9CA3AF; }
+.no-results-icon-decor { color: #4B5563; margin-bottom: 12px; }
+
+/* =========================================================================
+   PAGINACIÓN
+   ========================================================================= */
+.pagination-container { display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 40px; }
+.page-nav-btn { background-color: #1E2122; border: 1px solid #374151; color: #cbd5e1; padding: 8px 16px; border-radius: 6px; display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: bold; cursor: pointer; transition: all 0.2s ease; }
+.page-nav-btn:disabled { opacity: 0.25; cursor: not-allowed; }
+.page-numbers-group { display: flex; gap: 6px; }
+.page-number-btn { background-color: #1E2122; border: 1px solid #374151; color: #9CA3AF; width: 36px; height: 36px; border-radius: 6px; font-size: 13px; font-weight: bold; cursor: pointer; }
+.page-number-btn.active { background-color: #0269D3; border-color: #0269D3; color: #ffffff; }
+
+/* =========================================================================
+   MODAL VISOR
+   ========================================================================= */
+.catalogos-modal-overlay { position: fixed; inset: 0; background-color: rgba(11, 15, 18, 0.85); backdrop-filter: blur(8px); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 24px; }
+.catalogos-modal-content { background-color: #1E2122; border: 1px solid rgba(255, 255, 255, 0.08); width: 100%; max-width: 1000px; height: 85vh; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); }
+.modal-control-bar { background-color: #141617; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+.modal-doc-indicator { font-size: 11px; color: #9CA3AF; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; }
+.btn-close-modal { background-color: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); color: #ffffff; padding: 8px 14px; border-radius: 6px; font-size: 12px; font-weight: bold; display: flex; align-items: center; gap: 6px; cursor: pointer; transition: all 0.2s ease; }
+.btn-close-modal:hover { background-color: #CF023D; border-color: #CF023D; }
+.modal-iframe-container { flex-grow: 1; width: 100%; height: 100%; background-color: #ffffff; }
+.modal-iframe-container iframe { width: 100%; height: 100%; display: block; }
+
+/* =========================================================================
+   RESPONSIVO
+   ========================================================================= */
+@media (max-width: 1024px) {
+  .catalog-toolbar { padding: 16px; gap: 14px; }
+  .catalogos-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .catalogos-modal-content { height: 80vh; }
+}
+
+@media (max-width: 768px) {
+  .catalogos-title { font-size: 26px; }
+  .catalogos-cards-grid { grid-template-columns: 1fr; gap: 16px; }
+  .catalogos-modal-overlay { padding: 12px; }
+  .catalogos-modal-content { height: 88vh; }
+  .btn-view-pdf-premium, .page-nav-btn { width: 100%; justify-content: center; }
+  .pagination-container { flex-direction: column; gap: 14px; }
+}

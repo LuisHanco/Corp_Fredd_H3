@@ -1,0 +1,265 @@
+/* =========================================================================
+   ESTILOS TRADICIONALES DE LA BARRA DE NAVEGACIÓN (HEADER.CSS CORREGIDO)
+   ========================================================================= */
+
+:root {
+  --bg-dark: #1A1D1E;
+  --blue-corp: #003399;
+  --blue-accent: #0269D3;
+  --orange-action: #F2741D;
+  --text-white: #FFFFFF;
+  --text-gray: #9C9A9B;
+  --border-color: rgba(84, 85, 85, 0.3);
+}
+
+/* Contenedor Principal del Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-dark);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  font-family: 'Calibri', sans-serif;
+  width: 100%;
+}
+
+/* 1. Barra Superior Informativa */
+.top-bar {
+  background-color: var(--blue-corp);
+  font-size: 12px;
+  padding: 8px 24px;
+}
+
+.top-bar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar-contact {
+  display: flex;
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #e5e7eb;
+}
+
+.icon-orange {
+  color: var(--orange-action);
+}
+
+.top-bar-tagline {
+  color: #e5e7eb;
+}
+
+/* 2. Barra de Navegación Principal (Alineación Horizontal) */
+.main-nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;            /* Alinea verticalmente al centro el logo, buscador y menú */
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+/* Bloque del Logotipo e Identidad */
+.header-logo-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  flex-shrink: 0; /* Evita que el logo se deforme o se encoja */
+}
+
+.header-logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
+.header-text-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0.03em;
+  color: var(--text-white);
+  line-height: 1.1;
+}
+
+.brand-subtitle {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--text-gray);
+  margin-top: 2px;
+}
+
+/* Formulario del Buscador Central */
+.header-search-form {
+  position: relative;
+  width: 320px; /* Tamaño fijo ideal para el buscador */
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  background-color: #111314;
+  border: 1px solid #4b5563;
+  border-radius: 9999px;
+  padding: 8px 40px 8px 16px;
+  font-size: 13px;
+  color: var(--text-white);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+  border-color: var(--blue-accent);
+  box-shadow: 0 0 0 2px rgba(2, 105, 211, 0.2);
+}
+
+.search-submit-btn {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-submit-btn:hover {
+  color: var(--blue-accent);
+}
+
+/* Menú de Enlaces Derecho */
+.desktop-menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.menu-link {
+  background: none;
+  border: none;
+  color: #d1d5db;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 4px;
+  transition: color 0.2s;
+}
+
+.menu-link:hover, .menu-link.active {
+  color: var(--blue-accent);
+}
+
+.menu-link.active {
+  font-weight: 800;
+}
+
+/* Botón de Acción Naranja */
+.btn-contact-submit {
+  background-color: var(--orange-action);
+  color: var(--text-white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-contact-submit:hover {
+  background-color: #CF023D;
+}
+
+.btn-contact-submit:active {
+  transform: scale(0.98);
+}
+
+/* 3. Menú Móvil (Hamburguesa) */
+.mobile-menu-toggle {
+  display: none;
+  background: rgba(84, 85, 85, 0.2);
+  border: none;
+  color: var(--text-white);
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Ocultar elementos en pantallas medianas/pequeñas */
+@media (max-width: 1024px) {
+  .desktop-menu {
+    display: none;
+  }
+  .mobile-menu-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none;
+  }
+  .header-search-form {
+    display: none; /* En teléfonos móviles el buscador se oculta para dar espacio al logo */
+  }
+}
+
+/* Dropdown del Menú Móvil */
+.mobile-menu-dropdown {
+  background-color: var(--bg-dark);
+  border-top: 1px solid var(--border-color);
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-menu-link {
+  background: none;
+  border: none;
+  color: #d1d5db;
+  text-align: left;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mobile-menu-btn-contact {
+  background-color: var(--orange-action);
+  color: var(--text-white);
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 8px;
+}

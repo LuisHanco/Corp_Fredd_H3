@@ -1,0 +1,156 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  font-family: 'Calibri', sans-serif;
+}
+
+.modal-window-card {
+  background-color: #2a2e30;
+  border: 1px solid #4b5563;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 100%;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close-round-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: #1A1D1E;
+  border: none;
+  color: #9ca3af;
+  padding: 6px;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close-round-btn:hover {
+  color: white;
+}
+
+.modal-window-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #4b5563;
+  padding-bottom: 12px;
+  margin: 0 0 16px 0;
+}
+
+.modal-form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.modal-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modal-input-group label {
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.modal-ctrl {
+  background-color: #1A1D1E;
+  border: 1px solid #4b5563;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: white;
+  outline: none;
+}
+
+.modal-ctrl:focus {
+  border-color: #0269D3;
+}
+
+.disabled-ctrl {
+  background-color: rgba(26, 29, 30, 0.6);
+  color: #9ca3af;
+  border-color: #374151;
+}
+
+.btn-modal-submit-action {
+  width: 100%;
+  background-color: #F2741D;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-modal-submit-action:hover {
+  background-color: #CF023D;
+}
+
+/* Éxito */
+.modal-success-screen {
+  text-align: center;
+  padding: 24px 0;
+}
+
+.success-huge-icon {
+  color: #4ade80;
+  margin: 0 auto 12px auto;
+}
+
+.success-msg-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  margin: 0 0 8px 0;
+}
+
+.success-msg-text {
+  font-size: 13px;
+  color: #9ca3af;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
