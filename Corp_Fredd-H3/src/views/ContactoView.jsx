@@ -13,9 +13,9 @@ export default function ContactoView({
     <div className="contacto-page">
       <div className="contacto-container">
         
-        {/* Encabezado de página original con clases refinadas */}
+        {/* Encabezado de página */}
         <div className="page-header">
-          <span className="page-subtitle-tag">Canal de Atención Directa</span>
+          <span className="page-subtitle-tag">Atención Oficial H3</span>
           <h1 className="page-title">Contáctanos</h1>
           <div className="title-divider"></div>
         </div>
@@ -29,7 +29,7 @@ export default function ContactoView({
               
               <div className="sidebar-contact-row">
                 <div className="icon-wrapper-accent">
-                  <Phone size={18} className="sidebar-icon-blue" />
+                  <Phone size={18} className="sidebar-icon-red" />
                 </div>
                 <div>
                   <span className="row-label">Central de Ventas:</span>
@@ -39,7 +39,7 @@ export default function ContactoView({
 
               <div className="sidebar-contact-row">
                 <div className="icon-wrapper-accent">
-                  <Mail size={18} className="sidebar-icon-blue" />
+                  <Mail size={18} className="sidebar-icon-red" />
                 </div>
                 <div>
                   <span className="row-label">Correo Electrónico:</span>
@@ -49,7 +49,7 @@ export default function ContactoView({
 
               <div className="sidebar-contact-row">
                 <div className="icon-wrapper-accent">
-                  <Clock size={18} className="sidebar-icon-blue" />
+                  <Clock size={18} className="sidebar-icon-red" />
                 </div>
                 <div>
                   <span className="row-label">Horario Operativo:</span>
@@ -64,17 +64,17 @@ export default function ContactoView({
           <div className="form-main-card">
             {enviadoContactoExito ? (
               <div className="alert-success-box">
-                <CheckCircle className="success-check-icon" size={20} />
-                <span>¡Mensaje Enviado con Éxito! Nos comunicaremos en breve.</span>
+                <CheckCircle className="success-check-icon" size={24} />
+                <span>¡Mensaje Enviado con Éxito! Nuestro equipo técnico se comunicará en breve.</span>
               </div>
             ) : (
               <form onSubmit={submitContacto} className="interactive-contact-form">
                 
                 <div className="form-group">
-                  <label>Nombre Completo *</label>
+                  <label>Nombre Completo / Razón Social *</label>
                   <input 
                     type="text" 
-                    placeholder="Ej: Juan Pérez" 
+                    placeholder="Ej: Constructora ABC S.A.C." 
                     required 
                     className="form-ctrl" 
                     value={contactoForm.nombre} 
@@ -86,7 +86,7 @@ export default function ContactoView({
                   <label>Correo Electrónico *</label>
                   <input 
                     type="email" 
-                    placeholder="juan@empresa.com" 
+                    placeholder="contacto@empresa.com" 
                     required 
                     className="form-ctrl" 
                     value={contactoForm.email} 
@@ -97,7 +97,7 @@ export default function ContactoView({
                 <div className="form-group">
                   <label>Mensaje o Requerimiento Técnico *</label>
                   <textarea 
-                    placeholder="Escribe aquí los materiales que necesitas..." 
+                    placeholder="Detalla aquí los productos H3 o HB Max que necesitas cotizar..." 
                     required 
                     rows="4" 
                     className="form-ctrl text-area-ctrl" 
@@ -111,8 +111,8 @@ export default function ContactoView({
                     <Loader2 className="animate-spin" size={16} />
                   ) : (
                     <>
-                      <Send size={14} />
-                      <span>Enviar Mensaje</span>
+                      <Send size={16} />
+                      <span>Enviar Consulta a Fábrica</span>
                     </>
                   )}
                 </button>

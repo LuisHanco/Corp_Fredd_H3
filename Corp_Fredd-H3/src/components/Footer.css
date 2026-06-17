@@ -1,21 +1,32 @@
 /* =========================================================================
-   ESTILOS PREMIUM TRADICIONALES PARA EL PIE DE PÁGINA (FOOTER.CSS)
+   ESTILOS DEL PIE DE PÁGINA - LÍNEA H3 (MODO CLARO)
    ========================================================================= */
 
+:root {
+  --h3-red: #E30613;
+  --h3-red-dark: #B3040F;
+  --text-main: #1F2937;
+  --text-muted: #6B7280;
+  --bg-footer: #FFFFFF;
+  --bg-bottom: #F9FAFB;
+  --border-color: #E5E7EB;
+}
+
 .main-industrial-footer {
-  background-color: #0b0d0e; /* Fondo ultra oscuro para dar contraste con el cuerpo */
-  color: #FFFFFF;
+  background-color: var(--bg-footer);
+  color: var(--text-main);
   font-family: 'Calibri', 'Arial', sans-serif;
   width: 100%;
   box-sizing: border-box;
-  margin-top: auto; /* Empuja el footer al fondo si hay poco contenido */
+  margin-top: auto;
+  border-top: 1px solid var(--border-color);
 }
 
 /* 1. FRANJA SUPERIOR DE CONFIANZA (TRUSTBAR) */
 .footer-top-trustbar {
-  background-color: #002266; /* Azul profundo industrial */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 12px 24px;
+  background-color: var(--h3-red); /* Color institucional H3 */
+  color: #FFFFFF;
+  padding: 14px 24px;
 }
 
 .trustbar-container {
@@ -26,7 +37,6 @@
   align-items: center;
   gap: 24px;
   font-size: 13px;
-  color: #e5e7eb;
 }
 
 .trust-item {
@@ -36,36 +46,35 @@
 }
 
 .trust-icon {
-  color: #0269D3;
+  color: #FFFFFF;
 }
 
 .trust-highlight {
-  color: #F2741D;
-  font-weight: bold;
+  font-weight: 800;
+  letter-spacing: 0.05em;
 }
 
 .trust-divider {
   width: 1px;
   height: 16px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* 2. CUERPO PRINCIPAL DEL FOOTER (DEGRADADO CORPORATIVO) */
+/* 2. CUERPO PRINCIPAL DEL FOOTER */
 .footer-main-content {
-  background: linear-gradient(180deg, #003399 0%, #002266 100%); /* Degradado oficial azul */
+  background-color: var(--bg-footer);
   padding: 64px 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-grid-wrapper {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 2.5fr 1.2fr 1.2fr 1.8fr; /* Distribución proporcional de columnas */
+  grid-template-columns: 2.5fr 1.2fr 1.2fr 1.8fr;
   gap: 40px;
 }
 
-/* COLUMNA 1: IDENTIDAD Y LOGO MODIFICADO (Logo2.png) */
+/* COLUMNA 1: IDENTIDAD */
 .footer-brand-column {
   display: flex;
   flex-direction: column;
@@ -78,44 +87,22 @@
   gap: 12px;
 }
 
-/* Optimización para Computadora (PC) */
 .footer-brand-logo-v2 {
-  height: 108px;              /* Altura ideal en pantallas grandes */
+  height: 108px;
   width: auto;
-  max-width: 140px;          /* Evita que imágenes muy anchas rompan el diseño */
-  object-fit: contain;       /* Mantiene las proporciones reales de Logo2 sin estirarlo */
+  max-width: 140px;
+  object-fit: contain;
   display: block;
   transition: transform 0.3s ease;
 }
 
 .footer-brand-logo-v2:hover {
-  transform: scale(1.04);    /* Sutil efecto de aumento interactivo */
-}
-
-.brand-text-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.brand-name {
-  font-weight: 800;
-  font-size: 18px;
-  letter-spacing: 0.03em;
-  color: #FFFFFF;
-  line-height: 1.1;
-}
-
-.brand-legal {
-  font-size: 11px;
-  font-weight: bold;
-  color: #F2741D;
-  margin-top: 2px;
+  transform: scale(1.04);
 }
 
 .brand-brief {
-  font-size: 13px;
-  color: #e5e7eb;
+  font-size: 14px;
+  color: var(--text-muted);
   line-height: 1.6;
   margin: 0;
   max-width: 320px;
@@ -123,17 +110,17 @@
 
 /* CONFIGURACIÓN DE TÍTULOS Y ENLACES */
 .footer-col-title {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #FFFFFF;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
   margin: 0 0 20px 0;
   padding-bottom: 8px;
   position: relative;
 }
 
-/* Línea decorativa naranja debajo del título de cada columna */
+/* Línea decorativa roja debajo del título */
 .footer-col-title::after {
   content: '';
   position: absolute;
@@ -141,7 +128,7 @@
   bottom: 0;
   width: 36px;
   height: 3px;
-  background-color: #F2741D;
+  background-color: var(--h3-red);
   border-radius: 2px;
 }
 
@@ -157,8 +144,8 @@
 .footer-nav-btn {
   background: none;
   border: none;
-  color: #e5e7eb;
-  font-size: 13px;
+  color: var(--text-muted);
+  font-size: 14px;
   font-weight: 600;
   text-align: left;
   cursor: pointer;
@@ -170,15 +157,14 @@
 }
 
 .arrow-link-icon {
-  color: #F2741D;
+  color: var(--h3-red);
   opacity: 0.6;
   transition: transform 0.2s, opacity 0.2s;
 }
 
-/* Efectos hover para los botones de navegación */
 .footer-nav-btn:hover {
-  color: #FFFFFF;
-  transform: translateX(4px); /* Desplazamiento fluido */
+  color: var(--h3-red);
+  transform: translateX(4px);
 }
 
 .footer-nav-btn:hover .arrow-link-icon {
@@ -199,21 +185,22 @@
   gap: 10px;
 }
 
-.card-icon-orange {
-  color: #F2741D;
+.card-icon-red {
+  color: var(--h3-red);
   margin-top: 2px;
   flex-shrink: 0;
 }
 
 .contact-card-text {
-  font-size: 13px;
-  color: #e5e7eb;
+  font-size: 14px;
+  color: var(--text-muted);
   line-height: 1.4;
 }
 
 /* 3. FRANJA INFERIOR (COPYRIGHT) */
 .footer-bottom-copyright-bar {
-  background-color: #07090a;
+  background-color: var(--bg-bottom);
+  border-top: 1px solid var(--border-color);
   padding: 24px;
 }
 
@@ -223,12 +210,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
-  color: #9ca3af;
+  font-size: 13px;
+  color: var(--text-muted);
 }
 
 .copyright-text { margin: 0; }
-.copyright-bold { color: #FFFFFF; font-weight: bold; }
+.copyright-bold { color: var(--text-main); font-weight: 800; }
 
 .copyright-legal-links {
   display: flex;
@@ -237,28 +224,27 @@
 }
 
 .legal-link {
-  color: #9ca3af;
+  color: var(--text-muted);
   cursor: pointer;
+  font-weight: 600;
   transition: color 0.2s;
 }
 
-.legal-link:hover { color: #FFFFFF; }
-.legal-divider { color: rgba(255, 255, 255, 0.1); }
-
+.legal-link:hover { color: var(--h3-red); }
+.legal-divider { color: var(--border-color); }
 
 /* =========================================================================
-   DISEÑO RESPONSIVO EXCLUSIVO PARA TABLETAS Y CELULARES (MÓVIL)
+   DISEÑO RESPONSIVO (MÓVIL Y TABLET)
    ========================================================================= */
 
 @media (max-width: 1024px) {
   .footer-grid-wrapper {
-    grid-template-columns: 1fr 1fr; /* Pasa a 2 columnas en tabletas */
+    grid-template-columns: 1fr 1fr;
     gap: 32px;
   }
 }
 
 @media (max-width: 640px) {
-  /* Franja superior se apila */
   .trustbar-container {
     flex-direction: column;
     gap: 8px;
@@ -268,34 +254,26 @@
     display: none;
   }
 
-  /* El contenido principal pasa a 1 sola columna en celular */
   .footer-grid-wrapper {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 32px;
   }
 
-  /* Centrado estético del nuevo Logo2 en pantallas de celulares */
   .footer-logo-container {
     justify-content: center;
     width: 100%;
   }
 
   .footer-brand-logo-v2 {
-    height: 108px;            /* Reducción de escala para pantallas táctiles pequeñas */
-    /* max-width: 110px; */
-  }
-
-  .brand-name {
-    font-size: 16px;         /* Equilibrio del texto con el tamaño del logo móvil */
+    height: 96px;
   }
 
   .brand-brief {
-    text-align: center;      /* Centrado del párrafo descriptivo */
+    text-align: center;
     max-width: 100% !important;
     padding: 0 16px;
   }
 
-  /* Alineación de la barra de copyright */
   .copyright-container {
     flex-direction: column;
     gap: 12px;

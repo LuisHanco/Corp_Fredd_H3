@@ -1,15 +1,25 @@
 /* =========================================================================
-   ESTILOS PREMIUM INDUSTRIAL MAESTROS - HOMEVIEW.CSS (STUDIO AMBIENT)
+   ESTILOS HOMEVIEW - CATÁLOGO H3 (MODO CLARO)
    ========================================================================= */
 
+:root {
+  --h3-red: #E30613;
+  --h3-red-dark: #B3040F;
+  --text-main: #1F2937;
+  --text-muted: #6B7280;
+  --bg-main: #F9FAFB;
+  --bg-card: #FFFFFF;
+  --border-light: #E5E7EB;
+}
+
 .home-view {
-  background-color: #161819; /* Gris oscuro unificado maestro[cite: 16] */
-  color: #FFFFFF;
+  background-color: var(--bg-main);
+  color: var(--text-main);
   font-family: 'Calibri', 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Encabezados de Sección[cite: 16] */
+/* Encabezados de Sección */
 .section-header {
   text-align: center;
   margin-bottom: 40px;
@@ -17,9 +27,9 @@
 }
 
 .section-tagline {
-  color: #0269D3;
-  font-weight: bold;
-  font-size: 11px;
+  color: var(--h3-red);
+  font-weight: 800;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   display: block;
@@ -27,16 +37,17 @@
 }
 
 .section-title {
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 800;
   margin: 0;
+  color: var(--text-main);
   letter-spacing: -0.01em;
 }
 
 .title-divider {
   width: 60px;
   height: 4px;
-  background-color: #F2741D;
+  background-color: var(--h3-red);
   margin: 12px auto 0 auto;
   border-radius: 2px;
 }
@@ -44,139 +55,21 @@
 .mobile-swipe-hint {
   display: none;
   font-size: 11px;
-  color: #9ca3af;
+  color: var(--text-muted);
   margin-top: 12px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: bold;
 }
 
-.relative-z {
-  position: relative;
-  z-index: 2;
-}
-
 /* =========================================================================
-   2. SECCIÓN LÍNEAS DE PRODUCTOS (STUDIO EXHIBITION LAYOUT)
-   ========================================================================= */
-.lines-section {
-  max-width: 1200px; /* Expandido ligeramente para dar holgura a las 4 columnas */
-  margin: 0 auto;
-  padding: 64px 20px;
-}
-
-/* 🛠️ REPARACIÓN TÉCNICA MAESTRA: Cambiado de 3 a 4 columnas perfectas */
-.lines-responsive-track {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 24px; /* Ajustado el espaciado para una cuadrícula compacta y elegante */
-}
-
-/* Chasis Monolítico Refinado */
-.line-studio-exhibition-card {
-  background-color: #1E2122; /*[cite: 16] */
-  border: 1px solid rgba(255, 255, 255, 0.03); /*[cite: 16] */
-  border-radius: 16px; /*[cite: 16] */
-  padding: 24px; /*[cite: 16] */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /*[cite: 16] */
-  align-items: center; /*[cite: 16] */
-  min-height: 260px; /* Optimizado la altura para las 4 columnas */
-  box-sizing: border-box; /*[cite: 16] */
-  cursor: pointer; /*[cite: 16] */
-  position: relative; /*[cite: 16] */
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease; /*[cite: 16] */
-}
-
-.line-studio-stage {
-  width: 100%;
-  height: 120px; /* Proporción balanceada para 4 columnas */
-  display: flex; /*[cite: 16] */
-  align-items: center; /*[cite: 16] */
-  justify-content: center; /*[cite: 16] */
-  position: relative; /*[cite: 16] */
-  overflow: hidden; /*[cite: 16] */
-}
-
-/* Resplandor ambiental de fondo calibrado */
-.studio-ambient-glow {
-  position: absolute; /*[cite: 16] */
-  width: 90px;
-  height: 90px;
-  background: radial-gradient(circle, rgba(2, 105, 211, 0.14) 0%, transparent 70%);
-  z-index: 1; /*[cite: 16] */
-  pointer-events: none; /*[cite: 16] */
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease; /*[cite: 16] */
-}
-
-.line-studio-logo-img {
-  max-width: 90%;
-  max-height: 80%;
-  object-fit: contain; /*[cite: 16] */
-  z-index: 2; /*[cite: 16] */
-  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35)); /*[cite: 16] */
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); /*[cite: 16] */
-}
-
-.line-studio-action-belt {
-  width: 100%; /*[cite: 16] */
-}
-
-/* Botón Slim Estilizado */
-.btn-studio-luxury-trigger {
-  width: 100%; /*[cite: 16] */
-  background-color: #141617; /*[cite: 16] */
-  border: 1px solid rgba(255, 255, 255, 0.05); /*[cite: 16] */
-  color: #D1D5DB; /*[cite: 16] */
-  padding: 11px 0;
-  border-radius: 8px; /*[cite: 16] */
-  font-size: 11px; /*[cite: 16] */
-  font-weight: bold; /*[cite: 16] */
-  text-transform: uppercase; /*[cite: 16] */
-  letter-spacing: 0.06em;
-  display: flex; /*[cite: 16] */
-  align-items: center; /*[cite: 16] */
-  justify-content: center; /*[cite: 16] */
-  gap: 8px; /*[cite: 16] */
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); /*[cite: 16] */
-}
-
-/* HOVER EFFECTS DE ALTA GAMA COHESIVOS */
-.line-studio-exhibition-card:hover {
-  transform: translateY(-5px);
-  border-color: #0269D3; /*[cite: 16] */
-  box-shadow: 0 16px 30px -12px rgba(2, 105, 211, 0.25);
-}
-
-.line-studio-exhibition-card:hover .line-studio-logo-img {
-  transform: translateY(-2px) scale(1.02);
-}
-
-.line-studio-exhibition-card:hover .studio-ambient-glow {
-  transform: scale(1.3);
-  background: radial-gradient(circle, rgba(2, 105, 211, 0.22) 0%, transparent 70%);
-}
-
-.line-studio-exhibition-card:hover .btn-studio-luxury-trigger {
-  background-color: #0269D3; /*[cite: 16] */
-  border-color: #0269D3; /*[cite: 16] */
-  color: #FFFFFF; /*[cite: 16] */
-  box-shadow: 0 4px 12px rgba(2, 105, 211, 0.3);
-}
-
-.arrow-studio-motion { transition: transform 0.25s ease; } /*[cite: 16] */
-.line-studio-exhibition-card:hover .arrow-studio-motion { transform: translateX(4px); } /*[cite: 16] */
-
-/* =========================================================================
-   3. SECCIÓN DE COMPROMISO Y GARANTÍA[cite: 16]
+   SECCIÓN DE COMPROMISO Y GARANTÍA
    ========================================================================= */
 .guarantee-section {
-  background-color: #1E2122;
+  background-color: var(--bg-card);
   padding: 64px 16px;
-  border-top: 1px solid rgba(255,255,255,0.02);
-  border-bottom: 1px solid rgba(255,255,255,0.02);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
   box-sizing: border-box;
 }
 
@@ -189,14 +82,18 @@
   align-items: center;
 }
 
-.guarantee-image-block { position: relative; width: 100%; box-sizing: border-box; }
+.guarantee-image-block { 
+  position: relative; 
+  width: 100%; 
+  box-sizing: border-box; 
+}
 
 .guarantee-img {
   width: 100%;
   height: 380px;
   object-fit: cover;
-  border-radius: 16px;
-  border: 1px solid #374151;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
   display: block;
 }
 
@@ -204,47 +101,61 @@
   position: absolute;
   bottom: -16px;
   right: -16px;
-  background-color: #F2741D;
+  background-color: var(--h3-red);
   padding: 16px 24px;
-  border-radius: 12px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(227, 6, 19, 0.3);
   text-align: center;
   z-index: 3;
 }
 
 .exp-number { display: block; font-size: 32px; font-weight: 800; line-height: 1; color: #FFFFFF; }
-.exp-text { display: block; font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; color: #FFFFFF; margin-top: 4px; }
+.exp-text { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #FFFFFF; margin-top: 4px; }
 
 .guarantee-text-block { display: flex; flex-direction: column; gap: 16px; }
-.text-header .text-tagline { color: #F2741D; font-weight: bold; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 4px; }
-.main-heading { font-size: 32px; font-weight: 800; margin: 0; color: #FFFFFF; line-height: 1.2; }
-.heading-divider { width: 64px; height: 4px; background-color: #0269D3; margin-top: 8px; }
-.paragraph { font-size: 14px; color: #d1d5db; line-height: 1.6; margin: 0; }
+.text-header .text-tagline { color: var(--h3-red); font-weight: bold; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 4px; }
+.main-heading { font-size: 32px; font-weight: 800; margin: 0; color: var(--text-main); line-height: 1.2; }
+.heading-divider { width: 64px; height: 4px; background-color: var(--h3-red); margin-top: 8px; }
+.paragraph { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin: 0; }
 
 .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
 .feature-item { display: flex; gap: 12px; align-items: flex-start; }
-.feature-icon-box { background-color: rgba(2, 105, 211, 0.15); color: #3B82F6; padding: 8px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-.feature-text h4 { font-size: 14px; font-weight: bold; margin: 0 0 4px 0; color: #FFFFFF; }
-.feature-text p { font-size: 12px; color: #9ca3af; margin: 0; line-height: 1.4; }
+.feature-icon-box { 
+  background-color: rgba(227, 6, 19, 0.1); 
+  color: var(--h3-red); 
+  padding: 10px; 
+  border-radius: 8px; 
+  flex-shrink: 0; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+.feature-text h4 { font-size: 15px; font-weight: 800; margin: 0 0 4px 0; color: var(--text-main); }
+.feature-text p { font-size: 13px; color: var(--text-muted); margin: 0; line-height: 1.4; }
 .action-row { margin-top: 16px; }
 
 .btn-primary-large {
-  background-color: #0269D3;
+  background-color: var(--h3-red);
   color: #FFFFFF;
   border: none;
   padding: 14px 28px;
-  border-radius: 8px;
-  font-size: 12px;
-  font-weight: bold;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px rgba(227, 6, 19, 0.2);
 }
-.btn-primary-large:hover { background-color: #003399; }
+.btn-primary-large:hover { 
+  background-color: var(--h3-red-dark); 
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(227, 6, 19, 0.3);
+}
 
 /* =========================================================================
-   5. PORTAFOLIO DE PRODUCTOS DESTACADOS[cite: 16]
+   PORTAFOLIO DE PRODUCTOS DESTACADOS
    ========================================================================= */
 .featured-section {
   max-width: 1140px;
@@ -259,20 +170,20 @@
 }
 
 .product-exhibition-card {
-  background-color: #1E2122;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: 14px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .product-img-stage {
   width: 100%;
-  height: 180px;
+  height: 200px;
   background-color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -280,6 +191,7 @@
   padding: 20px;
   position: relative;
   box-sizing: border-box;
+  border-bottom: 1px solid #F3F4F6;
 }
 
 .product-stage-img {
@@ -293,9 +205,9 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  background-color: rgba(26, 29, 30, 0.9);
+  background-color: var(--h3-red);
   color: #FFFFFF;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 800;
   padding: 4px 10px;
   border-radius: 4px;
@@ -310,20 +222,20 @@
 }
 
 .product-card-meta-row { margin-bottom: 6px; }
-.product-category-tag { font-size: 9px; color: #0269D3; text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em; }
-.product-title-luxury { font-size: 15px; font-weight: 800; color: #FFFFFF; margin: 0 0 8px 0; line-height: 1.3; }
-.product-desc-luxury { font-size: 12px; color: #94A3B8; line-height: 1.4; margin: 0 0 20px 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.product-category-tag { font-size: 10px; color: var(--text-muted); text-transform: uppercase; font-weight: 800; letter-spacing: 0.05em; }
+.product-title-luxury { font-size: 16px; font-weight: 800; color: var(--text-main); margin: 0 0 8px 0; line-height: 1.3; }
+.product-desc-luxury { font-size: 13px; color: var(--text-muted); line-height: 1.4; margin: 0 0 20px 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .product-action-belt { margin-top: auto; }
 
 .btn-product-luxury {
   width: 100%;
-  background-color: #141617;
-  border: 1px solid #374151;
-  color: #D1D5DB;
+  background-color: #F3F4F6;
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
   padding: 10px 0;
   border-radius: 6px;
-  font-size: 11px;
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: 800;
   text-transform: uppercase;
   display: flex;
   align-items: center;
@@ -334,32 +246,74 @@
 
 .product-exhibition-card:hover {
   transform: translateY(-5px);
-  border-color: #0269D3;
-  box-shadow: 0 16px 30px -10px rgba(2, 105, 211, 0.25);
+  border-color: var(--h3-red);
+  box-shadow: 0 12px 24px rgba(227, 6, 19, 0.15);
 }
 
-.product-exhibition-card:hover .product-stage-img { transform: scale(1.04); }
-.product-exhibition-card:hover .btn-product-luxury { background-color: #0269D3; border-color: #0269D3; color: #FFFFFF; box-shadow: 0 4px 12px rgba(2, 105, 211, 0.3); }
+.product-exhibition-card:hover .product-stage-img { transform: scale(1.05); }
+.product-exhibition-card:hover .btn-product-luxury { 
+  background-color: var(--h3-red); 
+  border-color: var(--h3-red); 
+  color: #FFFFFF; 
+}
 .arrow-product-motion { transition: transform 0.2s ease; }
-.product-exhibition-card:hover .arrow-product-motion { transform: translateX(3px); }
+.product-exhibition-card:hover .arrow-product-motion { transform: translateX(4px); }
 
 .see-more-action-container { display: flex; justify-content: center; margin-top: 36px; }
-.btn-see-more-featured { background-color: transparent; color: #FFFFFF; border: 2px solid #0269D3; padding: 12px 28px; border-radius: 8px; font-size: 13px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.2s; }
-.btn-see-more-featured:hover { background-color: #0269D3; }
-
-.pre-footer-banner { background-color: #1E2122; border-top: 1px solid rgba(255,255,255,0.03); color: #FFFFFF; padding: 48px 16px; text-align: center; }
-.banner-content { max-width: 800px; margin: 0 auto; }
-.banner-content h3 { font-size: 22px; font-weight: 800; margin: 0; }
-.banner-content p { font-size: 14px; color: #9CA3AF; margin: 8px 0 16px 0; }
-.btn-banner-action { background-color: #0269D3; color: #FFFFFF; border: none; padding: 12px 28px; border-radius: 6px; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 12px; letter-spacing: 0.05em; }
+.btn-see-more-featured { 
+  background-color: transparent; 
+  color: var(--h3-red); 
+  border: 2px solid var(--h3-red); 
+  padding: 12px 28px; 
+  border-radius: 6px; 
+  font-size: 14px; 
+  font-weight: 800; 
+  cursor: pointer; 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  transition: all 0.2s; 
+}
+.btn-see-more-featured:hover { 
+  background-color: var(--h3-red); 
+  color: #FFFFFF;
+}
 
 /* =========================================================================
-   RESPONSIVO EXCLUSIVO CELULARES (SWIPE COMPACTO CALIBRADO)
+   BLOQUE PRE-FOOTER INFORMATIVO
+   ========================================================================= */
+.pre-footer-banner { 
+  background-color: var(--h3-red); 
+  color: #FFFFFF; 
+  padding: 56px 16px; 
+  text-align: center; 
+}
+.banner-content { max-width: 800px; margin: 0 auto; }
+.banner-content h3 { font-size: 26px; font-weight: 800; margin: 0; }
+.banner-content p { font-size: 16px; color: #FEE2E2; margin: 12px 0 24px 0; }
+.btn-banner-action { 
+  background-color: #FFFFFF; 
+  color: var(--h3-red); 
+  border: none; 
+  padding: 14px 32px; 
+  border-radius: 6px; 
+  font-weight: 800; 
+  cursor: pointer; 
+  text-transform: uppercase; 
+  font-size: 13px; 
+  letter-spacing: 0.05em; 
+  transition: background-color 0.2s;
+}
+.btn-banner-action:hover {
+  background-color: #F9FAFB;
+}
+
+/* =========================================================================
+   RESPONSIVO EXCLUSIVO CELULARES
    ========================================================================= */
 @media (max-width: 1024px) {
   .mobile-swipe-hint { display: block; }
 
-  .lines-responsive-track,
   .featured-responsive-track {
     display: flex;
     overflow-x: auto;
@@ -367,34 +321,18 @@
     padding: 8px 4px 20px 4px;
     gap: 16px;
     scrollbar-width: none; 
-    -ms-overflow-style: none;
   }
   
-  .lines-responsive-track::-webkit-scrollbar,
   .featured-responsive-track::-webkit-scrollbar {
     display: none;
   }
 
-  .line-studio-exhibition-card {
-    flex: 0 0 auto;
-    width: 68vw; /* Ajustado el ancho en móviles para mantener la consistencia con las 4 columnas */
-    max-width: 240px;
-    scroll-snap-align: center;
-    padding: 20px;
-    min-height: 220px;
-  }
-  
-  .line-studio-stage { height: 100px; }
-
   .product-exhibition-card {
     flex: 0 0 auto;
     width: 74vw;
-    max-width: 250px;
+    max-width: 280px;
     scroll-snap-align: start;
   }
-  
-  .product-img-stage { height: 150px; padding: 12px; }
-  .product-desc-luxury { -webkit-line-clamp: 2; }
   
   .guarantee-container { grid-template-columns: 1fr; gap: 40px; }
   .guarantee-image-block { max-width: 500px; margin: 0 auto; }
@@ -405,6 +343,6 @@
 @media (max-width: 640px) {
   .guarantee-section { padding: 40px 16px; }
   .features-grid { grid-template-columns: 1fr; gap: 16px; }
-  .experience-badge { padding: 10px 16px; bottom: -10px; right: -10px; }
+  .experience-badge { padding: 12px 16px; bottom: -12px; right: -12px; }
   .exp-number { font-size: 24px; }
 }

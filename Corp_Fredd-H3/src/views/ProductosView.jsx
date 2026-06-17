@@ -41,24 +41,24 @@ export default function ProductosView({
     <div className="productos-page">
       <div className="productos-container">
         
-        {/* Encabezado Principal[cite: 11] */}
+        {/* Encabezado Principal */}
         <div className="page-header">
-          <span className="page-subtitle-calm">Suministros Certificados</span>
+          <span className="page-subtitle-calm">Línea Oficial H3</span>
           <h1 className="page-title">Catálogo de Productos</h1>
           <div className="title-divider"></div>
         </div>
 
         {/* ==========================================
-            Panel Superior de Control (Diseño Limpio)[cite: 11]
+            Panel Superior de Control (Diseño Limpio)
             ========================================== */}
         <div className="catalog-toolbar">
           
-          {/* Caja de Búsqueda Minimalista[cite: 11] */}
+          {/* Caja de Búsqueda Minimalista */}
           <div className="catalog-internal-search-box">
-            <Search size={16} className="catalog-search-icon" />
+            <Search size={18} className="catalog-search-icon" />
             <input 
               type="text"
-              placeholder="Buscar por nombre o marca..."
+              placeholder="Buscar tuberías, válvulas, electrobombas..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="catalog-search-input-field"
@@ -70,7 +70,7 @@ export default function ProductosView({
             )}
           </div>
           
-          {/* Selector Deslizable de Categorías[cite: 11] */}
+          {/* Selector Deslizable de Categorías */}
           <div className="categories-filter-wrapper">
             <div className="categories-filter-bar">
               <button 
@@ -91,7 +91,7 @@ export default function ProductosView({
             </div>
           </div>
 
-          {/* Información de estado y ordenamiento[cite: 11] */}
+          {/* Información de estado y ordenamiento */}
           <div className="toolbar-controls">
             <span className="results-counter">
               Mostrando del <strong>{productosFiltrados.length === 0 ? 0 : indexPrimerProducto + 1}</strong> al <strong>{Math.min(indexUltimoProducto, productosFiltrados.length)}</strong> de <strong>{productosFiltrados.length}</strong> artículos
@@ -127,13 +127,13 @@ export default function ProductosView({
                   {/* Bloque Descriptivo con Flex-Grow de balance simétrico */}
                   <div className="catalog-card-content">
                     <div className="catalog-card-meta">
-                      <span className="catalog-category-tag">{prod.categoria.replace('-', ' ')}</span>
+                      <span className="catalog-category-tag">{prod.categoria.replace('-', ' ').toUpperCase()}</span>
                       <h4 className="catalog-product-title" title={prod.nombre}>{prod.nombre}</h4>
                       <p className="catalog-product-desc">{prod.descripcion}</p>
                     </div>
 
                     <button onClick={() => navegarA('producto-detalle', prod)} className="btn-view-details">
-                      <span>Ver Ficha Técnico</span>
+                      <span>Ver Ficha Técnica</span>
                       <ArrowRight size={14} className="arrow-details-motion" />
                     </button>
                   </div>
@@ -143,7 +143,7 @@ export default function ProductosView({
             </div>
 
             {/* ==========================================
-                Numeración de Páginas (Paginación Premium)[cite: 11]
+                Numeración de Páginas (Paginación Premium)
                 ========================================== */}
             {totalPaginas > 1 && (
               <div className="pagination-container">
@@ -183,9 +183,9 @@ export default function ProductosView({
           </>
         ) : (
           <div className="no-results-box">
-            <Info size={36} className="no-results-icon" />
-            <h3 className="no-results-title">Búsqueda sincoincidencias</h3>
-            <p>Prueba restableciendo los criterios o modificando el término escrito.</p>
+            <Info size={40} className="no-results-icon" />
+            <h3 className="no-results-title">Búsqueda sin coincidencias</h3>
+            <p>No pudimos encontrar el artículo solicitado en la línea H3.</p>
             <button onClick={resetFiltros} className="btn-reset-filters">
               Restablecer Filtros
             </button>

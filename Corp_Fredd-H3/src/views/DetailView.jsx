@@ -1,6 +1,5 @@
 import React from 'react';
 import { ChevronRight, CheckCircle2, Ruler, ShieldAlert, ArrowRight } from 'lucide-react';
-// Importamos la base de datos global para las sugerencias automáticas
 import { PRODUCTOS } from '../data/products';
 import './DetailView.css';
 
@@ -17,10 +16,15 @@ export default function DetailView({
   
   if (!selectedProduct) return null;
 
-  // 🛡️ Filtro inteligente: busca productos de la misma categoría, excluye el actual y limita a un máximo de 4
+  // Filtro de sugerencias de la misma categoría de H3
   const productosSimilares = PRODUCTOS.filter(
     (p) => p.categoria === selectedProduct.categoria && p.id !== selectedProduct.id
   ).slice(0, 4);
+
+  // Función auxiliar para formatear la categoría (de 'agua-caliente' a 'AGUA CALIENTE')
+  const formatoCategoria = (catText) => {
+    return catText ? catText.replace(/-/g, ' ').toUpperCase() : '';
+  };
 
   return (
     <div className="detail-page">
@@ -32,9 +36,9 @@ export default function DetailView({
         <nav className="breadcrumbs-nav">
           <button onClick={() => navegarA('inicio')} className="breadcrumb-link">Inicio</button>
           <ChevronRight size={14} className="breadcrumb-separator" />
-          <button onClick={() => navegarA('productos')} className="breadcrumb-link">Catálogo</button>
+          <button onClick={() => navegarA('productos')} className="breadcrumb-link">Catálogo H3</button>
           <ChevronRight size={14} className="breadcrumb-separator" />
-          <span className="breadcrumb-current">{selectedProduct.categoria.replace('-', ' ')}</span>
+          <span className="breadcrumb-current">{formatoCategoria(selectedProduct.categoria)}</span>
         </nav>
 
         {/* ==========================================
@@ -71,7 +75,7 @@ export default function DetailView({
           {/* Lado Derecho: Información Comercial */}
           <div className="product-info-side">
             <div className="info-header">
-              <span className="technical-badge">Línea de Alta Performance</span>
+              <span className="technical-badge">Línea Oficial H3</span>
               <h1 className="product-main-title">{selectedProduct.nombre}</h1>
               <div className="product-base-code">
                 Código Base: <strong>{selectedProduct.codigoBase || 'N/A'}</strong>
@@ -85,7 +89,7 @@ export default function DetailView({
               <ul className="bullet-points-list">
                 {selectedProduct.caracteristicas?.map((char, idx) => (
                   <li key={idx}>
-                    <CheckCircle2 size={16} className="bullet-icon-blue" />
+                    <CheckCircle2 size={18} className="bullet-icon-red" />
                     <span>{char}</span>
                   </li>
                 ))}
@@ -194,10 +198,10 @@ export default function DetailView({
               <div className="additional-info-text">
                 <h4 className="additional-info-title">Consideraciones para la Instalación</h4>
                 <p>
-                  Todos nuestros accesorios cumplen rigurosamente con los estándares internacionales aplicables para sistemas de alta presión. Se recomienda realizar las uniones mediante termofusión a la temperatura indicada por la normativa del fabricante para garantizar una estanqueidad del 100% en el sistema.
+                  Todos nuestros accesorios cumplen rigurosamente con los estándares internacionales aplicables para sistemas de presión. Se recomienda realizar las uniones a la temperatura indicada por la normativa del fabricante para garantizar una estanqueidad del 100% en el sistema H3.
                 </p>
                 <p>
-                  Para proyectos industriales complejos, solicite asistencia técnica directa a nuestro equipo de ingeniería durante la etapa de diseño de sus isométricos.
+                  Para proyectos industriales complejos o domiciliarios de gran escala, solicite asistencia técnica directa a nuestro equipo de ingeniería durante la etapa de diseño.
                 </p>
               </div>
             )}
@@ -205,12 +209,12 @@ export default function DetailView({
         </div>
 
         {/* ==========================================
-            NUEVA SECCIÓN: PRODUCTOS SIMILARES (ARQUITECTURA VITRINA)
+            PRODUCTOS SIMILARES (Sugerencias H3)
             ========================================== */}
         {productosSimilares.length > 0 && (
           <section className="similares-section">
             <div className="similares-header">
-              <span className="similares-tagline">Sugerencias de la línea</span>
+              <span className="similares-tagline">Línea H3 Sugerida</span>
               <h3 className="similares-title">Productos Similares</h3>
               <div className="similares-divider"></div>
               <span className="similares-hint">Desliza para ver más alternativas ➔</span>
@@ -222,13 +226,11 @@ export default function DetailView({
                   key={simProd.id} 
                   className="similar-card-premium"
                   onClick={() => {
-                    // 🚀 MEJORA CRÍTICA DE FLUJO: Resetea el índice antes de cambiar de producto
                     setActiveImgIndex(0); 
                     navegarA('producto-detalle', simProd);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
                 >
-                  {/* Vitrina Estabilizadora Blanca Fija */}
                   <div className="similar-card-img-container">
                     <img 
                       src={simProd.imagenes && simProd.imagenes[0]} 
@@ -238,15 +240,14 @@ export default function DetailView({
                     <span className="similar-card-brand">{simProd.marca}</span>
                   </div>
 
-                  {/* Chasis de Información con Alineación Simétrica */}
                   <div className="similar-card-info">
-                    <span className="similar-card-cat">{simProd.categoria.replace('-', ' ')}</span>
+                    <span className="similar-card-cat">{formatoCategoria(simProd.categoria)}</span>
                     <h4 className="similar-product-title-clean" title={simProd.nombre}>{simProd.nombre}</h4>
                     <p className="similar-product-desc-clean">{simProd.descripcion}</p>
                     
                     <div className="similar-card-action-belt">
                       <span className="btn-similar-view">
-                        <span>Ver Especificaciones</span>
+                        <span>Ver Ficha Técnica</span>
                         <ArrowRight size={13} className="arrow-similar-motion" />
                       </span>
                     </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
-// Importamos su propio CSS separado
 import './HeroCarousel.css';
 
 export default function HeroCarousel({ slides, currentSlide, setCurrentSlide, navegarA }) {
@@ -21,13 +20,13 @@ export default function HeroCarousel({ slides, currentSlide, setCurrentSlide, na
             {/* Contenido del texto */}
             <div className="carousel-content-layer">
               <div className="carousel-text-container">
-                <span className="carousel-tag">Líder en Conexiones Industriales</span>
+                <span className="carousel-tag">Línea Oficial H3</span>
                 <h1 className="carousel-title">{slide.titulo}</h1>
                 <p className="carousel-description">{slide.subtitulo}</p>
                 
                 <div className="carousel-actions">
-                  <button onClick={() => navegarA('productos')} className="btn-carousel-blue">
-                    <span>Ver Catálogo</span>
+                  <button onClick={() => navegarA('productos')} className="btn-carousel-primary">
+                    <span>Ver Catálogo H3</span>
                     <ArrowRight size={16} />
                   </button>
                   <button onClick={() => navegarA('contacto')} className="btn-carousel-transparent">
@@ -46,14 +45,14 @@ export default function HeroCarousel({ slides, currentSlide, setCurrentSlide, na
         className="carousel-arrow arrow-left"
         aria-label="Anterior"
       >
-        <ChevronLeft size={20} />
+        <ChevronLeft size={24} />
       </button>
       <button 
         onClick={() => setCurrentSlide((currentSlide + 1) % slides.length)} 
         className="carousel-arrow arrow-right"
         aria-label="Siguiente"
       >
-        <ChevronRight size={20} />
+        <ChevronRight size={24} />
       </button>
     </section>
   );

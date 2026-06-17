@@ -1,7 +1,6 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Clock, ArrowRight, ShieldCheck } from 'lucide-react';
-// 1. Modificamos la ruta al nuevo archivo Logo2.png
-import logoImg from '../assets/logos/Logo2.png';
+import logoImg from '../assets/logos/Logo.png';
 import './Footer.css';
 
 export default function Footer({ navegarA, setActiveCategoryFilter }) {
@@ -13,7 +12,7 @@ export default function Footer({ navegarA, setActiveCategoryFilter }) {
         <div className="trustbar-container">
           <div className="trust-item">
             <ShieldCheck size={20} className="trust-icon" />
-            <span>Garantía de Suministro Técnico de Fábrica</span>
+            <span>Garantía de Suministro Técnico H3</span>
           </div>
           <div className="trust-divider"></div>
           <div className="trust-item">
@@ -27,41 +26,42 @@ export default function Footer({ navegarA, setActiveCategoryFilter }) {
       <div className="footer-main-content">
         <div className="footer-grid-wrapper">
           
-          {/* Columna 1: Identidad Corporativa (Optimizada para Responsive) */}
+          {/* Columna 1: Identidad Corporativa */}
           <div className="footer-brand-column">
             <div className="footer-logo-container">
-              {/* Añadimos una clase específica para controlar el nuevo logo */}
               <img src={logoImg} alt="Logo Industrias Fredd" className="footer-brand-logo-v2" />
-              {/* <div className="brand-text-wrapper">
-                <span className="brand-name">INDUSTRIAS FREDD</span>
-                <span className="brand-legal">S.A.C.</span>
-              </div> */}
             </div>
             <p className="brand-brief">
-              Fábrica 100% peruana especializada en el suministro, importación y distribución de conexiones industriales de alta resistencia y soluciones termoplásticas de alta performance.
+              Fábrica 100% peruana especializada en la línea oficial H3 y HB Max. Soluciones en conexiones, agua caliente, desagüe, termoplásticos y electrobombas.
             </p>
           </div>
 
-          {/* Columna 2: Líneas de Catálogo */}
+          {/* Columna 2: Líneas de Catálogo H3 */}
           <div className="footer-links-column">
-            <h4 className="footer-col-title">Nuestras Líneas</h4>
+            <h4 className="footer-col-title">Catálogo H3</h4>
             <ul className="footer-navigation-list">
               <li>
-                <button onClick={() => { setActiveCategoryFilter('accesorios-pph'); navegarA('productos'); }} className="footer-nav-btn">
-                  <ArrowRight size={10} className="arrow-link-icon" />
-                  <span>HB - Accesorios PPH</span>
+                <button onClick={() => { setActiveCategoryFilter('agua-caliente'); navegarA('productos'); }} className="footer-nav-btn">
+                  <ArrowRight size={12} className="arrow-link-icon" />
+                  <span>Agua Caliente (PPH)</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => { setActiveCategoryFilter('termoplasticos'); navegarA('productos'); }} className="footer-nav-btn">
-                  <ArrowRight size={10} className="arrow-link-icon" />
-                  <span>STORICK - Termoplásticos</span>
+                <button onClick={() => { setActiveCategoryFilter('agua-fria'); navegarA('productos'); }} className="footer-nav-btn">
+                  <ArrowRight size={12} className="arrow-link-icon" />
+                  <span>Agua Fría y Desagüe</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => { setActiveCategoryFilter('conexiones'); navegarA('productos'); }} className="footer-nav-btn">
-                  <ArrowRight size={10} className="arrow-link-icon" />
-                  <span>HINOX - Conexiones Inox</span>
+                <button onClick={() => { setActiveCategoryFilter('tanques'); navegarA('productos'); }} className="footer-nav-btn">
+                  <ArrowRight size={12} className="arrow-link-icon" />
+                  <span>Tanques y Biodigestores</span>
+                </button>
+              </li>
+              <li>
+                <button onClick={() => { setActiveCategoryFilter('electrobombas'); navegarA('productos'); }} className="footer-nav-btn">
+                  <ArrowRight size={12} className="arrow-link-icon" />
+                  <span>Electrobombas HB Max</span>
                 </button>
               </li>
             </ul>
@@ -73,19 +73,19 @@ export default function Footer({ navegarA, setActiveCategoryFilter }) {
             <ul className="footer-navigation-list">
               <li>
                 <button onClick={() => navegarA('nosotros')} className="footer-nav-btn">
-                  <ArrowRight size={10} className="arrow-link-icon" />
-                  <span>Acerca de Nosotros</span>
+                  <ArrowRight size={12} className="arrow-link-icon" />
+                  <span>Acerca de la Fábrica</span>
                 </button>
               </li>
               <li>
                 <button onClick={() => navegarA('catalogos')} className="footer-nav-btn">
-                  <ArrowRight size={10} className="arrow-link-icon" />
+                  <ArrowRight size={12} className="arrow-link-icon" />
                   <span>Catálogos Técnicos PDF</span>
                 </button>
               </li>
               <li>
                 <button onClick={() => navegarA('contacto')} className="footer-nav-btn">
-                  <ArrowRight size={10} className="arrow-link-icon" />
+                  <ArrowRight size={12} className="arrow-link-icon" />
                   <span>Formulario de Contacto</span>
                 </button>
               </li>
@@ -97,19 +97,19 @@ export default function Footer({ navegarA, setActiveCategoryFilter }) {
             <h4 className="footer-col-title">Planta y Ventas</h4>
             <div className="footer-contact-card">
               <div className="contact-card-row">
-                <MapPin size={16} className="card-icon-orange" />
+                <MapPin size={16} className="card-icon-red" />
                 <span className="contact-card-text">Jr. Cahuide N° 656, Juliaca - Perú</span>
               </div>
               <div className="contact-card-row">
-                <Phone size={16} className="card-icon-orange" />
+                <Phone size={16} className="card-icon-red" />
                 <span className="contact-card-text">+51 (01) 480-1234</span>
               </div>
               <div className="contact-card-row">
-                <Mail size={16} className="card-icon-orange" />
+                <Mail size={16} className="card-icon-red" />
                 <span className="contact-card-text">ventas@industriasfredd.com</span>
               </div>
               <div className="contact-card-row">
-                <Clock size={16} className="card-icon-orange" />
+                <Clock size={16} className="card-icon-red" />
                 <span className="contact-card-text">Lun a Vie: 8:00 AM - 6:00 PM</span>
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function Footer({ navegarA, setActiveCategoryFilter }) {
             © {new Date().getFullYear()} <span className="copyright-bold">INDUSTRIAS FREDD S.A.C.</span> Todos los derechos reservados.
           </p>
           <div className="copyright-legal-links">
-            <span className="legal-link">Garantía de Calidad</span>
+            <span className="legal-link">Garantía H3</span>
             <span className="legal-divider">|</span>
             <span className="legal-link">Términos Técnicos</span>
           </div>

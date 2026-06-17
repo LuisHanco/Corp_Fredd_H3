@@ -1,5 +1,4 @@
 import React from 'react';
-// Importamos su propio CSS tradicional
 import './MetricSection.css';
 
 export default function MetricSection() {
@@ -8,21 +7,21 @@ export default function MetricSection() {
       <div className="metrics-banner-container">
         
         <div className="metric-box">
-          <span className="metric-number color-red">+5</span>
-          <h4 className="metric-label">Certificaciones de Calidad</h4>
-          <p className="metric-sub">Garantizamos conformidad con estándares internacionales ANSI, ISO y DIN.</p>
+          <span className="metric-number">32</span>
+          <h4 className="metric-label">Años de Trayectoria</h4>
+          <p className="metric-sub">Fábrica 100% peruana operando desde 1994 hasta 2026[cite: 2].</p>
         </div>
 
         <div className="metric-box border-sides">
-          <span className="metric-number color-blue">+101</span>
-          <h4 className="metric-label">Productos Disponibles</h4>
-          <p className="metric-sub">Contamos con un amplio portafolio de accesorios y conexiones con stock real.</p>
+          <span className="metric-number">+100</span>
+          <h4 className="metric-label">Stock Permanente</h4>
+          <p className="metric-sub">Amplia variedad de productos y accesorios con entrega inmediata[cite: 2].</p>
         </div>
 
         <div className="metric-box">
-          <span className="metric-number color-orange">+52</span>
-          <h4 className="metric-label">Años de Exp. Combinada</h4>
-          <p className="metric-sub">Experiencia de nuestro equipo directivo liderando proyectos industriales.</p>
+          <span className="metric-number">1</span>
+          <h4 className="metric-label">Año de Garantía</h4>
+          <p className="metric-sub">Excelente relación calidad-precio y garantía de 1 año post-venta[cite: 2].</p>
         </div>
 
       </div>
