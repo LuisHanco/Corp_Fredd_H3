@@ -249,7 +249,7 @@ export default function HomeView({ slides, currentSlide, setCurrentSlide, navega
       {/* 8. Bloque Pre-Footer Informativo H3 */}
       <section className="pre-footer-banner">
         <div className="banner-content">
-          <h3>¿Deseas conocer más sobre la línea H3 o HB Max?</h3>
+          <h3>¿Deseas conocer más sobre la línea H3 o H3 Max?</h3>
           <p>
             Déjanos tus consultas y nos comunicaremos contigo de inmediato para asesorarte y brindarte la mejor cotización.
           </p>

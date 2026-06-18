@@ -1,25 +1,20 @@
 /* =========================================================================
-   ESTILOS DEL CARRUSEL PRINCIPAL - LÍNEA H3
+   ESTILOS PREMIUM CARRUSEL (SPLIT LAYOUT) - LÍNEA H3
    ========================================================================= */
 
 :root {
   --h3-red: #E30613;
   --h3-red-dark: #B3040F;
+  --text-light: #FFFFFF;
 }
 
 .hero-carousel-section {
   position: relative;
-  height: 480px;
   width: 100%;
+  height: 680px; /* Un poco más de altura para celulares para dar respiro */
   overflow: hidden;
-  background-color: #F9FAFB; /* Fondo claro de base */
-  font-family: 'Calibri', 'Arial', sans-serif;
-}
-
-@media (min-width: 768px) {
-  .hero-carousel-section {
-    height: 550px;
-  }
+  background-color: #111827;
+  font-family: 'Inter', 'Calibri', sans-serif;
 }
 
 .carousel-wrapper {
@@ -30,29 +25,31 @@
 
 .carousel-slide {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: opacity 1s ease-in-out;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s;
+  display: flex;
+  flex-direction: column; /* Diseño en columna para Móvil por defecto */
 }
 
-/* Ocultar y mostrar diapositivas de manera limpia */
 .slide-active {
   opacity: 1;
+  visibility: visible;
   z-index: 10;
 }
 
 .slide-inactive {
-  opacity: 0;
   z-index: 0;
 }
 
-/* Sombra degradada para que el texto blanco resalte sobre cualquier imagen */
-.carousel-overlay {
-  position: absolute;
-  inset: 0;
-  /* background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0) 100%); */
+/* =========================================================================
+   ZONA DE IMAGEN (El Producto SIEMPRE visible arriba en celular)
+   ========================================================================= */
+.carousel-image-layer {
+  position: relative;
+  width: 100%;
+  height: 45%; 
   z-index: 1;
 }
 
@@ -60,129 +57,183 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center right; 
+  animation: sutilZoom 10s infinite alternate ease-in-out;
 }
 
+@keyframes sutilZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+/* =========================================================================
+   ZONA DE CONTENIDO (Caja Roja H3 Inferior en Móvil)
+   ========================================================================= */
 .carousel-content-layer {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  width: 100%;
+  height: 60%;
   z-index: 2;
   display: flex;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 24px;
+  margin-top: -8vw; /* Crea la superposición con la imagen */
+}
+
+/* 
+  TRUCO PRO: El fondo rojo se aplica a un pseudo-elemento (::before)
+  con clip-path. Así, el contenedor padre NO recorta el logo cuando 
+  lo empujamos hacia arriba con margen negativo.
+*/
+.carousel-content-layer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--h3-red) 0%, var(--h3-red-dark) 100%);
+  clip-path: polygon(0 8vw, 100% 0, 100% 100%, 0 100%);
+  z-index: -2;
+}
+
+.carousel-content-layer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0);
+  background-size: 24px 24px;
+  opacity: 0.5;
+  clip-path: polygon(0 8vw, 100% 0, 100% 100%, 0 100%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .carousel-text-container {
-  max-width: 600px;
-  animation: slideUpFade 0.8s ease-out forwards;
+  position: relative;
+  z-index: 3;
+  max-width: 100%;
+  text-align: center; /* En móviles el texto se ve mejor centrado debajo del logo */
 }
 
-@keyframes slideUpFade {
+/* Animaciones del texto (Cascada fluida) */
+.slide-active .carousel-logo-wrapper { animation: fadeUp 0.6s ease-out 0.2s forwards; opacity: 0; }
+.slide-active .carousel-title { animation: fadeUp 0.6s ease-out 0.4s forwards; opacity: 0; }
+.slide-active .carousel-description { animation: fadeUp 0.6s ease-out 0.6s forwards; opacity: 0; }
+.slide-active .carousel-actions { animation: fadeUp 0.6s ease-out 0.8s forwards; opacity: 0; }
+
+@keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Etiqueta superior roja H3 */
-.carousel-tag {
-  display: inline-block;
-  background-color: var(--h3-red);
-  color: #FFFFFF;
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 16px;
+/* =========================================================================
+   LOGOTIPO FLOTANTE SUPERPUESTO (Responsive Central)
+   ========================================================================= */
+.carousel-logo-wrapper {
+  margin-top: -85px; /* Empuja el logo FUERA del cuadro rojo hacia la imagen */
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center; /* Centra el logo en móviles */
+  width: 100%;
 }
 
+.logo-bg-box {
+  background-color: #FFFFFF; /* Base blanca tipo tarjeta */
+  padding: 12px 24px;
+  border-radius: 16px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35); /* Sombra pesada para que flote sobre ambos fondos */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-brand-logo {
+  height: 60px; /* Buen tamaño para celular */
+  width: auto;
+  object-fit: contain;
+}
+
+/* =========================================================================
+   TIPOGRAFÍA Y BOTONES (Celulares)
+   ========================================================================= */
 .carousel-title {
-  color: #FFFFFF;
-  font-size: 36px;
-  font-weight: 800;
-  line-height: 1.1;
-  margin: 0 0 16px 0;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-@media (min-width: 768px) {
-  .carousel-title { font-size: 48px; }
+  color: var(--text-light);
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
 }
 
 .carousel-description {
-  color: #E5E7EB;
+  color: #FEE2E2;
   font-size: 15px;
   line-height: 1.5;
-  margin: 0 0 32px 0;
-  max-width: 500px;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  margin: 0 auto 24px auto;
+  font-weight: 400;
+  max-width: 400px;
 }
 
-@media (min-width: 768px) {
-  .carousel-description { font-size: 18px; }
-}
-
-/* Botones de acción */
 .carousel-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-carousel-primary, .btn-carousel-transparent {
+  width: 100%;
+  max-width: 320px;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .btn-carousel-primary {
-  background-color: var(--h3-red);
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  color: var(--h3-red);
   border: none;
-  padding: 12px 28px;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: 0 4px 6px rgba(227, 6, 19, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .btn-carousel-primary:hover {
-  background-color: var(--h3-red-dark);
+  background-color: #F3F4F6;
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(227, 6, 19, 0.4);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn-carousel-transparent {
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
+  background-color: transparent;
   color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  padding: 12px 28px;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .btn-carousel-transparent:hover {
-  background-color: #FFFFFF;
-  color: var(--text-main);
+  background-color: rgba(255, 255, 255, 0.1);
   border-color: #FFFFFF;
 }
 
-/* Flechas de navegación */
+/* =========================================================================
+   FLECHAS DE NAVEGACIÓN
+   ========================================================================= */
 .carousel-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -198,10 +249,89 @@
   transform: translateY(-50%) scale(1.1);
 }
 
-.arrow-left { left: 16px; }
-.arrow-right { right: 16px; }
+.arrow-left { left: 12px; }
+.arrow-right { right: 12px; }
 
-@media (min-width: 768px) {
-  .arrow-left { left: 24px; }
-  .arrow-right { right: 24px; }
+
+/* =========================================================================
+   DISEÑO PARA PC Y TABLETAS GRANDES (DIAGONAL REAL Y LOGO A LA IZQUIERDA)
+   ========================================================================= */
+@media (min-width: 968px) {
+  .hero-carousel-section {
+    height: 580px;
+  }
+
+  .carousel-slide {
+    flex-direction: row; 
+  }
+
+  /* La imagen pasa a tomar el lado derecho, fondo completo */
+  .carousel-image-layer {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 65%;
+    height: 100%;
+  }
+
+  /* La caja de texto toma el lado izquierdo con el corte diagonal */
+  .carousel-content-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 55%;
+    height: 100%;
+    margin-top: 0;
+    padding: 0 6%;
+  }
+
+  .carousel-content-layer::before, 
+  .carousel-content-layer::after {
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+  }
+
+  .carousel-text-container {
+    max-width: 500px;
+    text-align: left; /* Alineamos todo a la izquierda */
+  }
+
+  /* 
+     El logo deja de estar centrado/encapsulado en blanco.
+     Pasa a la izquierda, aumenta su tamaño drásticamente 
+     y usa sombra de caída directa sobre el PNG (drop-shadow).
+  */
+  .carousel-logo-wrapper {
+    margin-top: 0; 
+    margin-bottom: 24px;
+    justify-content: flex-start;
+  }
+
+  .logo-bg-box {
+    background-color: transparent; /* Quitamos la caja blanca */
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .carousel-brand-logo {
+    height: 90px; /* Tamaño mucho más grande e imponente */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4)); /* Sombra sobre el isotipo/imagotipo */
+  }
+
+  .carousel-title { font-size: 46px; margin-bottom: 16px; }
+  .carousel-description { font-size: 16px; margin: 0 0 32px 0; max-width: 100%; }
+
+  .carousel-actions {
+    flex-direction: row; 
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .btn-carousel-primary, .btn-carousel-transparent {
+    width: auto;
+    max-width: none;
+    padding: 14px 28px;
+  }
+
+  .arrow-left { left: 24px; width: 48px; height: 48px; }
+  .arrow-right { right: 24px; width: 48px; height: 48px; }
 }

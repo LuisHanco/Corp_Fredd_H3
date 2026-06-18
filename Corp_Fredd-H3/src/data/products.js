@@ -9,6 +9,8 @@ import h3 from '../assets/logos/h3.png'
 
 // CATÁLOGO GENERAL (Respaldo)
 import pdfH3 from '../assets/pdf/H3 CATALOGO.pdf'  
+// import manualTanques from '../assets/pdf/manual_tanques.pdf';
+// import certISO from '../assets/pdf/certificado_iso.pdf';
 
 // 📄 NUEVO: IMPORTACIÓN DE FICHAS TÉCNICAS INDIVIDUALES
 // Asegúrate de tener estos archivos o cambiar los nombres por los reales
@@ -715,13 +717,56 @@ export const PRODUCTOS = [
 // ============================================================================
 // 4. CATÁLOGOS PDF OFICIALES
 // ============================================================================
+
+// ... (tu lista de productos H3 está aquí en el medio) ...
+
+// Al final de products.js
 export const CATALOGOS = [
+  // 1. EJEMPLO CON UN ARCHIVO LOCAL (Importado arriba)
+
+
+
   { 
     id: 1, 
-    titulo: 'Catálogo Oficial H3 / HB Max 2026', 
-    tamano: '8.4 MB', 
+    titulo: 'Manual de Instalación Tanques H3', 
+    categoria: 'Manuales', // Esta etiqueta aparece visualmente en la tarjeta
+    tamano: '3.5 MB', 
+    fecha: 'Marzo 2026', 
+    enlacePdf: pdfH3 // Usa la variable que importaste arriba
+  },
+
+  // 2. EJEMPLO CON GOOGLE DRIVE (Súper Escalable)
+  { 
+    id: 2, 
+    titulo: 'Ficha Técnica Codo 90° PPH', 
+    categoria: 'Ficha Técnica', 
+    tamano: '1.2 MB', 
     fecha: '2026', 
-    archivo: 'H3_CATALOGO.pdf',
-    enlacePdf: pdfH3 // ← Catálogo Maestro (sirve de respaldo si un producto no tiene ficha)
+    // Pegas directamente el link de Drive. 
+    // El sistema es inteligente y lo transformará en un visor incrustado automáticamente.
+    // enlacePdf: 'https://drive.google.com/file/d/1EjemploDeTuIdDeDriveX/view?usp=sharing'
+    enlacePdf:fichaCodo90
+  },
+
+  // 3. OTRO EJEMPLO MÁS
+  { 
+    id: 3, 
+    titulo: 'Certificado de Calidad ISO 9001 - H3', 
+    categoria: 'Certificado', 
+    tamano: '850 KB', 
+    fecha: 'Actualizado', 
+    enlacePdf: pdfH3 
+  },
+
+  { 
+    id: 4, 
+    titulo: 'Catalogo H3 - 2026', 
+    categoria: 'Catalogo', 
+    tamano: '850 KB', 
+    fecha: 'Actualizado', 
+    enlacePdf: pdfH3 
   }
+
+  
+  // ¡Puedes agregar 1000 objetos más aquí y el buscador los encontrará al instante!
 ];

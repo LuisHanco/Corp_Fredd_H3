@@ -1,217 +1,200 @@
 import React, { useState, useEffect } from 'react';
-import { FileText, Eye, X, Search, ChevronLeft, ChevronRight, Layers, FileDown, HardDrive, Calendar } from 'lucide-react';
+import { Search, X, FileText, Calendar, HardDrive, Eye, Layers, BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
 import './CatalogosView.css';
 
 export default function CatalogosView({ CATALOGOS }) {
-  // --- ESTADOS DE CONTROL ---
-  const [activeTab, setActiveTab] = useState('todos');
+  // --- Estados ---
+  const [activeFilter, setActiveFilter] = useState('todos');
   const [searchQuery, setSearchQuery] = useState('');
   const [paginaActual, setPaginaActual] = useState(1);
-  const [urlCatalogoActivo, setUrlCatalogoActivo] = useState(null);
+  const [urlModal, setUrlModal] = useState(null);
 
-  const ITEMS_POR_PAGINA = 9; // Grid de 3x3 en PC
+  const ITEMS_POR_PAGINA = 9;
 
-  // Reset de página si el usuario busca o filtra
-  useEffect(() => {
-    setPaginaActual(1);
-  }, [activeTab, searchQuery]);
+  // Resetea paginación al filtrar
+  useEffect(() => { setPaginaActual(1); }, [activeFilter, searchQuery]);
 
-  // CATEGORÍAS FIJAS PARA EL SIDEBAR (Para simular escalabilidad futura)
-  const tabsDocumentos = [
-    { id: 'todos', nombre: 'Todos los Documentos' },
-    { id: 'catalogo', nombre: 'Catálogos Oficiales' },
-    { id: 'ficha', nombre: 'Fichas Técnicas' },
-    { id: 'manual', nombre: 'Manuales de Instalación' },
-    { id: 'certificado', nombre: 'Certificados ISO' },
+  // Filtros dinámicos (Píldoras)
+  const filters = [
+    { id: 'todos', label: 'Todos los Archivos' },
+    { id: 'catalogo', label: 'Catálogos' },
+    { id: 'ficha', label: 'Fichas Técnicas' },
+    { id: 'manual', label: 'Instalación' }
   ];
 
-  // 🔍 FILTRADO INTELIGENTE
-  const catalogosFiltrados = CATALOGOS.filter((doc) => {
-    // 1. Filtro por Pestaña (Si tuviéramos un campo 'tipo' en el objeto PDF en el futuro)
-    // Por ahora, asumiremos que todos caen en 'todos' o simularemos el filtro por la palabra clave en el título
-    const coincideTab = activeTab === 'todos' || doc.titulo.toLowerCase().includes(activeTab);
-    
-    // 2. Filtro por Búsqueda de Usuario
-    const coincideBusqueda = doc.titulo.toLowerCase().includes(searchQuery.toLowerCase());
-    
-    return coincideTab && coincideBusqueda;
+  // Lógica de Filtrado
+  const documentosFiltrados = CATALOGOS.filter((doc) => {
+    const matchFiltro = activeFilter === 'todos' || doc.titulo.toLowerCase().includes(activeFilter);
+    const matchBusqueda = doc.titulo.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchFiltro && matchBusqueda;
   });
 
-  // 📑 SEGMENTACIÓN (Paginación)
+  // Paginación
   const indexUltimoItem = paginaActual * ITEMS_POR_PAGINA;
   const indexPrimerItem = indexUltimoItem - ITEMS_POR_PAGINA;
-  const documentosPaginados = catalogosFiltrados.slice(indexPrimerItem, indexUltimoItem);
-  const totalPaginas = Math.ceil(catalogosFiltrados.length / ITEMS_POR_PAGINA);
+  const documentosPaginados = documentosFiltrados.slice(indexPrimerItem, indexUltimoItem);
+  const totalPaginas = Math.ceil(documentosFiltrados.length / ITEMS_POR_PAGINA);
 
-  // 🛠️ DETECTOR INTELIGENTE DE FUENTE PDF
-  const abrirVisor = (urlPdf) => {
-    if (!urlPdf) return;
-    let url = urlPdf;
-    if (url.includes('drive.google.com')) {
-      url = url.replace(/\/view\?usp=sharing|\/edit\?usp=sharing|\/view|\/edit/g, '/preview');
+  // Helper de Paginación
+  const getPageNumbers = () => {
+    let pages = [];
+    for (let i = 1; i <= totalPaginas; i++) {
+      pages.push(i);
     }
-    setUrlCatalogoActivo(url);
+    return pages;
+  };
+
+  // Visor Seguro
+  const abrirPDF = (url) => {
+    if (!url) return;
+    let safeUrl = url.includes('drive.google.com') 
+      ? url.replace(/\/view\?usp=sharing|\/edit\?usp=sharing|\/view|\/edit/g, '/preview') 
+      : url;
+    setUrlModal(safeUrl);
   };
 
   return (
-    <div className="catalogos-page">
-      <div className="catalogos-container">
-        
-        {/* Encabezado */}
-        <div className="catalogos-header">
-          <span className="catalogos-tagline">Centro de Documentación</span>
-          <h1 className="catalogos-title">Biblioteca Técnica H3</h1>
-          <div className="catalogos-divider"></div>
-          <p className="catalogos-subtitle">
-            Accede a nuestra base de datos centralizada. Consulta fichas técnicas, manuales de instalación y certificaciones de toda la línea industrial H3 y HB Max.
+    <div className="resource-center-page">
+      
+      {/* 1. HEADER HERO */}
+      <header className="rc-header">
+        <div className="rc-header-content">
+          <span className="rc-badge">
+            <BookOpen size={14} /> Centro de Recursos
+          </span>
+          <h1 className="rc-title">Documentación Técnica</h1>
+          <p className="rc-subtitle">
+            Base de datos oficial de Industrias Fredd S.A.C. Encuentra manuales, especificaciones y certificaciones de nuestra línea H3 y HB Max.
           </p>
         </div>
+      </header>
 
-        {/* LAYOUT PRINCIPAL: SIDEBAR + RESULTADOS */}
-        <div className="library-layout">
-          
-          {/* PANEL IZQUIERDO (SIDEBAR) */}
-          <aside className="library-sidebar">
-            <h3 className="sidebar-title">Buscador Rápido</h3>
-            
-            <div className="sidebar-search-box">
-              <Search size={16} className="search-icon-lib" />
-              <input 
-                type="text"
-                placeholder="Ej. Codo 90, Tanque..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="search-input-lib"
-              />
-            </div>
-
-            <h3 className="sidebar-title" style={{marginTop: '32px'}}>Clasificación</h3>
-            <div className="doc-categories-list">
-              {tabsDocumentos.map((tab) => (
-                <button 
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`doc-cat-btn ${activeTab === tab.id ? 'active' : ''}`}
-                >
-                  <span>{tab.nombre}</span>
-                  {/* Simulamos un contador dinámico. En la realidad sería: catalogosTotales.filter(...).length */}
-                  <span className="doc-count-badge">
-                    {tab.id === 'todos' ? CATALOGOS.length : (tab.id === 'catalogo' ? CATALOGOS.length : 0)}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </aside>
-
-          {/* PANEL DERECHO (GRILLA DE RESULTADOS) */}
-          <main className="library-results-area">
-            
-            <div className="results-top-bar">
-              <span className="results-count">
-                Mostrando <strong>{documentosPaginados.length}</strong> de <strong>{catalogosFiltrados.length}</strong> documentos
-              </span>
-            </div>
-
-            {catalogosFiltrados.length > 0 ? (
-              <>
-                <div className="docs-grid">
-                  {documentosPaginados.map((doc) => (
-                    <div key={doc.id} className="doc-card">
-                      
-                      <div className="doc-card-header">
-                        <div className="doc-icon-box">
-                          <FileText size={24} strokeWidth={2} />
-                        </div>
-                        <div className="doc-info">
-                          <span className="doc-format-tag">Documento PDF</span>
-                          <h4 className="doc-title" title={doc.titulo}>{doc.titulo}</h4>
-                        </div>
-                      </div>
-
-                      <div className="doc-metadata">
-                        <div className="meta-item">
-                          <HardDrive size={14} />
-                          <span>{doc.tamano || 'Desconocido'}</span>
-                        </div>
-                        <div className="meta-item">
-                          <Calendar size={14} />
-                          <span>Edición {doc.fecha || 'Actual'}</span>
-                        </div>
-                      </div>
-
-                      <button 
-                        onClick={() => abrirVisor(doc.enlacePdf || doc.enlaceDrive)} 
-                        className="btn-open-doc"
-                      >
-                        <Eye size={16} />
-                        <span>Abrir Visor</span>
-                      </button>
-
-                    </div>
-                  ))}
-                </div>
-
-                {/* PAGINACIÓN */}
-                {totalPaginas > 1 && (
-                  <div className="pagination-controls">
-                    <button 
-                      onClick={() => setPaginaActual(prev => Math.max(prev - 1, 1))}
-                      disabled={paginaActual === 1}
-                      className="page-nav-btn"
-                    >
-                      <ChevronLeft size={16} />
-                      <span>Anterior</span>
-                    </button>
-                    
-                    <span className="page-indicator">
-                      Página <span>{paginaActual}</span> de <span>{totalPaginas}</span>
-                    </span>
-
-                    <button 
-                      onClick={() => setPaginaActual(prev => Math.min(prev + 1, totalPaginas))}
-                      disabled={paginaActual === totalPaginas}
-                      className="page-nav-btn"
-                    >
-                      <span>Siguiente</span>
-                      <ChevronRight size={16} />
-                    </button>
-                  </div>
-                )}
-              </>
-            ) : (
-              /* ESTADO VACÍO */
-              <div className="no-docs-box">
-                <Layers size={48} className="no-docs-icon" />
-                <h4 className="no-docs-title">No hay documentos disponibles</h4>
-                <p className="no-docs-text">Prueba ajustando el filtro lateral o cambiando el término de búsqueda.</p>
-              </div>
-            )}
-
-          </main>
-
+      {/* 2. BARRA DE BÚSQUEDA FLOTANTE */}
+      <div className="rc-search-wrapper">
+        <div className="rc-search-box">
+          <Search size={20} className="rc-search-icon" />
+          <input 
+            type="text" 
+            placeholder="Buscar documento por título o código..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="rc-search-input"
+          />
+          {searchQuery && (
+            <button onClick={() => setSearchQuery('')} className="rc-search-clear">
+              <X size={14} />
+            </button>
+          )}
         </div>
       </div>
 
-      {/* MODAL VISOR A PANTALLA COMPLETA */}
-      {urlCatalogoActivo && (
-        <div className="catalogos-modal-overlay" onClick={() => setUrlCatalogoActivo(null)}>
-          <div className="catalogos-modal-content" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-control-bar">
-              <span className="modal-doc-indicator">
-                Visor de Documentos <span style={{color: '#111827'}}>— Industrias Fredd</span>
-              </span>
-              <button className="btn-close-modal" onClick={() => setUrlCatalogoActivo(null)}>
-                <X size={16} />
-                <span>Cerrar</span>
+      {/* 3. CONTENIDO PRINCIPAL */}
+      <main className="rc-main">
+        
+        {/* Chips de Filtrado Horizontal */}
+        <div className="rc-filters">
+          {filters.map((f) => (
+            <button 
+              key={f.id}
+              onClick={() => setActiveFilter(f.id)}
+              className={`rc-filter-chip ${activeFilter === f.id ? 'active' : ''}`}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Grilla de Resultados */}
+        {documentosFiltrados.length > 0 ? (
+          <>
+            <div className="rc-grid">
+              {documentosPaginados.map(doc => (
+                <div key={doc.id} className="rc-card">
+                  
+                  <div className="rc-card-header">
+                    <div className="rc-card-icon">
+                      <FileText size={24} />
+                    </div>
+                    <div className="rc-card-meta">
+                      <span className="rc-card-tag">{doc.categoria || 'PDF Oficial'}</span>
+                      <h3 className="rc-card-title">{doc.titulo}</h3>
+                    </div>
+                  </div>
+
+                  <div className="rc-card-details">
+                    <div className="rc-detail-item">
+                      <HardDrive size={14} /> {doc.tamano || 'N/A'}
+                    </div>
+                    <div className="rc-detail-item">
+                      <Calendar size={14} /> {doc.fecha || 'Vigente'}
+                    </div>
+                  </div>
+
+                  <div className="rc-card-actions">
+                    <button onClick={() => abrirPDF(doc.enlacePdf || doc.enlaceDrive)} className="rc-btn-view">
+                      <Eye size={16} /> Ver Documento
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Controles de Paginación */}
+            {totalPaginas > 1 && (
+              <div className="rc-pagination">
+                <button 
+                  className="rc-page-btn" 
+                  disabled={paginaActual === 1}
+                  onClick={() => setPaginaActual(p => p - 1)}
+                >
+                  <ChevronLeft size={18} />
+                </button>
+
+                {getPageNumbers().map(num => (
+                  <button 
+                    key={num}
+                    className={`rc-page-btn ${paginaActual === num ? 'active' : ''}`}
+                    onClick={() => setPaginaActual(num)}
+                  >
+                    {num}
+                  </button>
+                ))}
+
+                <button 
+                  className="rc-page-btn" 
+                  disabled={paginaActual === totalPaginas}
+                  onClick={() => setPaginaActual(p => p + 1)}
+                >
+                  <ChevronRight size={18} />
+                </button>
+              </div>
+            )}
+          </>
+        ) : (
+          /* Estado Vacío */
+          <div className="rc-empty-state">
+            <Layers size={64} className="rc-empty-icon" strokeWidth={1} />
+            <h3 className="rc-empty-title">Sin resultados</h3>
+            <p className="rc-empty-text">No pudimos encontrar documentos para "{searchQuery}".</p>
+            <button onClick={() => { setSearchQuery(''); setActiveFilter('todos'); }} className="rc-btn-reset">
+              Ver todo el catálogo
+            </button>
+          </div>
+        )}
+      </main>
+
+      {/* 4. MODAL VISOR DE DOCUMENTO */}
+      {urlModal && (
+        <div className="rc-modal-overlay" onClick={() => setUrlModal(null)}>
+          <div className="rc-modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="rc-modal-header">
+              <h4 className="rc-modal-title">Visor Técnico</h4>
+              <button className="rc-btn-close" onClick={() => setUrlModal(null)}>
+                <X size={18} />
               </button>
             </div>
-            <div className="modal-iframe-container">
-              <iframe 
-                src={urlCatalogoActivo} 
-                title="Visor de PDF H3" 
-                allow="autoplay" 
-                frameBorder="0"
-              ></iframe>
+            <div className="rc-modal-body">
+              <iframe src={urlModal} title="Visor PDF" allow="autoplay" allowFullScreen></iframe>
             </div>
           </div>
         </div>

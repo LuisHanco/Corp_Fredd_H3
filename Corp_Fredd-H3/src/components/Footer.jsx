@@ -32,7 +32,7 @@ export default function Footer({ navegarA, setActiveCategoryFilter }) {
               <img src={logoImg} alt="Logo Industrias Fredd" className="footer-brand-logo-v2" />
             </div>
             <p className="brand-brief">
-              Fábrica 100% peruana especializada en la línea oficial H3 y HB Max. Soluciones en conexiones, agua caliente, desagüe, termoplásticos y electrobombas.
+              Fábrica 100% peruana especializada en la línea oficial H3 y H3 Max. Soluciones en conexiones, agua caliente, desagüe, termoplásticos y electrobombas.
             </p>
           </div>
 

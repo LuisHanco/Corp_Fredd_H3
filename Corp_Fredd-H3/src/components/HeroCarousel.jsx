@@ -1,8 +1,27 @@
-import React from 'react';
-import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import React, { useEffect, useCallback } from 'react';
+import { ChevronLeft, ChevronRight, ArrowRight, FileText } from 'lucide-react';
+// Importamos el logo oficial desde tu carpeta de assets
+import logoH3 from '../assets/logos/h3.png';
 import './HeroCarousel.css';
 
 export default function HeroCarousel({ slides, currentSlide, setCurrentSlide, navegarA }) {
+  
+  // Función para avanzar al siguiente slide
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  }, [slides.length, setCurrentSlide]);
+
+  // Función para retroceder al slide anterior
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  // Autoplay inteligente: Avanza cada 6 segundos
+  useEffect(() => {
+    const slideInterval = setInterval(nextSlide, 6000);
+    return () => clearInterval(slideInterval);
+  }, [nextSlide]);
+
   return (
     <section className="hero-carousel-section">
       <div className="carousel-wrapper">
@@ -11,49 +30,70 @@ export default function HeroCarousel({ slides, currentSlide, setCurrentSlide, na
             key={index} 
             className={`carousel-slide ${index === currentSlide ? 'slide-active' : 'slide-inactive'}`}
           >
-            {/* Capa oscura de fondo para que resalten las letras blancas */}
-            <div className="carousel-overlay" />
             
-            {/* Imagen de fondo */}
-            <img src={slide.img} alt={slide.titulo} className="carousel-bg-img" />
+            {/* 1. LADO DEL PRODUCTO (Derecha en PC, Arriba en Móvil) */}
+            <div className="carousel-image-layer">
+              <img 
+                src={slide.img} 
+                alt={slide.titulo} 
+                className="carousel-bg-img" 
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+            </div>
             
-            {/* Contenido del texto */}
+            {/* 2. LADO DEL TEXTO (Izquierda en PC, Abajo en Móvil) */}
             <div className="carousel-content-layer">
               <div className="carousel-text-container">
-                <span className="carousel-tag">Línea Oficial H3</span>
+                
+                {/* LOGO FLOTANTE: Sobresale y se centra en móvil */}
+                <div className="carousel-logo-wrapper">
+                  <div className="logo-bg-box">
+                    <img 
+                      src={logoH3} 
+                      alt="Línea Oficial H3" 
+                      className="carousel-brand-logo" 
+                    />
+                  </div>
+                </div>
+                
                 <h1 className="carousel-title">{slide.titulo}</h1>
                 <p className="carousel-description">{slide.subtitulo}</p>
                 
                 <div className="carousel-actions">
                   <button onClick={() => navegarA('productos')} className="btn-carousel-primary">
-                    <span>Ver Catálogo H3</span>
-                    <ArrowRight size={16} />
+                    <span>Ver Catálogo</span>
+                    <ArrowRight size={18} />
                   </button>
-                  <button onClick={() => navegarA('contacto')} className="btn-carousel-transparent">
-                    Solicitar Cotización
+                  <button onClick={() => navegarA('catalogos')} className="btn-carousel-transparent">
+                    <FileText size={18} />
+                    <span>Fichas Técnicas</span>
                   </button>
                 </div>
+
               </div>
             </div>
+
           </div>
         ))}
       </div>
 
-      {/* Flechas de navegación del carrusel */}
+      {/* Controles de Navegación */}
       <button 
-        onClick={() => setCurrentSlide((currentSlide - 1 + slides.length) % slides.length)} 
+        onClick={prevSlide} 
         className="carousel-arrow arrow-left"
-        aria-label="Anterior"
+        aria-label="Diapositiva Anterior"
       >
-        <ChevronLeft size={24} />
+        <ChevronLeft size={28} />
       </button>
+      
       <button 
-        onClick={() => setCurrentSlide((currentSlide + 1) % slides.length)} 
+        onClick={nextSlide} 
         className="carousel-arrow arrow-right"
-        aria-label="Siguiente"
+        aria-label="Siguiente Diapositiva"
       >
-        <ChevronRight size={24} />
+        <ChevronRight size={28} />
       </button>
+      
     </section>
   );
 }
