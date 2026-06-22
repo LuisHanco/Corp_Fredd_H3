@@ -121,7 +121,7 @@ export default function ProductosView({
                       alt={prod.nombre} 
                       className="catalog-product-img" 
                     />
-                    <span className="catalog-brand-badge">{prod.marca}</span>
+                    {/* <span className="catalog-brand-badge">{prod.marca}</span> */}
                   </div>
 
                   {/* Bloque Descriptivo con Flex-Grow de balance simétrico */}

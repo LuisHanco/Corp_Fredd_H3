@@ -180,7 +180,7 @@ export default function HomeView({ slides, currentSlide, setCurrentSlide, navega
             >
               <div className="product-img-stage">
                 <img src={prod.imagenes && prod.imagenes[0]} alt={prod.nombre} className="product-stage-img" loading="lazy" />
-                <span className="product-brand-floating-badge">{prod.marca}</span>
+                {/* <span className="product-brand-floating-badge">{prod.marca}</span> */}
               </div>
 
               <div className="product-details-chassis">

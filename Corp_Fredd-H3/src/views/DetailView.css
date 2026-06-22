@@ -5,9 +5,9 @@
 :root {
   --h3-red: #E30613;
   --h3-red-dark: #B3040F;
-  --text-main: #111827; /* Aún más oscuro para contraste premium */
+  --text-main: #111827; 
   --text-muted: #6B7280;
-  --bg-main: #F4F5F7; /* Fondo sutilmente gris para resaltar la tarjeta blanca */
+  --bg-main: #F4F5F7; 
   --bg-card: #FFFFFF;
   --border-light: #E5E7EB;
   
@@ -80,41 +80,48 @@
   border-radius: 24px;
   padding: 48px;
   display: grid;
-  grid-template-columns: 1fr 1.1fr; /* Le da un poco más de espacio al texto */
+  grid-template-columns: 1fr 1.1fr; 
   gap: 56px;
   margin-bottom: 40px;
   box-shadow: var(--shadow-lg);
 }
 
-/* Galería de Imágenes Premium */
+/* =========================================================================
+   GALERÍA DE IMÁGENES PREMIUM (TAMAÑOS ESTANDARIZADOS)
+   ========================================================================= */
 .product-gallery-side {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
+/* Contenedor Principal: Cuadrado Perfecto */
 .main-image-viewport {
   position: relative;
-  aspect-ratio: 1 / 1;
+  width: 100%;
+  aspect-ratio: 1 / 1; 
   background-color: #FFFFFF;
   border-radius: 16px;
   border: 1px solid var(--border-light);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 32px;
-  box-sizing: border-box;
+  overflow: hidden; /* Corta cualquier desborde */
 }
 
+/* Imagen Principal: Obligada a encajar sin deformarse */
 .full-product-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: transform 0.3s ease;
+  padding: 32px; /* Margen interno para que no toque los bordes */
+  box-sizing: border-box;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  mix-blend-mode: multiply; /* Truco para fusionar fondos blancos de JPGs */
 }
 
 .main-image-viewport:hover .full-product-img {
-  transform: scale(1.03);
+  transform: scale(1.05); /* Zoom sutil y centrado */
 }
 
 .product-brand-floating-tag {
@@ -130,9 +137,10 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   box-shadow: 0 4px 10px rgba(227, 6, 19, 0.2);
+  z-index: 10; /* Siempre sobre la imagen */
 }
 
-/* Miniaturas con scroll nativo en móviles */
+/* Miniaturas: Estrictamente Cuadradas */
 .thumbnails-strip {
   display: flex;
   gap: 12px;
@@ -143,16 +151,18 @@
 .thumbnails-strip::-webkit-scrollbar { display: none; }
 
 .thumb-img {
-  flex: 0 0 calc(25% - 9px); /* 4 columnas exactas en PC */
-  aspect-ratio: 1 / 1;
+  flex: 0 0 calc(25% - 9px); 
+  aspect-ratio: 1 / 1; /* Garantiza el cuadrado */
+  width: 100%;
   object-fit: contain;
   background-color: #FFFFFF;
   border-radius: 10px;
   cursor: pointer;
   border: 2px solid var(--border-light);
   transition: all 0.2s ease;
-  padding: 8px;
+  padding: 8px; /* Espaciado interno */
   box-sizing: border-box;
+  mix-blend-mode: multiply;
 }
 
 .thumb-img:hover {
@@ -164,7 +174,9 @@
   box-shadow: 0 0 0 1px var(--h3-red);
 }
 
-/* Información Comercial */
+/* =========================================================================
+   INFORMACIÓN COMERCIAL
+   ========================================================================= */
 .product-info-side {
   display: flex;
   flex-direction: column;
@@ -415,7 +427,7 @@
   font-size: 11px; 
   font-weight: 800; 
   padding: 6px 12px; 
-  border-radius: 20px; /* Estilo píldora */
+  border-radius: 20px;
   display: inline-block; 
   text-transform: uppercase; 
   letter-spacing: 0.05em;
@@ -513,27 +525,44 @@
   box-shadow: var(--shadow-hover);
 }
 
+/* Contenedor estandarizado para sugerencias */
 .similar-card-img-container {
   width: 100%;
-  height: 180px; 
+  aspect-ratio: 1 / 1; /* De altura fija a Cuadrado estricto */
   background-color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
-  box-sizing: border-box;
   border-bottom: 1px solid #F9FAFB;
+  overflow: hidden;
 }
 
 .similar-stage-img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain; 
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Garantiza proporciones uniformes */
+  padding: 24px; /* Espaciado interno consistente */
+  box-sizing: border-box;
   transition: transform 0.4s ease;
+  mix-blend-mode: multiply;
 }
 
 .similar-card-premium:hover .similar-stage-img {
   transform: scale(1.1);
+}
+
+.similar-card-brand {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--h3-red);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  z-index: 5;
 }
 
 .similar-card-info {
@@ -693,7 +722,7 @@
 @media (max-width: 1024px) {
   .main-product-card { gap: 40px; padding: 40px; }
   .similares-responsive-track { grid-template-columns: repeat(3, 1fr); }
-  .similar-card-premium:last-child { display: none; /* Ocultar el 4to en tablet */ }
+  .similar-card-premium:last-child { display: none; }
 }
 
 @media (max-width: 968px) {
@@ -706,12 +735,12 @@
     border-radius: 20px;
   }
   
-  .main-image-viewport { aspect-ratio: 4 / 3; padding: 24px; }
+  .main-image-viewport { padding: 0; }
   .product-main-title { font-size: 28px; }
   .specs-tabs-card { padding: 32px 24px; border-radius: 20px; }
   
   .similares-responsive-track { grid-template-columns: repeat(2, 1fr); }
-  .similar-card-premium:last-child { display: flex; /* Mostrar de nuevo */ }
+  .similar-card-premium:last-child { display: flex; }
 }
 
 @media (max-width: 640px) {
@@ -726,10 +755,10 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 8px;
-    padding-bottom: 8px; /* Espacio para scrollbar si aparece en Android */
+    padding-bottom: 8px; 
   }
   .thumb-img {
-    flex: 0 0 72px; /* Ancho fijo en móvil */
+    flex: 0 0 72px; 
     scroll-snap-align: start;
   }
   
@@ -757,7 +786,7 @@
     gap: 16px;
     padding: 4px 4px 24px 4px;
     scrollbar-width: none;
-    margin-right: -16px; /* Salir del contenedor para el swipe */
+    margin-right: -16px; 
     padding-right: 16px;
   }
   .similares-responsive-track::-webkit-scrollbar { display: none; }
