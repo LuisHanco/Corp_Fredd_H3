@@ -37,23 +37,23 @@ export default function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
     {
-      titulo: 'Más de 32 años haciendo historia',
-      subtitulo: 'Líderes en importación y distribución de conexiones industriales de alta resistencia y termoplásticos.',
+      titulo: 'Agua Caliente (PPR)',
+      subtitulo: 'Nuestra línea de tuberías y conexiones de PPR (Polipropileno) está diseñada para soportar altas temperaturas y presiones sin deformarse.',
       img: img1
     },
     {
-      titulo: 'Conexiones de Alta Performance',
-      subtitulo: 'Suministramos la más alta calidad en tuberías, bridas y accesorios.',
+      titulo: 'Agua Fría y Desagüe',
+      subtitulo: 'Soluciones integrales en tuberías y conexiones de PVC de alta calidad, diseñadas para optimizar la conducción de agua potable y la evacuación eficiente de fluidos.',
       img: img2
     },
     {
-      titulo: 'Más de 32 años haciendo historia',
-      subtitulo: 'Líderes en importación y distribución de conexiones industriales de alta resistencia y termoplásticos.',
+      titulo: 'Tanques y Biodigestores',
+      subtitulo: 'Soluciones eficientes para el cuidado del agua y el medio ambiente.',
       img: img3
     },
     {
-      titulo: 'Más de 32 años haciendo historia',
-      subtitulo: 'Líderes en importación y distribución de conexiones industriales de alta resistencia y termoplásticos.',
+      titulo: 'Electrobombas',
+      subtitulo: 'Diseñadas para un rendimiento superior, las electrobombas H3 Max aseguran un abastecimiento de agua constante y eficiente en hogares, comercios e industrias.',
       img: img4
     }
   ];

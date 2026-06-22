@@ -9,16 +9,14 @@ export default function NosotrosView({ navegarA }) {
   const SUCURSALES = {
     puno: {
       ciudad: 'Juliaca - Puno',
-      direccion: 'Jr. Cahuide N° 656, Juliaca - Puno',
-      telefono: '+51 (01) 480-1234',
-      horario: 'Lun a Vie: 8:00 AM - 6:00 PM',
-      detalles: 'Planta matriz, centro de distribución y atención técnica especializada en la línea H3.'
+      direccion: 'Jr. Cahuide N° 653, Juliaca - Puno',
+      telefono: '+51 950 013 772',
+      detalles: 'Planta matriz, centro de distribución y atención técnica especializada.'
     },
     arequipa: {
       ciudad: 'Arequipa',
-      direccion: 'Parque Industrial Siglo XX, Mz. D Lote 4 - Arequipa',
-      telefono: '+51 987 654 323',
-      horario: 'Lun a Sáb: 8:00 AM - 6:30 PM',
+      direccion: 'Av. Lima N° 120 - Mariano Melgar Arequipa - Arequipa',
+      telefono: '+51 950 013 772',
       detalles: 'Centro de almacenamiento estratégico y logística regional.'
     }
   };
@@ -42,7 +40,7 @@ export default function NosotrosView({ navegarA }) {
               Con más de 32 años de experiencia, Industrias Fredd S.A.C. se consolida como tu aliado estratégico, ofreciendo la entrega más rápida del mercado y una excelente relación calidad-precio en el rubro de conexiones termoplásticas.
             </p>
             <p>
-              A través de nuestras líneas oficiales <strong>H3</strong> y <strong>HB Max</strong>, abastecemos con stock permanente a los proyectos de ingeniería más exigentes a nivel nacional, garantizando siempre la máxima seguridad y 1 año de garantía post-venta en todos los accesorios.
+              A través de nuestras líneas oficiales <strong>H3</strong> y <strong>H3 Max</strong>, abastecemos con stock permanente a los proyectos de ingeniería más exigentes a nivel nacional, garantizando siempre la máxima seguridad y 1 año de garantía post-venta en todos los accesorios.
             </p>
           </div>
           <div className="intro-image-box">
@@ -59,7 +57,7 @@ export default function NosotrosView({ navegarA }) {
         <section className="timeline-section animate-fade-up delay-200">
           <div className="section-header">
             <span className="section-tagline">Nuestra Historia</span>
-            <h2 className="section-title">Más de 30 Años de Evolución</h2>
+            <h2 className="section-title">Más de 32 Años de Evolución</h2>
             <div className="title-divider"></div>
           </div>
           
@@ -68,7 +66,7 @@ export default function NosotrosView({ navegarA }) {
               <div className="timeline-year">1994</div>
               <div className="timeline-content">
                 <h4>Fundación</h4>
-                <p>Iniciamos operaciones en Juliaca apostando por la industrialización y manufactura 100% peruana.</p>
+                <p>Iniciamos operaciones en Arequipa apostando por la industrialización y manufactura 100% peruana.</p>
               </div>
             </div>
             <div className="timeline-item">

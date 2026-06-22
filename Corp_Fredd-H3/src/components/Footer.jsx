@@ -98,15 +98,17 @@ export default function Footer({ navegarA, setActiveCategoryFilter }) {
             <div className="footer-contact-card">
               <div className="contact-card-row">
                 <MapPin size={16} className="card-icon-red" />
-                <span className="contact-card-text">Jr. Cahuide N° 656, Juliaca - Perú</span>
+                <span className="contact-card-text">Av. Lima N° 120 - Mariano Melgar Arequipa - Arequipa</span>
+                <span className="contact-card-text">Jr. Cahuide N° 653, Juliaca - Perú</span>
               </div>
               <div className="contact-card-row">
                 <Phone size={16} className="card-icon-red" />
-                <span className="contact-card-text">+51 (01) 480-1234</span>
+                <span className="contact-card-text">+51 950 013 772</span>
               </div>
               <div className="contact-card-row">
                 <Mail size={16} className="card-icon-red" />
-                <span className="contact-card-text">ventas@industriasfredd.com</span>
+                <span className="contact-card-text">ventas@grupofredd.com</span>
+                <span className="contact-card-text">info@grupofredd.com</span>
               </div>
               <div className="contact-card-row">
                 <Clock size={16} className="card-icon-red" />
@@ -122,7 +124,7 @@ export default function Footer({ navegarA, setActiveCategoryFilter }) {
       <div className="footer-bottom-copyright-bar">
         <div className="copyright-container">
           <p className="copyright-text">
-            © {new Date().getFullYear()} <span className="copyright-bold">INDUSTRIAS FREDD S.A.C.</span> Todos los derechos reservados.
+            © {new Date().getFullYear()} <span className="copyright-bold">H3MAX</span> Todos los derechos reservados.
           </p>
           <div className="copyright-legal-links">
             <span className="legal-link">Garantía H3</span>

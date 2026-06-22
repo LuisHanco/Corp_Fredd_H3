@@ -74,7 +74,7 @@ export default function DetailView({
                 className="full-product-img" 
               />
               {/* Etiqueta de Marca incrustada en la imagen */}
-              <span className="product-brand-floating-tag">{selectedProduct.marca}</span>
+              {/* <span className="product-brand-floating-tag">{selectedProduct.marca}</span> */}
             </div>
             
             {/* Tira de Miniaturas (Responsiva con Scroll en móviles) */}
