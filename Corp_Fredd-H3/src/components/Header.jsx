@@ -19,11 +19,12 @@ export default function Header({ currentPage, navegarA, searchQuery, setSearchQu
           <div className="top-bar-contact">
             <span className="contact-item">
               <Phone size={14} className="icon-top" />
-              <span>+51 (01) 480-1234</span>
+              <span>+51 950 013 772</span>
             </span>
             <span className="contact-item hide-mobile">
               <Mail size={14} className="icon-top" />
-              <span>ventas@industriasfredd.com</span>
+              <span>ventas@grupofredd.com</span>
+              <span>info@grupofredd.com</span>
             </span>
           </div>
           <div className="top-bar-tagline">
@@ -38,7 +39,7 @@ export default function Header({ currentPage, navegarA, searchQuery, setSearchQu
         <div className="header-logo-block" onClick={() => navegarA('inicio')}>
           <img src={logoImg} alt="Logo Industrias Fredd" className="header-logo-img" />
           <div className="header-text-block">
-            <span className="brand-title">INDUSTRIAS FREDD S.A.C</span>
+            {/* <span className="brand-title">INDUSTRIAS FREDD S.A.C</span> */}
             <span className="brand-subtitle">Fábrica 100% peruana</span>
           </div>
         </div>

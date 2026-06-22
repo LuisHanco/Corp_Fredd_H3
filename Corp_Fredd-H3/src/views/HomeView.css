@@ -521,8 +521,8 @@
    BLOQUE PRE-FOOTER INFORMATIVO
    ========================================================================= */
 .pre-footer-banner { 
-  background: linear-gradient(135deg, var(--h3-red) 0%, var(--h3-red-dark) 100%);
-  color: #FFFFFF; 
+  background: linear-gradient(135deg, var(--bg-main) 0%, var(--bg-main) 100%);
+  color: #000000; 
   padding: 72px 20px; 
   text-align: center; 
   position: relative;
@@ -540,7 +540,7 @@
 
 .banner-content { max-width: 800px; margin: 0 auto; position: relative; z-index: 2;}
 .banner-content h3 { font-size: 32px; font-weight: 800; margin: 0; letter-spacing: -0.01em;}
-.banner-content p { font-size: 18px; color: #FEE2E2; margin: 16px 0 32px 0; line-height: 1.6;}
+.banner-content p { font-size: 18px; color: #000000; margin: 16px 0 32px 0; line-height: 1.6;}
 .btn-banner-action { 
   background-color: #FFFFFF; 
   color: var(--h3-red); 
