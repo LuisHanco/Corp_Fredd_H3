@@ -11,7 +11,7 @@
 .hero-carousel-section {
   position: relative;
   width: 100%;
-  height: 680px; /* Un poco más de altura para celulares para dar respiro */
+  height: 680px; /* Altura ideal para dar respiro en móviles */
   overflow: hidden;
   background-color: #111827;
   font-family: 'Inter', 'Calibri', sans-serif;
@@ -78,11 +78,10 @@
   flex-direction: column;
   justify-content: center;
   padding: 40px 24px;
-  margin-top: -8vw; /* Crea la superposición con la imagen */
+  margin-top: -8vw; /* Crea la superposición diagonal con la imagen */
 }
 
-/* 
-  TRUCO PRO: El fondo rojo se aplica a un pseudo-elemento (::before)
+/* TRUCO PRO: El fondo rojo se aplica a un pseudo-elemento (::before)
   con clip-path. Así, el contenedor padre NO recorta el logo cuando 
   lo empujamos hacia arriba con margen negativo.
 */
@@ -126,10 +125,10 @@
 }
 
 /* =========================================================================
-   LOGOTIPO FLOTANTE SUPERPUESTO (Responsive Central)
+   LOGOTIPO FLOTANTE SUPERPUESTO (Responsive)
    ========================================================================= */
 .carousel-logo-wrapper {
-  margin-top: -85px; /* Empuja el logo FUERA del cuadro rojo hacia la imagen */
+  margin-top: -85px; /* Empuja el logo FUERA del cuadro rojo hacia la imagen en móvil */
   margin-bottom: 24px;
   display: flex;
   justify-content: center; /* Centra el logo en móviles */
@@ -144,10 +143,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-bg-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.4);
 }
 
 .carousel-brand-logo {
-  height: 60px; /* Buen tamaño para celular */
+  height: 60px; /* Tamaño ideal para celular */
   width: auto;
   object-fit: contain;
 }
@@ -254,7 +259,7 @@
 
 
 /* =========================================================================
-   DISEÑO PARA PC Y TABLETAS GRANDES (DIAGONAL REAL Y LOGO A LA IZQUIERDA)
+   DISEÑO PARA PC Y TABLETAS GRANDES (DIAGONAL REAL Y CAJA BLANCA)
    ========================================================================= */
 @media (min-width: 968px) {
   .hero-carousel-section {
@@ -291,30 +296,29 @@
   }
 
   .carousel-text-container {
-    max-width: 500px;
+    max-width: 540px;
     text-align: left; /* Alineamos todo a la izquierda */
   }
 
-  /* 
-     El logo deja de estar centrado/encapsulado en blanco.
-     Pasa a la izquierda, aumenta su tamaño drásticamente 
-     y usa sombra de caída directa sobre el PNG (drop-shadow).
+  /* El recuadro blanco se mantiene en PC, pero se ajustan los márgenes
+     y se alinea a la izquierda de forma profesional.
   */
   .carousel-logo-wrapper {
     margin-top: 0; 
-    margin-bottom: 24px;
+    margin-bottom: 32px;
     justify-content: flex-start;
   }
 
   .logo-bg-box {
-    background-color: transparent; /* Quitamos la caja blanca */
-    padding: 0;
-    box-shadow: none;
+    background-color: #FFFFFF; /* Mantiene la caja blanca */
+    padding: 16px 32px; /* Más espacio interior para respirar */
+    border-radius: 20px;
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25); /* Sombra difuminada elegante */
   }
 
   .carousel-brand-logo {
-    height: 90px; /* Tamaño mucho más grande e imponente */
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4)); /* Sombra sobre el isotipo/imagotipo */
+    height: 76px; /* Más grande e imponente para PC */
+    object-fit: contain;
   }
 
   .carousel-title { font-size: 46px; margin-bottom: 16px; }
