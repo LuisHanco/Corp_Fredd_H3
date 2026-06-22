@@ -1,5 +1,5 @@
 /* =========================================================================
-   ESTILOS PREMIUM CARRUSEL (SPLIT LAYOUT) - LÍNEA H3
+   ESTILOS PREMIUM CARRUSEL (SPLIT LAYOUT CINEMÁTICO) - LÍNEA H3
    ========================================================================= */
 
 :root {
@@ -11,9 +11,9 @@
 .hero-carousel-section {
   position: relative;
   width: 100%;
-  height: 680px; /* Altura ideal para dar respiro en móviles */
+  height: 680px; 
   overflow: hidden;
-  background-color: #111827;
+  background-color: #0b111a; /* Fondo más oscuro para ocultar cortes */
   font-family: 'Inter', 'Calibri', sans-serif;
 }
 
@@ -23,28 +23,39 @@
   height: 100%;
 }
 
+/* 🔥 EFECTO CINEMÁTICO: Zoom, Desenfoque y Opacidad combinados 🔥 */
 .carousel-slide {
   position: absolute;
   inset: 0;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.8s ease-in-out, visibility 0.8s;
+  transform: scale(1.08); /* Entra ligeramente grande */
+  filter: blur(8px); /* Entra sutilmente borroso */
+  /* Transición ultra suave tipo Apple/SaaS */
+  transition: opacity 0.8s ease-in-out, 
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 0.8s ease-out, 
+              visibility 1.2s;
   display: flex;
-  flex-direction: column; /* Diseño en columna para Móvil por defecto */
+  flex-direction: column; 
 }
 
 .slide-active {
   opacity: 1;
   visibility: visible;
+  transform: scale(1); /* Se asienta en su tamaño natural */
+  filter: blur(0);
   z-index: 10;
 }
 
 .slide-inactive {
   z-index: 0;
+  transform: scale(0.96); /* Se aleja ligeramente al salir */
+  transition: opacity 0.6s ease, transform 0.8s ease, filter 0.6s ease;
 }
 
 /* =========================================================================
-   ZONA DE IMAGEN (El Producto SIEMPRE visible arriba en celular)
+   ZONA DE IMAGEN
    ========================================================================= */
 .carousel-image-layer {
   position: relative;
@@ -58,16 +69,17 @@
   height: 100%;
   object-fit: cover;
   object-position: center right; 
-  animation: sutilZoom 10s infinite alternate ease-in-out;
+  /* Movimiento de respiración constante (Ken Burns effect) */
+  animation: sutilZoom 15s infinite alternate ease-in-out;
 }
 
 @keyframes sutilZoom {
   0% { transform: scale(1); }
-  100% { transform: scale(1.05); }
+  100% { transform: scale(1.08); }
 }
 
 /* =========================================================================
-   ZONA DE CONTENIDO (Caja Roja H3 Inferior en Móvil)
+   ZONA DE CONTENIDO (Caja Roja H3)
    ========================================================================= */
 .carousel-content-layer {
   position: relative;
@@ -78,13 +90,9 @@
   flex-direction: column;
   justify-content: center;
   padding: 40px 24px;
-  margin-top: -8vw; /* Crea la superposición diagonal con la imagen */
+  margin-top: -8vw; 
 }
 
-/* TRUCO PRO: El fondo rojo se aplica a un pseudo-elemento (::before)
-  con clip-path. Así, el contenedor padre NO recorta el logo cuando 
-  lo empujamos hacia arriba con margen negativo.
-*/
 .carousel-content-layer::before {
   content: '';
   position: absolute;
@@ -110,55 +118,55 @@
   position: relative;
   z-index: 3;
   max-width: 100%;
-  text-align: center; /* En móviles el texto se ve mejor centrado debajo del logo */
+  text-align: center; 
 }
 
-/* Animaciones del texto (Cascada fluida) */
-.slide-active .carousel-logo-wrapper { animation: fadeUp 0.6s ease-out 0.2s forwards; opacity: 0; }
-.slide-active .carousel-title { animation: fadeUp 0.6s ease-out 0.4s forwards; opacity: 0; }
-.slide-active .carousel-description { animation: fadeUp 0.6s ease-out 0.6s forwards; opacity: 0; }
-.slide-active .carousel-actions { animation: fadeUp 0.6s ease-out 0.8s forwards; opacity: 0; }
+/* 🔥 CASCADA FLUIDA DE TEXTOS (Mejorada con Cubic Bezier) 🔥 */
+.slide-active .carousel-logo-wrapper { animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; opacity: 0; }
+.slide-active .carousel-title { animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards; opacity: 0; }
+.slide-active .carousel-description { animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards; opacity: 0; }
+.slide-active .carousel-actions { animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards; opacity: 0; }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes slideUpFade {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 /* =========================================================================
-   LOGOTIPO FLOTANTE SUPERPUESTO (Responsive)
+   LOGOTIPO FLOTANTE SUPERPUESTO
    ========================================================================= */
 .carousel-logo-wrapper {
-  margin-top: -85px; /* Empuja el logo FUERA del cuadro rojo hacia la imagen en móvil */
+  margin-top: -85px; 
   margin-bottom: 24px;
   display: flex;
-  justify-content: center; /* Centra el logo en móviles */
+  justify-content: center; 
   width: 100%;
 }
 
 .logo-bg-box {
-  background-color: #FFFFFF; /* Base blanca tipo tarjeta */
+  background-color: #FFFFFF; 
   padding: 12px 24px;
   border-radius: 16px;
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35); /* Sombra pesada para que flote sobre ambos fondos */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35); 
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 }
 
 .logo-bg-box:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   box-shadow: 0 16px 30px rgba(0, 0, 0, 0.4);
 }
 
 .carousel-brand-logo {
-  height: 60px; /* Tamaño ideal para celular */
+  height: 60px; 
   width: auto;
   object-fit: contain;
 }
 
 /* =========================================================================
-   TIPOGRAFÍA Y BOTONES (Celulares)
+   TIPOGRAFÍA Y BOTONES
    ========================================================================= */
 .carousel-title {
   color: var(--text-light);
@@ -197,7 +205,7 @@
   justify-content: center;
   gap: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -211,8 +219,8 @@
 
 .btn-carousel-primary:hover {
   background-color: #F3F4F6;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
 
 .btn-carousel-transparent {
@@ -233,30 +241,30 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: white;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 20;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .carousel-arrow:hover {
   background: var(--h3-red);
   border-color: var(--h3-red);
-  transform: translateY(-50%) scale(1.1);
+  transform: translateY(-50%) scale(1.15);
+  box-shadow: 0 4px 15px rgba(227, 6, 19, 0.4);
 }
 
-.arrow-left { left: 12px; }
-.arrow-right { right: 12px; }
-
+.arrow-left { left: 16px; }
+.arrow-right { right: 16px; }
 
 /* =========================================================================
    DISEÑO PARA PC Y TABLETAS GRANDES (DIAGONAL REAL Y CAJA BLANCA)
@@ -270,7 +278,6 @@
     flex-direction: row; 
   }
 
-  /* La imagen pasa a tomar el lado derecho, fondo completo */
   .carousel-image-layer {
     position: absolute;
     right: 0;
@@ -279,7 +286,6 @@
     height: 100%;
   }
 
-  /* La caja de texto toma el lado izquierdo con el corte diagonal */
   .carousel-content-layer {
     position: absolute;
     left: 0;
@@ -297,12 +303,9 @@
 
   .carousel-text-container {
     max-width: 540px;
-    text-align: left; /* Alineamos todo a la izquierda */
+    text-align: left; 
   }
 
-  /* El recuadro blanco se mantiene en PC, pero se ajustan los márgenes
-     y se alinea a la izquierda de forma profesional.
-  */
   .carousel-logo-wrapper {
     margin-top: 0; 
     margin-bottom: 32px;
@@ -310,14 +313,14 @@
   }
 
   .logo-bg-box {
-    background-color: #FFFFFF; /* Mantiene la caja blanca */
-    padding: 16px 32px; /* Más espacio interior para respirar */
+    background-color: #FFFFFF; 
+    padding: 16px 32px; 
     border-radius: 20px;
-    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25); /* Sombra difuminada elegante */
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25); 
   }
 
   .carousel-brand-logo {
-    height: 76px; /* Más grande e imponente para PC */
+    height: 76px; 
     object-fit: contain;
   }
 
@@ -336,6 +339,6 @@
     padding: 14px 28px;
   }
 
-  .arrow-left { left: 24px; width: 48px; height: 48px; }
-  .arrow-right { right: 24px; width: 48px; height: 48px; }
+  .arrow-left { left: 32px; width: 52px; height: 52px; }
+  .arrow-right { right: 32px; width: 52px; height: 52px; }
 }
