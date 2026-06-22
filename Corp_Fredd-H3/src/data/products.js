@@ -122,10 +122,7 @@ export const PRODUCTOS = [
     caracteristicas: ['union a rosca.', 'color marron.'],
     especificaciones: [
       { Medida: '1/2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
-      { Medida: '3/4"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
-      { Medida: '1"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato'},
-      { Medida: '11/2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato'},
-      { Medida: '2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato'},
+    ],
     imagenes: [img02h3],
     fichaTecnica: fichatee
     // Al NO poner "fichaTecnica" aquí, el sistema abrirá el Catálogo General automáticamente
@@ -140,10 +137,6 @@ export const PRODUCTOS = [
     caracteristicas: ['Union.', 'Union a rosca.', 'Color marron.'],
     especificaciones: [
       { Medida: '1/2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
-      { Medida: '3/4"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
-      { Medida: '1"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato'},
-      { Medida: '11/2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato'},
-      { Medida: '2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato'},
     ],
     imagenes: [img03h3, img04h3],
     fichaTecnica: fichaunion
@@ -158,10 +151,6 @@ export const PRODUCTOS = [
     caracteristicas: ['Niple.', 'Union a rosca.', 'Color marron.'],
     especificaciones: [
       { Medida: '1/2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
-      { Medida: '3/4"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
-      { Medida: '1"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato'},
-      { Medida: '11/2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato'},
-      { Medida: '2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato'},
     ],
     imagenes: [img05h3],
     fichaTecnica: fichanipple
@@ -217,10 +206,6 @@ export const PRODUCTOS = [
     caracteristicas: ['Union Universal.', 'Union a rosca.', 'Color marron.'],
     especificaciones: [
       { Medida: '1/2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
-      { Medida: '3/4"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
-      { Medida: '1"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
-      { Medida: '11/2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
-      { Medida: '2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
     ],
     imagenes: [img09h3, img010h3]
   },
@@ -234,8 +219,6 @@ export const PRODUCTOS = [
     caracteristicas: ['Reduccion Interna.', 'Union a rosca.', 'Color marron.'],
     especificaciones: [
       { Medida: '1/2"*3/4"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
-      { Medida: '3/4"*1"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
-      { Medida: '1"*1/2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
     ],
     imagenes: [img011h3]
   },
