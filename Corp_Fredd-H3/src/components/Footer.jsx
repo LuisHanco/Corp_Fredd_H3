@@ -99,7 +99,7 @@ export default function Footer({ navegarA, setActiveCategoryFilter }) {
               <div className="contact-card-row">
                 <MapPin size={16} className="card-icon-red" />
                 <span className="contact-card-text">Av. Lima N° 120 - Mariano Melgar Arequipa - Arequipa</span>
-                <span className="contact-card-text">Jr. Cahuide N° 653, Juliaca - Perú</span>
+                <span className="contact-card-text">Av. Circunvalacion Mza 1 Lote 15 Urb. Apiraj - San Roman - Juliaca - Puno</span>
               </div>
               <div className="contact-card-row">
                 <Phone size={16} className="card-icon-red" />

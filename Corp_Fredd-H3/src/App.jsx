@@ -20,10 +20,10 @@ import ContactoView from './views/ContactoView';
 
 // Imagenes de Banner
 
-import img1 from './assets/banner/1211.jpg';
-import img2 from './assets/banner/1212.jpg';
-import img3 from './assets/banner/1213.jpg';
-import img4 from './assets/banner/1214.jpg';
+import img1 from './assets/banner/1211.webp';
+import img2 from './assets/banner/1212.webp';
+import img3 from './assets/banner/1213.webp';
+import img4 from './assets/banner/1214.webp';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('inicio');
@@ -42,6 +42,11 @@ export default function App() {
       img: img1
     },
     {
+      titulo: 'Agua Fría y Desagüe',
+      subtitulo: 'Soluciones integrales en tuberías y conexiones de PVC de alta calidad, diseñadas para optimizar la conducción de agua potable y la evacuación eficiente de fluidos.',
+      img: img2
+    },
+    {
       titulo: 'Tanques y Biodigestores',
       subtitulo: 'Soluciones eficientes para el cuidado del agua y el medio ambiente.',
       img: img3
@@ -50,12 +55,7 @@ export default function App() {
       titulo: 'Electrobombas',
       subtitulo: 'Diseñadas para un rendimiento superior, las electrobombas H3 Max aseguran un abastecimiento de agua constante y eficiente en hogares, comercios e industrias.',
       img: img4
-    },
-    {
-      titulo: 'Agua Fría y Desagüe',
-      subtitulo: 'Soluciones integrales en tuberías y conexiones de PVC de alta calidad, diseñadas para optimizar la conducción de agua potable y la evacuación eficiente de fluidos.',
-      img: img2
-    },
+    }
   ];
 
   useEffect(() => {

@@ -9,7 +9,7 @@ export default function NosotrosView({ navegarA }) {
   const SUCURSALES = {
     puno: {
       ciudad: 'Juliaca - Puno',
-      direccion: 'Jr. Cahuide N° 653, Juliaca - Puno',
+      direccion: 'Av. Circunvalacion Mza 1 Lote 15 Urb. Apiraj - San Roman - Juliaca -yarn Puno',
       telefono: '+51 950 013 772',
       detalles: 'Planta matriz, centro de distribución y atención técnica especializada.'
     },
