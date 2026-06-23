@@ -15,17 +15,50 @@ import pdfH3 from '../assets/pdf/H3 CATALOGO.pdf'
 // 📄 NUEVO: IMPORTACIÓN DE FICHAS TÉCNICAS INDIVIDUALES
 // Asegúrate de tener estos archivos o cambiar los nombres por los reales
 import fichaCodo90 from '../assets/pdf/FICHA TECNICA CODO.pdf'; // Reemplazar por ficha real
-import fichaElectrobombas from '../assets/pdf/H3 CATALOGO.pdf'; // Reemplazar por ficha real
-import fichaTanques from '../assets/pdf/H3 CATALOGO.pdf'; // Reemplazar por ficha real
+import fichaElectrobombas from '../assets/pdf/FICHA TECNICA ELECTROBOMBA 05 HP CENTRIFUGA.pdf'; // Reemplazar por ficha real
+import fichaTanques from '../assets/pdf/FICHA TECNICA TANQUE 600.pdf'; // Reemplazar por ficha real
 import fichatee from '../assets/pdf/FICHA TECNICA TEE.pdf';
 import fichaunion from '../assets/pdf/FICHA TECNICA UNION.pdf';
 import fichanipple from '../assets/pdf/FICHA TECNICA NIPPLE.pdf';
 import fichacodoinserto from '../assets/pdf/FICHA TECNICA CODO INSERTO.pdf';
 import fichateeinserto from '../assets/pdf/FICHA TECNICA TEE INSERTO.pdf';
-
-
-
-
+import fichaunioninserto from '../assets/pdf/FICHA TECNICA UNION INSERTO.pdf';
+import fichaunionuniversal from '../assets/pdf/FICHA TECNICA UNIVERSAL.pdf';
+import fichareduccioninterna from '../assets/pdf/FICHA TECNICA RED CAMPANA.pdf';
+import fichareduccionexterna from '../assets/pdf/FICHA TECNICA RED EXXTERNA.pdf';
+import fichareduccionbushing from '../assets/pdf/FICHA TECNICA BUSHING.pdf';
+import fichataponhembra from '../assets/pdf/FICHA TECNICA TAPON HEMBRA.pdf';
+import fichataponmacho from '../assets/pdf/FICHA TECNICA TAPON MACHO.pdf';
+import fichaconector from '../assets/pdf/FICHA TECNICA CONECTOR.pdf';
+import fichacurva from '../assets/pdf/FICHA TECNICA CURVA MIXTA.pdf';
+import fichatubo from '../assets/pdf/FICHA TECNICA TUBO.pdf';
+import fichaducha from '../assets/pdf/FICHA TECNICA LLAVE DE DUCHA.pdf';
+import fichacafe from '../assets/pdf/FICHA TECNICA VALVULA CAFE.pdf';
+import fichablanco from '../assets/pdf/FICHA TECNICA LLAVE DE PASO BLANCO.pdf';
+import fichaceleste from '../assets/pdf/FICHA TECNICA LLAVE DE PASO CELESTE.pdf';
+import fichallavedepasoinserto from '../assets/pdf/FICHA TECNICA LLAVE DE PASO INSERTO.pdf';
+import fichappr from '../assets/pdf/FICHA TECNICA LLAVE DE PASO PPR.pdf';
+import fichavalvulanegro from '../assets/pdf/FICHA TECNICA VALVULA NEGRO.pdf';
+import fichagris from '../assets/pdf/FICHA TECNICA VALVULA GRIS.pdf';
+import fichaElectrobombas05 from '../assets/pdf/FICHA TECNICA ELECTROBOMBA 05.pdf';
+import fichaElectrobombas1 from '../assets/pdf/FICHA TECNICA ELECTROBOMBA 1 HP.pdf';
+import fichasumergible1 from '../assets/pdf/FICHA TECNICA SUMERGIBLE 400W.pdf';
+import fichasumergible2 from '../assets/pdf/FICHA TECNICA SUMERGIBLE 750W.pdf';
+import fichasumergible3 from '../assets/pdf/FICHA TECNICA SUMERGIBLE LAPIZ 12 HP.pdf';
+import fichasumergible4 from '../assets/pdf/FICHA TECNICA SUMERGIBLE 1HP.pdf';
+import fichanivel from '../assets/pdf/FICHA TECNICA ELECTRONIVEL.pdf';
+import fichabrazo from '../assets/pdf/FICHA TECNICA BRAZO Y FLOTADOR.pdf';
+import fichaTanques1 from '../assets/pdf/FICHA TECNICA TANQUE 1200.pdf';
+import fichaTanques2 from '../assets/pdf/FICHA TECNICA TANQUE 2600.pdf';
+import fichaTanques3 from '../assets/pdf/FICHA TECNICA DIGESTOR 600.pdf';
+import fichaTanques4 from '../assets/pdf/FICHA TECNICA DIGESTOR 1300.pdf';
+import fichaTanques5 from '../assets/pdf/FICHA TECNICA DIGESTOR 3000.pdf';
+import fichaTanques6 from '../assets/pdf/FICHA TECNICA CISTERNA 1200.pdf';
+import fichaTanques7 from '../assets/pdf/FICHA TECNICA CISTERNA 2800.pdf';
+import fichaTanques8 from '../assets/pdf/FICHA TECNICA CISTERNA 5000.pdf';
+import fichaTanques9 from '../assets/pdf/FICHA TECNICA CISTERNA 10000.pdf';
+import fichabrida from '../assets/pdf/FICHA TECNICA BRIDA.pdf';
+import fichamulticonector from '../assets/pdf/FICHA TECNICA VALVULA MULTICONECTOR.pdf';
 
 
 
@@ -206,7 +239,8 @@ export const PRODUCTOS = [
     especificaciones: [
       { Medida: '1/2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
     ],
-    imagenes: [img08h3]
+    imagenes: [img08h3],
+    fichaTecnica: fichaunioninserto
   },
   {
     id: 'h3-union-universal',
@@ -223,7 +257,8 @@ export const PRODUCTOS = [
       { Medida: '11/2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
       { Medida: '2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
     ],
-    imagenes: [img09h3, img010h3]
+    imagenes: [img09h3, img010h3],
+    fichaTecnica: fichaunionuniversal
   },
   {
     id: 'h3-reduccion-interna',
@@ -238,7 +273,8 @@ export const PRODUCTOS = [
       { Medida: '3/4"*1"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
       { Medida: '1"*1/2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
     ],
-    imagenes: [img011h3]
+    imagenes: [img011h3],
+    fichaTecnica: fichareduccioninterna
   },
   {
     id: 'h3-reduccion-externa',
@@ -253,7 +289,8 @@ export const PRODUCTOS = [
       { Medida: '3/4"*1"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
       { Medida: '1"*1/2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
     ],
-    imagenes: [img012h3]
+    imagenes: [img012h3],
+    fichaTecnica: fichareduccionexterna
   },
   {
     id: 'h3-reduccion-bushing',
@@ -268,7 +305,8 @@ export const PRODUCTOS = [
       { Medida: '3/4"*1"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
       { Medida: '1"*1/2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
     ],
-    imagenes: [img013h3]
+    imagenes: [img013h3],
+    fichaTecnica: fichareduccionbushing
   },
   {
     id: 'h3-tapon-hembra',
@@ -283,7 +321,8 @@ export const PRODUCTOS = [
       { Medida: '3/4"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
       { Medida: '1"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
     ],
-    imagenes: [img014h3]
+    imagenes: [img014h3],
+    fichaTecnica: fichataponhembra
   },
   {
     id: 'h3-tapon-macho-1',
@@ -298,22 +337,8 @@ export const PRODUCTOS = [
       { Medida: '3/4"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
       { Medida: '1"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
     ],
-    imagenes: [img015h3]
-  },
-  {
-    id: 'h3-tapon-macho-2',
-    nombre: 'TAPON MACHO INDUSTRIAL',
-    categoria: 'agua-caliente',
-    marca: 'H3',
-    codigoBase: 'H3-TAP-MAC-02',
-    descripcion: 'Tapon macho agua caliente y fria en material de polipropileno.',
-    caracteristicas: ['Tapon Macho.', 'Union a rosca.', 'Color marron.'],
-    especificaciones: [
-      { Medida: '1/2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
-      { Medida: '3/4"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
-      { Medida: '1"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
-    ],
-    imagenes: [img015h3]
+    imagenes: [img015h3],
+    fichaTecnica: fichataponmacho
   },
   {
     id: 'h3-union-conector',
@@ -330,7 +355,8 @@ export const PRODUCTOS = [
       { Medida: '11/2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
       { Medida: '2"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
     ],
-    imagenes: [img016h3]
+    imagenes: [img016h3],
+    fichaTecnica: fichaconector
   },
   {
     id: 'h3-curva-mixto',
@@ -345,7 +371,8 @@ export const PRODUCTOS = [
       { Medida: '3/4"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
       { Medida: '1"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
     ],
-    imagenes: [img017h3]
+    imagenes: [img017h3],
+    fichaTecnica: fichacurva
   },
   {
     id: 'h3-tubo-pph',
@@ -360,7 +387,8 @@ export const PRODUCTOS = [
       { Medida: '3/4"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
       { Medida: '1"', Color: 'Marron', Material: 'PPH', Presion_Nominal: '16 Bar', Marca: 'H3', Tipo_de_rosca: 'BSPT', stock: 'Inmediato' },
     ],
-    imagenes: [img018h3]
+    imagenes: [img018h3],
+    fichaTecnica: fichatubo
   },
   {
     id: 'h3-llave-ducha',
@@ -373,7 +401,8 @@ export const PRODUCTOS = [
     especificaciones: [
       { Medida: '1/2"', Material: 'Laton', Aplicacion: 'Ducha', stock: 'Inmediato' },
     ],
-    imagenes: [img032h3, img033h3]
+    imagenes: [img032h3, img033h3],
+    fichaTecnica: fichaducha
   },
   {
     id: 'h3-succion-cafe',
@@ -386,7 +415,8 @@ export const PRODUCTOS = [
     especificaciones: [
       { Medida: '1"', Material: 'Pvc', Mecanismo: 'Rosca', Color: 'Cafe', stock: 'Disponible' },
     ],
-    imagenes: [img048h3]
+    imagenes: [img048h3],
+    fichaTecnica: fichacafe
   },
 
   // --- SECCIÓN: AGUA FRÍA Y DESAGÜE (PVC) ---
@@ -400,8 +430,15 @@ export const PRODUCTOS = [
     caracteristicas: ['Mango mariposa', 'Union a rosca.', 'Agua fria.'],
     especificaciones: [
       { Medida: '1/2"', Rosca: 'ISO 7/1', Durabilidad: '25000 ciclos', Presion_Nominal: '10 Bar', Marca: 'H3', Temperatura: '38° C', stock: 'Inmediato' },
+      { Medida: '3/4"', Rosca: 'ISO 7/1', Durabilidad: '25000 ciclos', Presion_Nominal: '10 Bar', Marca: 'H3', Temperatura: '38° C', stock: 'Inmediato' },
+      { Medida: '1"', Rosca: 'ISO 7/1', Durabilidad: '25000 ciclos', Presion_Nominal: '10 Bar', Marca: 'H3', Temperatura: '38° C', stock: 'Inmediato' },
+      { Medida: '11/2"', Rosca: 'ISO 7/1', Durabilidad: '25000 ciclos', Presion_Nominal: '10 Bar', Marca: 'H3', Temperatura: '38° C', stock: 'Inmediato' },
+      { Medida: '2"', Rosca: 'ISO 7/1', Durabilidad: '25000 ciclos', Presion_Nominal: '10 Bar', Marca: 'H3', Temperatura: '38° C', stock: 'Inmediato' },
+      { Medida: '3"', Rosca: 'ISO 7/1', Durabilidad: '25000 ciclos', Presion_Nominal: '10 Bar', Marca: 'H3', Temperatura: '38° C', stock: 'Inmediato' },
+      { Medida: '4"', Rosca: 'ISO 7/1', Durabilidad: '25000 ciclos', Presion_Nominal: '10 Bar', Marca: 'H3', Temperatura: '38° C', stock: 'Inmediato' },
     ],
-    imagenes: [img026h3, img027h3]
+    imagenes: [img026h3, img027h3],
+    fichaTecnica: fichablanco
   },
   {
     id: 'h3-llave-paso-celeste',
@@ -414,7 +451,8 @@ export const PRODUCTOS = [
     especificaciones: [
       { Medida: '1/2"', Rosca: 'ISO 7/1', Durabilidad: '25000 ciclos', Presion_Nominal: '10 Bar', Marca: 'H3', Temperatura: '38° C', stock: 'Inmediato' },
     ],
-    imagenes: [img028h3, img029h3]
+    imagenes: [img028h3, img029h3],
+    fichaTecnica: fichaceleste
   },
   {
     id: 'h3-llave-paso-inserto',
@@ -426,8 +464,11 @@ export const PRODUCTOS = [
     caracteristicas: ['Mango 1/4', 'Union a rosca.', 'Agua fria.'],
     especificaciones: [
       { Medida: '1/2"', Material: 'UPVC', Mecanismo: 'Bola de 90° grados', Operacion: 'Palanca Superior', Marca: 'H3', Temperatura: '38° C', stock: 'Inmediato' },
+      { Medida: '3/4"', Material: 'UPVC', Mecanismo: 'Bola de 90° grados', Operacion: 'Palanca Superior', Marca: 'H3', Temperatura: '38° C', stock: 'Inmediato' },
+      { Medida: '1"', Material: 'UPVC', Mecanismo: 'Bola de 90° grados', Operacion: 'Palanca Superior', Marca: 'H3', Temperatura: '38° C', stock: 'Inmediato' },
     ],
-    imagenes: [img030h3]
+    imagenes: [img030h3],
+    fichaTecnica: fichallavedepasoinserto
   },
   {
     id: 'h3-llave-paso-pp',
@@ -438,9 +479,10 @@ export const PRODUCTOS = [
     descripcion: 'Perfectos para uso en viviendas, ya que ofrecen una excelente resistencia quimica.',
     caracteristicas: ['Mango 1/4', 'Union a rosca.', 'Agua fria.'],
     especificaciones: [
-      { Medida: '1/2"', Material: 'PPH', Funcion: 'Liquidos / Gases', Aplicacion: 'Agua / Aceite / Gas', Marca: 'H3', Instalacion: 'Cualquier posocion', stock: 'Inmediato' },
+      { Medida: '1/2"', Material: 'PPR', Funcion: 'Liquidos / Gases', Aplicacion: 'Agua / Aceite / Gas', Marca: 'H3', Instalacion: 'Cualquier posocion', stock: 'Inmediato' },
     ],
-    imagenes: [img031h3]
+    imagenes: [img031h3],
+    fichaTecnica: fichappr
   },
   {
     id: 'h3-valvula-mini',
@@ -453,7 +495,8 @@ export const PRODUCTOS = [
     especificaciones: [
       { Medida: '1"', Material: 'Polipropileno', Mecanismo: 'Rosca', Color: 'Negro', stock: 'Disponible' },
     ],
-    imagenes: [img046h3]
+    imagenes: [img046h3],
+    fichaTecnica: fichavalvulanegro
   },
   {
     id: 'h3-valvula-pie',
@@ -467,7 +510,8 @@ export const PRODUCTOS = [
       { Medida: '1"', Material: 'pvc', Mecanismo: 'Rosca', Color: 'Gris', stock: 'Disponible' },
       { Medida: '11/2"', Material: 'pvc', Mecanismo: 'Rosca', Color: 'Gris', stock: 'Disponible' },
     ],
-    imagenes: [img045h3]
+    imagenes: [img045h3],
+    fichaTecnica: fichagris
   },
 
   // --- SECCIÓN: ELECTROBOMBAS HB MAX ---
@@ -483,7 +527,7 @@ export const PRODUCTOS = [
       { Potenia: '370W 0.5HP', Diametro: '1"', Altura: '23 M', Caudal: '5400 L/H', Marca: 'H3', Succion: '8 M', stock: 'Disponible' },
     ],
     imagenes: [img019h3],
-    fichaTecnica: fichaElectrobombas // <-- OTRA ASIGNACIÓN ESPECÍFICA
+    fichaTecnica: fichaElectrobombas
   },
   {
     id: 'h3-electrobomba-05hp-periferica',
@@ -497,7 +541,7 @@ export const PRODUCTOS = [
       { Potenia: '370W 0.5HP', Diametro: '1"', Altura: '32 M', Caudal: '2100 L/H', Marca: 'H3', Succion: '8 M', stock: 'Disponible' },
     ],
     imagenes: [img020h3],
-    fichaTecnica: fichaElectrobombas
+    fichaTecnica: fichaElectrobombas05
   },
   {
     id: 'h3-electrobomba-1hp-centrifuga',
@@ -511,7 +555,7 @@ export const PRODUCTOS = [
       { Potenia: '750W 1HP', Diametro: '1"', Altura: '28 M', Caudal: '6000 L/H', Marca: 'H3', Succion: '8 M', stock: 'Disponible' },
     ],
     imagenes: [img019h3],
-    fichaTecnica: fichaElectrobombas
+    fichaTecnica: fichaElectrobombas1
   },
   {
     id: 'h3-electrobomba-sumergible-400w',
@@ -525,7 +569,7 @@ export const PRODUCTOS = [
       { Potenia: '400W ', Diametro: '1"x11/2"', Altura: '5 M', Caudal: '7800 L/H', Marca: 'H3', Succion: '8 M', stock: 'Disponible' },
     ],
     imagenes: [img021h3],
-    fichaTecnica: fichaElectrobombas
+    fichaTecnica: fichasumergible1
   },
   {
     id: 'h3-electrobomba-sumergible-750w',
@@ -539,7 +583,7 @@ export const PRODUCTOS = [
       { Potenia: '750W ', Diametro: '1"x11/2"', Altura: '8 M', Caudal: '13800 L/H', Marca: 'H3', Succion: '8 M', stock: 'Disponible' },
     ],
     imagenes: [img021h3],
-    fichaTecnica: fichaElectrobombas
+    fichaTecnica: fichasumergible2
   },
   {
     id: 'h3-electrobomba-lapiz-05hp',
@@ -553,7 +597,7 @@ export const PRODUCTOS = [
       { Potenia: '370W', Diametro: '1"', Altura: '59 M', Caudal: '32.1 Gal/Min 7.3M 3/H', Marca: 'H3', Etapas: '6', stock: 'Disponible' },
     ],
     imagenes: [img022h3],
-    fichaTecnica: fichaElectrobombas
+    fichaTecnica: fichasumergible3
   },
   {
     id: 'h3-electrobomba-lapiz-1hp',
@@ -567,7 +611,7 @@ export const PRODUCTOS = [
       { Potenia: '750W', Diametro: '1"', Altura: '74 M', Caudal: '32.1 Gal/Min 7.3M 3/H', Marca: 'H3', Etapas: '7', stock: 'Disponible' },
     ],
     imagenes: [img022h3],
-    fichaTecnica: fichaElectrobombas
+    fichaTecnica: fichasumergible4
   },
   {
     id: 'h3-electronivel',
@@ -580,7 +624,8 @@ export const PRODUCTOS = [
     especificaciones: [
       { Material: 'Polipropeno', Color: 'Negro', Conexion: 'Alambrico', Amperaje: '4-15 A', Marca: 'H3', Voltaje: '110-120v', stock: 'Disponible' },
     ],
-    imagenes: [img023h3]
+    imagenes: [img023h3],
+    fichaTecnica: fichanivel
   },
 
   // --- SECCIÓN: TANQUES Y BIODIGESTORES ---
@@ -596,7 +641,7 @@ export const PRODUCTOS = [
       { Material: 'Polietileno', Color: 'Negro', Medida: '36 cm 3/4", 1/2"', Marca: 'H3', stock: 'Disponible' },
     ],
     imagenes: [img024h3, img025h3],
-    fichaTecnica: fichaTanques
+    fichaTecnica: fichabrazo
   },
   {
     id: 'h3-tanque-700l',
@@ -624,7 +669,7 @@ export const PRODUCTOS = [
       { Medida: '1200 L', Material: 'Polietileno', Diametro: '97', Conexion: '11/2"x3/4"', stock: 'Disponible' },
     ],
     imagenes: [img035h3],
-    fichaTecnica: fichaTanques
+    fichaTecnica: fichaTanques1
   },
   {
     id: 'h3-tanque-2600l',
@@ -638,7 +683,7 @@ export const PRODUCTOS = [
       { Medida: '2600 L', Material: 'Polietileno', Diametro: '97', Conexion: '2"x3/4"', stock: 'Disponible' },
     ],
     imagenes: [img036h3],
-    fichaTecnica: fichaTanques
+    fichaTecnica: fichaTanques2
   },
   {
     id: 'h3-biodigestor-600l',
@@ -652,7 +697,7 @@ export const PRODUCTOS = [
       { Medida: '600 L', Material: 'Polietileno', Altura: '149 cm', Conexion: '2"', stock: 'Disponible' },
     ],
     imagenes: [img037h3],
-    fichaTecnica: fichaTanques
+    fichaTecnica: fichaTanques3
   },
   {
     id: 'h3-biodigestor-1300l',
@@ -666,7 +711,7 @@ export const PRODUCTOS = [
       { Medida: '1300 L', Material: 'Polietileno', Altura: '149 cm', Conexion: '2"', stock: 'Disponible' },
     ],
     imagenes: [img038h3],
-    fichaTecnica: fichaTanques
+    fichaTecnica: fichaTanques4
   },
   {
     id: 'h3-biodigestor-3000l',
@@ -680,7 +725,7 @@ export const PRODUCTOS = [
       { Medida: '3000 L', Material: 'Polietileno', Altura: '149 cm', Conexion: '2"', stock: 'Disponible' },
     ],
     imagenes: [img039h3],
-    fichaTecnica: fichaTanques
+    fichaTecnica: fichaTanques5
   },
   {
     id: 'h3-cisterna-1200l',
@@ -694,7 +739,7 @@ export const PRODUCTOS = [
       { Medida: '1200 L', Material: 'Polietileno', Altura: '145 cm', Diametro: '1.10"', stock: 'Disponible' },
     ],
     imagenes: [img040h3],
-    fichaTecnica: fichaTanques
+    fichaTecnica: fichaTanques6
   },
   {
     id: 'h3-cisterna-2800l',
@@ -708,7 +753,7 @@ export const PRODUCTOS = [
       { Medida: '2800 L', Material: 'Polietileno', Altura: '178 cm', Diametro: '1.56"', stock: 'Disponible' },
     ],
     imagenes: [img041h3],
-    fichaTecnica: fichaTanques
+    fichaTecnica: fichaTanques7
   },
   {
     id: 'h3-cisterna-5000l',
@@ -722,7 +767,7 @@ export const PRODUCTOS = [
       { Medida: '5000 L', Material: 'Polietileno', Altura: '1.70 cm', Diametro: '2.20"', stock: 'Disponible' },
     ],
     imagenes: [img042h3],
-    fichaTecnica: fichaTanques
+    fichaTecnica: fichaTanques8
   },
   {
     id: 'h3-cisterna-10000l',
@@ -736,7 +781,7 @@ export const PRODUCTOS = [
       { Medida: '10000 L', Material: 'Polietileno', Altura: '3.26 cm', Diametro: '2.20"', stock: 'Disponible' },
     ],
     imagenes: [img043h3],
-    fichaTecnica: fichaTanques
+    fichaTecnica: fichaTanques9
   },
   {
     id: 'h3-brida',
@@ -749,7 +794,8 @@ export const PRODUCTOS = [
     especificaciones: [
       { Medida: '11/2"', Material: 'Polipropileno', Mecanismo: 'Rosca', Color: 'Negro', stock: 'Disponible' },
     ],
-    imagenes: [img044h3]
+    imagenes: [img044h3],
+    fichaTecnica: fichabrida
   },
   {
     id: 'h3-valvula-multiconector',
@@ -762,7 +808,8 @@ export const PRODUCTOS = [
     especificaciones: [
       { Medida: '11/2"x3/4"', Material: 'Polipropileno', Mecanismo: '1/4" Giro', Color: 'Negro y Azul', stock: 'Disponible' },
     ],
-    imagenes: [img047h3]
+    imagenes: [img047h3],
+    fichaTecnica: fichamulticonector
   },
 ];
 
@@ -778,44 +825,44 @@ export const CATALOGOS = [
 
 
 
-  { 
-    id: 1, 
-    titulo: 'Manual de Instalación Tanques H3', 
-    categoria: 'Manuales', // Esta etiqueta aparece visualmente en la tarjeta
-    tamano: '3.5 MB', 
-    fecha: 'Marzo 2026', 
-    enlacePdf: pdfH3 // Usa la variable que importaste arriba
-  },
+  // { 
+  //   id: 1, 
+  //   titulo: 'Manual de Instalación Tanques H3', 
+  //   categoria: 'Manuales', // Esta etiqueta aparece visualmente en la tarjeta
+  //   tamano: '3.5 MB', 
+  //   fecha: 'Marzo 2026', 
+  //   enlacePdf: pdfH3 // Usa la variable que importaste arriba
+  // },
 
-  // 2. EJEMPLO CON GOOGLE DRIVE (Súper Escalable)
-  { 
-    id: 2, 
-    titulo: 'Ficha Técnica Codo 90° PPH', 
-    categoria: 'Ficha Técnica', 
-    tamano: '1.2 MB', 
-    fecha: '2026', 
-    // Pegas directamente el link de Drive. 
-    // El sistema es inteligente y lo transformará en un visor incrustado automáticamente.
-    // enlacePdf: 'https://drive.google.com/file/d/1EjemploDeTuIdDeDriveX/view?usp=sharing'
-    enlacePdf:fichaCodo90
-  },
+  // // 2. EJEMPLO CON GOOGLE DRIVE (Súper Escalable)
+  // { 
+  //   id: 2, 
+  //   titulo: 'Ficha Técnica Codo 90° PPH', 
+  //   categoria: 'Ficha Técnica', 
+  //   tamano: '1.2 MB', 
+  //   fecha: '2026', 
+  //   // Pegas directamente el link de Drive. 
+  //   // El sistema es inteligente y lo transformará en un visor incrustado automáticamente.
+  //   // enlacePdf: 'https://drive.google.com/file/d/1EjemploDeTuIdDeDriveX/view?usp=sharing'
+  //   enlacePdf:fichaCodo90
+  // },
 
-  // 3. OTRO EJEMPLO MÁS
-  { 
-    id: 3, 
-    titulo: 'Certificado de Calidad ISO 9001 - H3', 
-    categoria: 'Certificado', 
-    tamano: '850 KB', 
-    fecha: 'Actualizado', 
-    enlacePdf: pdfH3 
-  },
+  // // 3. OTRO EJEMPLO MÁS
+  // { 
+  //   id: 3, 
+  //   titulo: 'Certificado de Calidad ISO 9001 - H3', 
+  //   categoria: 'Certificado', 
+  //   tamano: '850 KB', 
+  //   fecha: 'Actualizado', 
+  //   enlacePdf: pdfH3 
+  // },
 
   { 
     id: 4, 
     titulo: 'Catalogo H3 - 2026', 
     categoria: 'Catalogo', 
-    tamano: '850 KB', 
-    fecha: 'Actualizado', 
+    tamano: '51.9 MB', 
+    fecha: 'Actualizado',
     enlacePdf: pdfH3 
   }
 

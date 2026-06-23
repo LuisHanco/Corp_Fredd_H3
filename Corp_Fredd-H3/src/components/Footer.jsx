@@ -32,7 +32,7 @@ export default function Footer({ navegarA, setActiveCategoryFilter }) {
               <img src={logoImg} alt="Logo Industrias Fredd" className="footer-brand-logo-v2" />
             </div>
             <p className="brand-brief">
-              Fábrica 100% peruana especializada en la línea oficial H3 y H3 Max. Soluciones en conexiones, agua caliente, desagüe, termoplásticos y electrobombas.
+              Fábrica 100% peruana especializada en la línea oficial H3 y H3 Max Soluciones en conexiones.
             </p>
           </div>
 
@@ -61,7 +61,7 @@ export default function Footer({ navegarA, setActiveCategoryFilter }) {
               <li>
                 <button onClick={() => { setActiveCategoryFilter('electrobombas'); navegarA('productos'); }} className="footer-nav-btn">
                   <ArrowRight size={12} className="arrow-link-icon" />
-                  <span>Electrobombas H3 Max</span>
+                  <span>Electrobombas</span>
                 </button>
               </li>
             </ul>
@@ -112,7 +112,7 @@ export default function Footer({ navegarA, setActiveCategoryFilter }) {
               </div>
               <div className="contact-card-row">
                 <Clock size={16} className="card-icon-red" />
-                <span className="contact-card-text">Lun a Vie: 8:00 AM - 6:00 PM</span>
+                <span className="contact-card-text">Lun a Dom: 8:00 AM - 6:00 PM</span>
               </div>
             </div>
           </div>

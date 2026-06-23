@@ -33,7 +33,7 @@ export default function ContactoView({
                 </div>
                 <div>
                   <span className="row-label">Central de Ventas:</span>
-                  <span className="row-value">+51 (01) 480-1234</span>
+                  <span className="row-value">+51 950 013 772</span>
                 </div>
               </div>
 
@@ -43,7 +43,7 @@ export default function ContactoView({
                 </div>
                 <div>
                   <span className="row-label">Correo Electrónico:</span>
-                  <span className="row-value">ventas@industriasfredd.com</span>
+                  <span className="row-value">ventas@grupofredd.com</span>
                 </div>
               </div>
 
@@ -53,7 +53,7 @@ export default function ContactoView({
                 </div>
                 <div>
                   <span className="row-label">Horario Operativo:</span>
-                  <span className="row-value">Lun a Vie: 8:00 AM - 6:00 PM</span>
+                  <span className="row-value">Lun a Dom: 8:00 AM - 6:00 PM</span>
                 </div>
               </div>
 
@@ -97,7 +97,7 @@ export default function ContactoView({
                 <div className="form-group">
                   <label>Mensaje o Requerimiento Técnico *</label>
                   <textarea 
-                    placeholder="Detalla aquí los productos H3 o HB Max que necesitas cotizar..." 
+                    placeholder="Detalla aquí los productos H3 o H3 Max que necesitas cotizar..." 
                     required 
                     rows="4" 
                     className="form-ctrl text-area-ctrl" 

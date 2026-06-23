@@ -154,7 +154,7 @@ ${contactoForm.mensaje}`;
 
 *Datos del Cliente:*
 • *Nombre:* ${cotizadorForm.nombre}
-• *Teléfono:* ${cotizadorForm.telefono}
+• *Celular:* ${cotizadorForm.telefono}
 • *Correo:* ${cotizadorForm.correo}
 
 Hola, quisiera recibir una cotización formal sobre este requerimiento.`;

@@ -80,7 +80,7 @@ export default function NosotrosView({ navegarA }) {
               <div className="timeline-year">2026</div>
               <div className="timeline-content">
                 <h4>Consolidación H3</h4>
-                <p>Lanzamiento definitivo del Catálogo Oficial H3 y HB Max con estándares ISO internacionales.</p>
+                <p>Lanzamiento definitivo del Catálogo Oficial H3 y H3 Max con estándares ISO internacionales.</p>
               </div>
             </div>
           </div>

@@ -28,7 +28,7 @@ export default function Header({ currentPage, navegarA, searchQuery, setSearchQu
             </span>
           </div>
           <div className="top-bar-tagline">
-            <span>Catálogo Oficial H3</span>
+            <span>Sitio Oficial H3</span>
           </div>
         </div>
       </div>
