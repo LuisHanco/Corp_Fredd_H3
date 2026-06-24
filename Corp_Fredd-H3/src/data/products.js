@@ -59,6 +59,7 @@ import fichaTanques8 from '../assets/pdf/FICHA TECNICA CISTERNA 5000.pdf';
 import fichaTanques9 from '../assets/pdf/FICHA TECNICA CISTERNA 10000.pdf';
 import fichabrida from '../assets/pdf/FICHA TECNICA BRIDA.pdf';
 import fichamulticonector from '../assets/pdf/FICHA TECNICA VALVULA MULTICONECTOR.pdf';
+import fichapvc from '../assets/pdf/FICHA TECNICA TUBO PVC.pdf';
 
 
 
@@ -111,6 +112,16 @@ import img045h3 from '../assets/img/h3/valvulagris.png';
 import img046h3 from '../assets/img/h3/valvulamini.png';
 import img047h3 from '../assets/img/h3/valvulamulticonector.png';
 import img048h3 from '../assets/img/h3/valvulapiecafe.png';
+import img049h3 from '../assets/img/PVC/PVCCODO.webp'; 
+import img050h3 from '../assets/img/PVC/PVCCODO45.webp'; 
+import img051h3 from '../assets/img/PVC/PVCREDUCCION.webp';
+import img052h3 from '../assets/img/PVC/PVCTAPON.webp'; 
+import img053h3 from '../assets/img/PVC/PVCTEE.webp'; 
+import img054h3 from '../assets/img/PVC/PVCTEE2.webp'; 
+import img055h3 from '../assets/img/PVC/PVCTEE3.webp'; 
+import img056h3 from '../assets/img/PVC/PVCTEERED.webp';
+import img057h3 from '../assets/img/PVC/PVCYEE.webp';
+import img058h3 from '../assets/img/PVC/PVCYEERED.webp';
 
 // ============================================================================
 // 2. CATEGORÍAS BASADAS EN EL CATÁLOGO H3 2026
@@ -512,6 +523,134 @@ export const PRODUCTOS = [
     ],
     imagenes: [img045h3],
     fichaTecnica: fichagris
+  },
+  {
+    id: 'h3-codo-pvc',
+    nombre: 'CODO 90°',
+    categoria: 'agua-fria',
+    marca: 'H3',
+    codigoBase: 'H3-cd-pvc',
+    descripcion: 'Su refuerzo único en su clase son más resistentes para todo tipo de obras una vez instaladas.',
+    caracteristicas: ['Facil Instalacion',],
+    especificaciones: [
+      { Medida: '2"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+      { Medida: '3"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+      { Medida: '4"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+    ],
+    imagenes: [img049h3],
+    fichaTecnica: fichapvc
+  },
+  {
+    id: 'h3-codo-pvc',
+    nombre: 'CODO 45°',
+    categoria: 'agua-fria',
+    marca: 'H3',
+    codigoBase: 'H3-cd-pvc',
+    descripcion: 'Su refuerzo único en su clase son más resistentes para todo tipo de obras una vez instaladas.',
+    caracteristicas: ['Facil Instalacion',],
+    especificaciones: [
+      { Medida: '2"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+      { Medida: '3"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+      { Medida: '4"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+    ],
+    imagenes: [img050h3],
+    fichaTecnica: fichapvc
+  },
+  {
+    id: 'h3-red-pvc',
+    nombre: 'REDUCCION CAMPANA',
+    categoria: 'agua-fria',
+    marca: 'H3',
+    codigoBase: 'H3-red-pvc',
+    descripcion: 'Su refuerzo único en su clase son más resistentes para todo tipo de obras una vez instaladas.',
+    caracteristicas: ['Facil Instalacion',],
+    especificaciones: [
+      { Medida: '3" a 2"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+      { Medida: '4" a 2"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+      { Medida: '4" a 3"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+    ],
+    imagenes: [img051h3],
+    fichaTecnica: fichapvc
+  },
+  {
+    id: 'h3-tap-pvc',
+    nombre: 'TAPON DESAGUE',
+    categoria: 'agua-fria',
+    marca: 'H3',
+    codigoBase: 'H3-tap-pvc',
+    descripcion: 'Su refuerzo único en su clase son más resistentes para todo tipo de obras una vez instaladas.',
+    caracteristicas: ['Facil Instalacion',],
+    especificaciones: [
+      { Medida: '2"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+      { Medida: '3"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+      { Medida: '4"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+    ],
+    imagenes: [img052h3],
+    fichaTecnica: fichapvc
+  },
+  {
+    id: 'h3-tee-pvc',
+    nombre: 'TEE DESAGUE',
+    categoria: 'agua-fria',
+    marca: 'H3',
+    codigoBase: 'H3-tee-pvc',
+    descripcion: 'Su refuerzo único en su clase son más resistentes para todo tipo de obras una vez instaladas.',
+    caracteristicas: ['Facil Instalacion',],
+    especificaciones: [
+      { Medida: '2"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+      { Medida: '3"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+      { Medida: '4"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+    ],
+    imagenes: [img053h3, img055h3, img054h3,],
+    fichaTecnica: fichapvc
+  },
+  {
+    id: 'h3-teered-pvc',
+    nombre: 'TEE CON REDUCCION',
+    categoria: 'agua-fria',
+    marca: 'H3',
+    codigoBase: 'H3-teered-pvc',
+    descripcion: 'Su refuerzo único en su clase son más resistentes para todo tipo de obras una vez instaladas.',
+    caracteristicas: ['Facil Instalacion',],
+    especificaciones: [
+      { Medida: '3" a 2"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+      { Medida: '4" a 2"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+      { Medida: '4" a 3"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+    ],
+    imagenes: [img056h3,],
+    fichaTecnica: fichapvc
+  },
+  {
+    id: 'h3-yee-pvc',
+    nombre: 'YEE DESAGUE',
+    categoria: 'agua-fria',
+    marca: 'H3',
+    codigoBase: 'H3-yee-pvc',
+    descripcion: 'Su refuerzo único en su clase son más resistentes para todo tipo de obras una vez instaladas.',
+    caracteristicas: ['Facil Instalacion',],
+    especificaciones: [
+      { Medida: '2"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+      { Medida: '3"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+      { Medida: '4"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+    ],
+    imagenes: [img057h3,],
+    fichaTecnica: fichapvc
+  },
+  {
+    id: 'h3-yeered-pvc',
+    nombre: 'YEE CON REDUCCION',
+    categoria: 'agua-fria',
+    marca: 'H3',
+    codigoBase: 'H3-yeered-pvc',
+    descripcion: 'Su refuerzo único en su clase son más resistentes para todo tipo de obras una vez instaladas.',
+    caracteristicas: ['Facil Instalacion',],
+    especificaciones: [
+      { Medida: '3" a 2"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+      { Medida: '4" a 2"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+      { Medida: '4" a 3"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
+    ],
+    imagenes: [img058h3,],
+    fichaTecnica: fichapvc
   },
 
   // --- SECCIÓN: ELECTROBOMBAS HB MAX ---
