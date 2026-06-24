@@ -130,7 +130,7 @@ export const CATEGORIAS = [
   { id: 'agua-caliente', nombre: 'Agua Caliente (PPH)' },
   { id: 'agua-fria', nombre: 'Agua Fría y Desagüe (PVC)' },
   { id: 'tanques', nombre: 'Tanques y Biodigestores' },
-  { id: 'electrobombas', nombre: 'Electrobombas HB Max' }
+  { id: 'electrobombas', nombre: 'Electrobombas' }
 ];
 
 // ============================================================================
