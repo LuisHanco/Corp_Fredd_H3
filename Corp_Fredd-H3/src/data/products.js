@@ -60,6 +60,10 @@ import fichaTanques9 from '../assets/pdf/FICHA TECNICA CISTERNA 10000.pdf';
 import fichabrida from '../assets/pdf/FICHA TECNICA BRIDA.pdf';
 import fichamulticonector from '../assets/pdf/FICHA TECNICA VALVULA MULTICONECTOR.pdf';
 import fichapvc from '../assets/pdf/FICHA TECNICA TUBO PVC.pdf';
+import fichapeg from '../assets/pdf/FICHA TECNICA PEGAMENTO AZUL.pdf';
+import fichatrap from '../assets/pdf/FICHA TECNICA TRAMPA P.pdf';
+import ficharosca from '../assets/pdf/FICHA TECNICA TUBO ROSCA.pdf';
+import fichaluz from '../assets/pdf/FICHA TECNICA TUBO DE LUZ.pdf';
 
 
 
@@ -121,7 +125,15 @@ import img054h3 from '../assets/img/PVC/PVCTEE2.webp';
 import img055h3 from '../assets/img/PVC/PVCTEE3.webp'; 
 import img056h3 from '../assets/img/PVC/PVCTEERED.webp';
 import img057h3 from '../assets/img/PVC/PVCYEE.webp';
-import img058h3 from '../assets/img/PVC/PVCYEERED.webp';
+import img058h3 from '../assets/img/PVC/PVCYEERED.webp'; 
+import img059h3 from '../assets/img/PVC/OCTAGONAL.png';
+import img060h3 from '../assets/img/PVC/RECTANGULAR.png';
+import img061h3 from '../assets/img/PVC/PEGAMENTO.png';
+import img062h3 from '../assets/img/PVC/TRAMPAP.png';
+import img063h3 from '../assets/img/PVC/TUBOALCANTARILLADO.png';
+import img064h3 from '../assets/img/PVC/TUBODEPVC AGUA.png';
+import img065h3 from '../assets/img/PVC/TUBOLUZ.png';
+import img066h3 from '../assets/img/PVC/TUBOPVCDESAGUE.png';
 
 // ============================================================================
 // 2. CATEGORÍAS BASADAS EN EL CATÁLOGO H3 2026
@@ -650,6 +662,134 @@ export const PRODUCTOS = [
       { Medida: '4" a 3"', Material: 'pvc', Mecanismo: 'Union', Color: 'Gris', stock: 'Disponible' },
     ],
     imagenes: [img058h3,],
+    fichaTecnica: fichapvc
+  },
+  {
+    id: 'h3-octa-pvc',
+    nombre: 'OCTAGONAL',
+    categoria: 'luz-Electrica',
+    marca: 'H3',
+    codigoBase: 'H3-octa-pvc',
+    descripcion: 'Indispensable en instalaciones eléctricas y de construcción para empotrar conexiones en techos o paredes y servir como punto de salida para las luminarias.',
+    caracteristicas: ['Facil Instalacion',],
+    especificaciones: [
+      { Medida: '4" x 4"', Material: 'pvc', Mecanismo: 'Empotrar', Color: 'Gris', stock: 'Disponible' },
+    ],
+    imagenes: [img059h3,],
+    fichaTecnica: fichapvc
+  },
+   {
+    id: 'h3-recta-pvc',
+    nombre: 'RECTANGULAR',
+    categoria: 'luz-Electrica',
+    marca: 'H3',
+    codigoBase: 'H3-octa-pvc',
+    descripcion: 'Indispensable en instalaciones eléctricas y de construcción para empotrar conexiones en techos o paredes y servir como punto de salida para las luminarias.',
+    caracteristicas: ['Facil Instalacion',],
+    especificaciones: [
+      { Medida: '2" x 4"', Material: 'pvc', Mecanismo: 'Empotrar', Color: 'Gris', stock: 'Disponible' },
+    ],
+    imagenes: [img060h3,],
+    fichaTecnica: fichapvc
+  },
+  {
+    id: 'h3-peg-pvc',
+    nombre: 'PEGAMENTO AZUL',
+    categoria: 'Pegamento-pvc',
+    marca: 'H3',
+    codigoBase: 'H3-octa-pvc',
+    descripcion: 'Se puede aplicarse incluso si las tuberías están mojadas, húmedas o bajo el agua. Es el pegamento estándar utilizado para reparaciones de emergencia donde no se puede cortar por completo el flujo de agua, o para instalaciones expuestas a la intemperie, sistemas de riego, piscinas e hidromasajes.',
+    caracteristicas: ['Facil Instalacion',],
+    especificaciones: [
+      { Medida: '1/64', Color: 'AZUl', Ml: '59 ml', stock: 'Disponible' },
+      { Medida: '1/32', Color: 'AZUl', Ml: '118 ml', stock: 'Disponible' },
+      { Medida: '1/16', Color: 'AZUl', Ml: '237 ml', stock: 'Disponible' },
+      { Medida: '1/8', Color: 'AZUl', Ml: '473 ml', stock: 'Disponible' },
+      { Medida: '1/4', Color: 'AZUl', Ml: '946 ml', stock: 'Disponible' },
+      { Medida: '1 Gln', Color: 'AZUl', Ml: '3,785 ml', stock: 'Disponible' },
+    ],
+    imagenes: [img061h3,],
+    fichaTecnica: fichapeg
+  },
+  {
+    id: 'h3-tramp-pvc',
+    nombre: 'TRAMPA TIPO-P',
+    categoria: 'agua-pvc',
+    marca: 'H3',
+    codigoBase: 'H3-tubo-pvc',
+    descripcion: 'Para las conexiones hidráulicas más importantes en cualquier edificación. Su función principal es retener una pequeña cantidad de agua constante en su curva (sello hidráulico), lo cual actúa como una barrera física definitiva que impide que los malos olores y los gases del alcantarillado público o los tubos de desagüe suban y salgan por los sumideros, lavaderos o duchas.',
+    caracteristicas: ['Facil Instalacion',],
+    especificaciones: [
+      { Medida: '1 1/2"', Material: 'Polipropileno', Curva: '180°', Temperatura: '100° C', stock: 'Disponible' },
+    ],
+    imagenes: [img062h3,],
+    fichaTecnica: fichatrap
+  },
+  {
+    id: 'h3-tubo-pvc',
+    nombre: 'TUBO ALCANTARILLADO',
+    categoria: 'tubo-pvc',
+    marca: 'H3',
+    codigoBase: 'H3-tubo-pvc',
+    descripcion: 'Tubo de alcantarillado está diseñado para redes exteriores urbanas o matrices principales de drenaje.',
+    caracteristicas: ['Facil Instalacion',],
+    especificaciones: [
+      { Medida: '4"', MM: '110 mm', Metro: '6 mts', Union: 'Flexible (UF)', stock: 'Disponible' },
+      { Medida: '6"', MM: '160 mm', Metro: '6 mts', Union: 'Flexible (UF)', stock: 'Disponible' },
+      { Medida: '8"', MM: '200 mm', Metro: '6 mts', Union: 'Flexible (UF)', stock: 'Disponible' },
+    ],
+    imagenes: [img063h3,],
+    fichaTecnica: fichapvc
+  },
+  {
+    id: 'h3-tubo-pvc',
+    nombre: 'TUBO PVC AGUA FRIA C/R',
+    categoria: 'tubo-pvc',
+    marca: 'H3',
+    codigoBase: 'H3-tubo-pvc',
+    descripcion: 'Está específicamente diseñado para la conducción y distribución de agua potable bajo presión hidrostática dentro y fuera de edificaciones. A diferencia de los de desagüe, estos tubos son físicamente de color gris oscuro y tienen paredes considerablemente más gruesas para evitar roturas causadas por la presión de la red pública.',
+    caracteristicas: ['Facil Instalacion',],
+    especificaciones: [
+      { Medida: '1/2"', Clase: '10 (pn10)', Metro: '5 mts', Union: 'Roscado', stock: 'Disponible' },
+      { Medida: '3/4"', Clase: '10 (pn10)', Metro: '5 mts', Union: 'Roscado', stock: 'Disponible' },
+      { Medida: '1"', Clase: '10 (pn10)', Metro: '5 mts', Union: 'Roscado', stock: 'Disponible' },
+      { Medida: '11/2"', Clase: '10 (pn10)', Metro: '5 mts', Union: 'Roscado', stock: 'Disponible' },
+      { Medida: '2"', Clase: '10 (pn10)', Metro: '5 mts', Union: 'Roscado', stock: 'Disponible' },
+    ],
+    imagenes: [img064h3,],
+    fichaTecnica: ficharosca
+  },
+  {
+    id: 'h3-tubo-pvc',
+    nombre: 'TUBO DE LUZ',
+    categoria: 'tubo-pvc',
+    marca: 'H3',
+    codigoBase: 'H3-tubo-pvc',
+    descripcion: 'Está diseñado bajo la norma técnica NTP 399.006 para proteger y enrutar el cableado eléctrico de baja o media tensión dentro de muros, techos y pisos.',
+    caracteristicas: ['Facil Instalacion',],
+    especificaciones: [
+      { Medida: '5/8"', Clase: 'Sel', Metro: '3 mts', Uso: 'Tabiquería y paredes tarrajeadas', stock: 'Disponible' },
+      { Medida: '3/4"', Clase: 'Sel', Metro: '3 mts', Uso: 'Circuitos domésticos medianos', stock: 'Disponible' },
+      { Medida: '1"', Clase: 'Sel', Metro: '3 mts', Uso: 'Alimentación a tablero principal', stock: 'Disponible' },
+      { Medida: '11/2"', Clase: 'Sel', Metro: '3 mts', Uso: 'Alimentación a tablero principal', stock: 'Disponible' },
+    ],
+    imagenes: [img065h3,],
+    fichaTecnica: fichaluz
+  },
+  {
+    id: 'h3-tubo-pvc',
+    nombre: 'TUBO DE DESAGUE',
+    categoria: 'tubo-pvc',
+    marca: 'H3',
+    codigoBase: 'H3-tubo-pvc',
+    descripcion: 'Está diseñado para recolectar y transportar aguas residuales (grises y negras) o servir como conducto de ventilación en edificaciones..',
+    caracteristicas: ['Facil Instalacion',],
+    especificaciones: [
+      { Medida: '2"', Clase: 'Pesado', Metro: '3 mts', Uso: 'Lavatorios, duchas y lavaderos', stock: 'Disponible' },
+      { Medida: '3"', Clase: 'Pesado', Metro: '3 mts', Uso: 'Ventilación y desagües intermedios', stock: 'Disponible' },
+      { Medida: '4"', Clase: 'Pesado', Metro: '3 mts', Uso: 'Descarga de inodoros y montantes principales', stock: 'Disponible' },
+    ],
+    imagenes: [img066h3,],
     fichaTecnica: fichapvc
   },
 
