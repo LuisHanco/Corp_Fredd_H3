@@ -1,8 +1,8 @@
-import React, { useState, useRef } from 'react'; //[cite: 1] Añadimos useRef
-import { ChevronRight, ChevronLeft, CheckCircle2, Ruler, ShieldAlert, ArrowRight, FileText, X } from 'lucide-react'; //[cite: 1] Añadimos ChevronLeft
+import React, { useState, useRef } from 'react';
+import { ChevronRight, ChevronLeft, CheckCircle2, Ruler, ShieldAlert, ArrowRight, FileText, X } from 'lucide-react';
 // Importamos la base de datos para sugerencias y el Catálogo como Ficha Técnica por defecto
-import { PRODUCTOS, CATALOGOS } from '../data/products'; //[cite: 1]
-import './DetailView.css'; //[cite: 1]
+import { PRODUCTOS, CATALOGOS } from '../data/products';
+import './DetailView.css';
 
 export default function DetailView({ 
   selectedProduct, 
@@ -16,22 +16,22 @@ export default function DetailView({
 }) {
   
   // Estado para controlar el modal de la Ficha Técnica
-  const [urlFichaActiva, setUrlFichaActiva] = useState(null); //[cite: 1]
+  const [urlFichaActiva, setUrlFichaActiva] = useState(null);
   
   // Referencia para el contenedor de productos similares (Scroll manual por flechas)
   const sliderRef = useRef(null);
 
-  if (!selectedProduct) return null; //[cite: 1]
+  if (!selectedProduct) return null;
 
-  // MODIFICACIÓN: Ya no limitamos a 4 productos (.slice(0, 4)), los traemos todos
+  // Filtramos productos de la misma categoría para sugerencias
   const productosSimilares = PRODUCTOS.filter(
     (p) => p.categoria === selectedProduct.categoria && p.id !== selectedProduct.id
-  ); //[cite: 1]
+  );
 
   // Funciones para desplazar el carrusel mediante las flechas
   const scrollSlider = (direccion) => {
     if (sliderRef.current) {
-      const scrollAmount = 300; // Distancia de desplazamiento por click
+      const scrollAmount = 300; // Distancia de desplazamiento por clic
       sliderRef.current.scrollBy({
         left: direccion === 'izquierda' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'
@@ -39,39 +39,38 @@ export default function DetailView({
     }
   };
 
-  // Función auxiliar para formatear la categoría (de 'agua-caliente' a 'AGUA CALIENTE')
+  // Función auxiliar para formatear la categoría
   const formatoCategoria = (catText) => {
-    return catText ? catText.replace(/-/g, ' ').toUpperCase() : ''; //[cite: 1]
+    return catText ? catText.replace(/-/g, ' ').toUpperCase() : '';
   };
 
   // Función inteligente para abrir la Ficha Técnica (Local o Drive)
-  const abrirFichaTecnica = () => { //[cite: 1]
-    let url = selectedProduct.fichaTecnica || (CATALOGOS && CATALOGOS.length > 0 ? CATALOGOS[0].enlacePdf : ''); //[cite: 1]
-    if (!url) return; //[cite: 1]
-    if (url.includes('drive.google.com')) { //[cite: 1]
-      url = url.replace(/\/view\?usp=sharing|\/edit\?usp=sharing|\/view|\/edit/g, '/preview'); //[cite: 1]
+  const abrirFichaTecnica = () => {
+    let url = selectedProduct.fichaTecnica || (CATALOGOS && CATALOGOS.length > 0 ? CATALOGOS[0].enlacePdf : '');
+    
+    if (!url) return;
+
+    if (url.includes('drive.google.com')) {
+      url = url.replace(/\/view\?usp=sharing|\/edit\?usp=sharing|\/view|\/edit/g, '/preview');
     }
-    setUrlFichaActiva(url); //[cite: 1]
+    
+    setUrlFichaActiva(url);
   };
 
   return (
     <div className="detail-page">
       <div className="detail-container">
         
-        {/* ==========================================
-            Migas de Pan (Navegación UX)
-            ========================================== */}
+        {/* Migas de Pan */}
         <nav className="breadcrumbs-nav">
-          <button onClick={() => navegarA('inicio')} className="breadcrumb-link">Inicio</button> 
+          <button onClick={() => navegarA('inicio')} className="breadcrumb-link">Inicio</button>
           <ChevronRight size={14} className="breadcrumb-separator" />
           <button onClick={() => navegarA('productos')} className="breadcrumb-link">Catálogo H3</button>
           <ChevronRight size={14} className="breadcrumb-separator" />
           <span className="breadcrumb-current">{formatoCategoria(selectedProduct.categoria)}</span>
         </nav>
 
-        {/* ==========================================
-            Tarjeta Principal del Producto
-            ========================================== */}
+        {/* Tarjeta Principal del Producto */}
         <div className="main-product-card">
           <div className="product-gallery-side">
             <div className="main-image-viewport">
@@ -139,9 +138,7 @@ export default function DetailView({
           </div>
         </div>
 
-        {/* ==========================================
-            Panel Inferior: Pestañas y Tablas Técnicas
-            ========================================== */}
+        {/* Panel Inferior: Pestañas */}
         <div className="specs-tabs-card">
           <div className="tabs-navigation-header">
             <button 
@@ -169,9 +166,7 @@ export default function DetailView({
                       {selectedProduct.especificaciones && selectedProduct.especificaciones.length > 0 && 
                         Object.keys(selectedProduct.especificaciones[0])
                           .filter(llave => llave !== 'stock')
-                          .map((llave, index) => (
-                            <th key={index}>{llave}</th>
-                          ))
+                          .map((llave, index) => <th key={index}>{llave}</th>)
                       }
                       <th>Disponibilidad</th>
                       <th className="text-center">Acción</th>
@@ -217,15 +212,13 @@ export default function DetailView({
             ) : (
               <div className="additional-info-text">
                 <h4 className="additional-info-title">Consideraciones para la Instalación</h4>
-                <p>Todos nuestros accesorios cumplen rigurosamente con los estándares internacionales aplicables...</p>
+                <p>Todos nuestros accesorios cumplen rigurosamente con los estándares internacionales aplicables para sistemas de presión.</p>
               </div>
             )}
           </div>
         </div>
 
-        {/* ==========================================
-            PRODUCTOS SIMILARES CON CONTROL DE FLECHAS
-            ========================================== */}
+        {/* Productos Similares con Carrusel */}
         {productosSimilares.length > 0 && (
           <section className="similares-section">
             <div className="similares-header-container">
@@ -235,7 +228,6 @@ export default function DetailView({
                 <div className="similares-divider"></div>
               </div>
               
-              {/* Botones de navegación (Flechas) */}
               <div className="slider-arrow-controls">
                 <button className="arrow-btn" onClick={() => scrollSlider('izquierda')} aria-label="Anterior">
                   <ChevronLeft size={20} />
@@ -246,7 +238,6 @@ export default function DetailView({
               </div>
             </div>
 
-            {/* Carrusel con slider dinámico */}
             <div className="similares-slider-wrapper">
               <div className="similares-responsive-track carousel-mode" ref={sliderRef}>
                 {productosSimilares.map((simProd) => (
@@ -256,22 +247,15 @@ export default function DetailView({
                     onClick={() => {
                       setActiveImgIndex(0); 
                       navegarA('producto-detalle', simProd);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
                   >
                     <div className="similar-card-img-container">
-                      <img 
-                        src={simProd.imagenes && simProd.imagenes[0]} 
-                        alt={simProd.nombre} 
-                        className="similar-stage-img"
-                      />
+                      <img src={simProd.imagenes && simProd.imagenes[0]} alt={simProd.nombre} className="similar-stage-img" />
                     </div>
-
                     <div className="similar-card-info">
                       <span className="similar-card-cat">{formatoCategoria(simProd.categoria)}</span>
                       <h4 className="similar-product-title-clean" title={simProd.nombre}>{simProd.nombre}</h4>
                       <p className="similar-product-desc-clean">{simProd.descripcion}</p>
-                      
                       <button className="btn-similar-view">
                         <span>Ver Detalles</span>
                         <ArrowRight size={14} className="arrow-similar-motion" />
@@ -283,12 +267,9 @@ export default function DetailView({
             </div>
           </section>
         )}
-
       </div>
 
-      {/* ==========================================
-          MODAL: VISOR DE FICHA TÉCNICA
-          ========================================== */}
+      {/* Modal Ficha Técnica */}
       {urlFichaActiva && (
         <div className="ficha-modal-overlay" onClick={() => setUrlFichaActiva(null)}>
           <div className="ficha-modal-content" onClick={(e) => e.stopPropagation()}>
@@ -302,7 +283,6 @@ export default function DetailView({
           </div>
         </div>
       )}
-
     </div>
   );
 }
