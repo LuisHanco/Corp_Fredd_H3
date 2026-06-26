@@ -144,6 +144,8 @@ export const CATEGORIAS = [
   { id: 'tanques', nombre: 'Tanques y Biodigestores' },
   { id: 'electrobombas', nombre: 'Electrobombas' },
   { id: 'luz-Electrica', nombre: 'Luz Electrica' },
+  { id: 'tubo-pvc', nombre: 'Tubo' },
+  { id: 'pvc', nombre: 'Pvc Accesorios' },
 ];
 
 // ============================================================================
@@ -540,7 +542,7 @@ export const PRODUCTOS = [
   {
     id: 'h3-codo-pvc',
     nombre: 'CODO 90°',
-    categoria: 'agua-fria',
+    categoria: 'pvc',
     marca: 'H3',
     codigoBase: 'H3-cd-pvc',
     descripcion: 'Su refuerzo único en su clase son más resistentes para todo tipo de obras una vez instaladas.',
@@ -554,11 +556,11 @@ export const PRODUCTOS = [
     fichaTecnica: fichapvc
   },
   {
-    id: 'h3-codo-pvc',
+    id: 'h3-cod45-pvc',
     nombre: 'CODO 45°',
-    categoria: 'agua-fria',
+    categoria: 'pvc',
     marca: 'H3',
-    codigoBase: 'H3-cd-pvc',
+    codigoBase: 'H3-cd45-pvc',
     descripcion: 'Su refuerzo único en su clase son más resistentes para todo tipo de obras una vez instaladas.',
     caracteristicas: ['Facil Instalacion',],
     especificaciones: [
@@ -572,7 +574,7 @@ export const PRODUCTOS = [
   {
     id: 'h3-red-pvc',
     nombre: 'REDUCCION CAMPANA',
-    categoria: 'agua-fria',
+    categoria: 'pvc',
     marca: 'H3',
     codigoBase: 'H3-red-pvc',
     descripcion: 'Su refuerzo único en su clase son más resistentes para todo tipo de obras una vez instaladas.',
@@ -588,7 +590,7 @@ export const PRODUCTOS = [
   {
     id: 'h3-tap-pvc',
     nombre: 'TAPON DESAGUE',
-    categoria: 'agua-fria',
+    categoria: 'pvc',
     marca: 'H3',
     codigoBase: 'H3-tap-pvc',
     descripcion: 'Su refuerzo único en su clase son más resistentes para todo tipo de obras una vez instaladas.',
@@ -604,7 +606,7 @@ export const PRODUCTOS = [
   {
     id: 'h3-tee-pvc',
     nombre: 'TEE DESAGUE',
-    categoria: 'agua-fria',
+    categoria: 'pvc',
     marca: 'H3',
     codigoBase: 'H3-tee-pvc',
     descripcion: 'Su refuerzo único en su clase son más resistentes para todo tipo de obras una vez instaladas.',
@@ -620,7 +622,7 @@ export const PRODUCTOS = [
   {
     id: 'h3-teered-pvc',
     nombre: 'TEE CON REDUCCION',
-    categoria: 'agua-fria',
+    categoria: 'pvc',
     marca: 'H3',
     codigoBase: 'H3-teered-pvc',
     descripcion: 'Su refuerzo único en su clase son más resistentes para todo tipo de obras una vez instaladas.',
@@ -636,7 +638,7 @@ export const PRODUCTOS = [
   {
     id: 'h3-yee-pvc',
     nombre: 'YEE DESAGUE',
-    categoria: 'agua-fria',
+    categoria: 'pvc',
     marca: 'H3',
     codigoBase: 'H3-yee-pvc',
     descripcion: 'Su refuerzo único en su clase son más resistentes para todo tipo de obras una vez instaladas.',
@@ -652,7 +654,7 @@ export const PRODUCTOS = [
   {
     id: 'h3-yeered-pvc',
     nombre: 'YEE CON REDUCCION',
-    categoria: 'agua-fria',
+    categoria: 'pvc',
     marca: 'H3',
     codigoBase: 'H3-yeered-pvc',
     descripcion: 'Su refuerzo único en su clase son más resistentes para todo tipo de obras una vez instaladas.',
@@ -699,7 +701,7 @@ export const PRODUCTOS = [
     nombre: 'PEGAMENTO AZUL',
     categoria: 'Pegamento-pvc',
     marca: 'H3',
-    codigoBase: 'H3-octa-pvc',
+    codigoBase: 'H3-peg-pvc',
     descripcion: 'Se puede aplicarse incluso si las tuberías están mojadas, húmedas o bajo el agua. Es el pegamento estándar utilizado para reparaciones de emergencia donde no se puede cortar por completo el flujo de agua, o para instalaciones expuestas a la intemperie, sistemas de riego, piscinas e hidromasajes.',
     caracteristicas: ['Facil Instalacion',],
     especificaciones: [
@@ -716,7 +718,7 @@ export const PRODUCTOS = [
   {
     id: 'h3-tramp-pvc',
     nombre: 'TRAMPA TIPO-P',
-    categoria: 'agua-pvc',
+    categoria: 'tanques',
     marca: 'H3',
     codigoBase: 'H3-tubo-pvc',
     descripcion: 'Para las conexiones hidráulicas más importantes en cualquier edificación. Su función principal es retener una pequeña cantidad de agua constante en su curva (sello hidráulico), lo cual actúa como una barrera física definitiva que impide que los malos olores y los gases del alcantarillado público o los tubos de desagüe suban y salgan por los sumideros, lavaderos o duchas.',
@@ -728,11 +730,11 @@ export const PRODUCTOS = [
     fichaTecnica: fichatrap
   },
   {
-    id: 'h3-tubo-pvc',
+    id: 'h3-tubo-alc',
     nombre: 'TUBO ALCANTARILLADO',
     categoria: 'tubo-pvc',
     marca: 'H3',
-    codigoBase: 'H3-tubo-pvc',
+    codigoBase: 'H3-tubo-alc',
     descripcion: 'Tubo de alcantarillado está diseñado para redes exteriores urbanas o matrices principales de drenaje.',
     caracteristicas: ['Facil Instalacion',],
     especificaciones: [
@@ -744,11 +746,11 @@ export const PRODUCTOS = [
     fichaTecnica: fichapvc
   },
   {
-    id: 'h3-tubo-pvc',
+    id: 'h3-tubo-cr',
     nombre: 'TUBO PVC AGUA FRIA C/R',
     categoria: 'tubo-pvc',
     marca: 'H3',
-    codigoBase: 'H3-tubo-pvc',
+    codigoBase: 'H3-tubo-cr',
     descripcion: 'Está específicamente diseñado para la conducción y distribución de agua potable bajo presión hidrostática dentro y fuera de edificaciones. A diferencia de los de desagüe, estos tubos son físicamente de color gris oscuro y tienen paredes considerablemente más gruesas para evitar roturas causadas por la presión de la red pública.',
     caracteristicas: ['Facil Instalacion',],
     especificaciones: [
@@ -762,11 +764,11 @@ export const PRODUCTOS = [
     fichaTecnica: ficharosca
   },
   {
-    id: 'h3-tubo-pvc',
+    id: 'h3-tubo-luz',
     nombre: 'TUBO DE LUZ',
     categoria: 'tubo-pvc',
     marca: 'H3',
-    codigoBase: 'H3-tubo-pvc',
+    codigoBase: 'H3-Tubo-luz',
     descripcion: 'Está diseñado bajo la norma técnica NTP 399.006 para proteger y enrutar el cableado eléctrico de baja o media tensión dentro de muros, techos y pisos.',
     caracteristicas: ['Facil Instalacion',],
     especificaciones: [
@@ -779,11 +781,11 @@ export const PRODUCTOS = [
     fichaTecnica: fichaluz
   },
   {
-    id: 'h3-tubo-pvc',
+    id: 'h3-tubo-des',
     nombre: 'TUBO DE DESAGUE',
     categoria: 'tubo-pvc',
     marca: 'H3',
-    codigoBase: 'H3-tubo-pvc',
+    codigoBase: 'H3-tubo-des',
     descripcion: 'Está diseñado para recolectar y transportar aguas residuales (grises y negras) o servir como conducto de ventilación en edificaciones..',
     caracteristicas: ['Facil Instalacion',],
     especificaciones: [
