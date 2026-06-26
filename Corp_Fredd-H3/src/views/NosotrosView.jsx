@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Target, Eye, MapPin, Phone, Clock, TrendingUp, ShieldCheck, HeartHandshake, Users } from 'lucide-react';
 import './NosotrosView.css';
 
+import imgns01 from '../assets/img/tubo h3.png';
+
 export default function NosotrosView({ navegarA }) {
   // Puno es la sede activa por defecto al cargar la página
   const [tiendaActiva, setTiendaActiva] = useState('puno');
@@ -47,7 +49,7 @@ export default function NosotrosView({ navegarA }) {
           </div>
           <div className="intro-image-box">
             <img 
-              src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800" 
+              src={imgns01} 
               alt="Planta Industrial Fredd S.A.C." 
               className="about-factory-img" 
               loading="lazy"
