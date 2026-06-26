@@ -1,5 +1,17 @@
 import React, { useState } from 'react';
-import { Award, ShieldCheck, ArrowRight, ThermometerSun, Droplets, Database, Zap, Play } from 'lucide-react';
+import { 
+  Award, 
+  ShieldCheck, 
+  ArrowRight, 
+  ThermometerSun, 
+  Droplets, 
+  Database, 
+  Zap, 
+  Play,
+  Lightbulb, // 💡 Nuevo icono para Luz Eléctrica
+  Wrench,    // 🔧 Nuevo icono para Tubo
+  Boxes      // 📦 Nuevo icono para Accesorios PVC
+} from 'lucide-react';
 import HeroCarousel from '../components/HeroCarousel';
 import MetricSection from '../components/MetricSection';
 import { PRODUCTOS, CATEGORIAS } from '../data/products';
@@ -10,14 +22,25 @@ export default function HomeView({ slides, currentSlide, setCurrentSlide, navega
   // Estado para el control del video
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
-  // Mapeamos íconos visuales elegantes para las categorías del Home
+  // 🛠️ MAPEADO DE ÍCONOS EXTENDIDO Y CALIBRADO
   const obtenerIconoCategoria = (id) => {
     switch(id) {
-      case 'agua-caliente': return <ThermometerSun size={28} />;
-      case 'agua-fria': return <Droplets size={28} />;
-      case 'tanques': return <Database size={28} />;
-      case 'electrobombas': return <Zap size={28} />;
-      default: return <ArrowRight size={28} />;
+      case 'agua-caliente': 
+        return <ThermometerSun size={24} strokeWidth={2} />;
+      case 'agua-fria': 
+        return <Droplets size={24} strokeWidth={2} />;
+      case 'tanques': 
+        return <Database size={24} strokeWidth={2} />;
+      case 'electrobombas': 
+        return <Zap size={24} strokeWidth={2} />;
+      case 'luz-Electrica': 
+        return <Lightbulb size={24} strokeWidth={2} />;
+      case 'tubo-pvc': 
+        return <Wrench size={24} strokeWidth={2} />;
+      case 'pvc': 
+        return <Boxes size={24} strokeWidth={2} />;
+      default: 
+        return <ArrowRight size={24} strokeWidth={2} />;
     }
   };
 
@@ -37,26 +60,59 @@ export default function HomeView({ slides, currentSlide, setCurrentSlide, navega
         navegarA={navegarA} 
       />
 
-      {/* 2. NUEVA SECCIÓN: Accesos Rápidos a Categorías H3 */}
-      <section className="quick-categories-section animate-fade-up">
-        <div className="categories-grid">
-          {CATEGORIAS.map((cat) => (
-            <div 
-              key={cat.id} 
-              className="category-quick-card"
-              onClick={() => irACategoria(cat.id)}
-            >
-              <div className="cat-icon-box">
-                {obtenerIconoCategoria(cat.id)}
-              </div>
-              <div className="cat-text-content">
-                <h3>{cat.nombre.split(' (')[0]}</h3> {/* Muestra un nombre más limpio */}
-                <span>Explorar línea <ArrowRight size={12} style={{marginLeft: '4px'}}/></span>
-              </div>
-            </div>
-          ))}
+{/* 2. SECCIÓN: Accesos Rápidos a Categorías H3 (Minimalismo Sutil y Cambiante) */}
+{/* 2. SECCIÓN: Accesos Rápidos a Categorías H3 (Cinta en Movimiento Infinito y Contraste Premium) */}
+<section className="quick-categories-section animate-fade-up" aria-label="Líneas de Ingeniería H3">
+  <div className="categories-window-mask">
+    <div className="categories-ticker-track">
+      
+      {/* Primer set de tarjetas */}
+      {CATEGORIAS.map((cat) => (
+        <div 
+          key={`set1-${cat.id}`} 
+          className="category-subtle-card"
+          onClick={() => irACategoria(cat.id)}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => { if (e.key === 'Enter') irACategoria(cat.id); }}
+        >
+          <div className="cat-subtle-icon">
+            {obtenerIconoCategoria(cat.id)}
+          </div>
+          <div className="cat-subtle-info">
+            <h3>{cat.nombre.split(' (')[0]}</h3>
+            <span className="cat-subtle-action">
+              Ver línea <ArrowRight size={12} className="arrow-motion" />
+            </span>
+          </div>
         </div>
-      </section>
+      ))}
+
+      {/* Segundo set clonado para el efecto de bucle infinito sin saltos */}
+      {CATEGORIAS.map((cat) => (
+        <div 
+          key={`set2-${cat.id}`} 
+          className="category-subtle-card"
+          onClick={() => irACategoria(cat.id)}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => { if (e.key === 'Enter') irACategoria(cat.id); }}
+        >
+          <div className="cat-subtle-icon">
+            {obtenerIconoCategoria(cat.id)}
+          </div>
+          <div className="cat-subtle-info">
+            <h3>{cat.nombre.split(' (')[0]}</h3>
+            <span className="cat-subtle-action">
+              Ver línea <ArrowRight size={12} className="arrow-motion" />
+            </span>
+          </div>
+        </div>
+      ))}
+
+    </div>
+  </div>
+</section>
 
       {/* 3. Sección de Valor Agregado / Garantía H3 */}
       <section className="guarantee-section animate-fade-up delay-100">
@@ -119,7 +175,7 @@ export default function HomeView({ slides, currentSlide, setCurrentSlide, navega
         </div>
       </section>
 
-      {/* 4. NUEVA SECCIÓN: Video Promocional Interactivo */}
+      {/* 4. SECCIÓN: Video Promocional Interactivo */}
       <section className="video-promo-section animate-fade-up delay-100">
         <div className="section-header">
           <span className="section-tagline">Conoce Nuestra Fábrica</span>
@@ -130,7 +186,6 @@ export default function HomeView({ slides, currentSlide, setCurrentSlide, navega
         <div className="video-container">
           <div className="video-wrapper">
             {!isVideoPlaying ? (
-              // Capa de la miniatura (Thumbnail) con el botón palpitante
               <div className="video-thumbnail-overlay" onClick={() => setIsVideoPlaying(true)}>
                 <img 
                   src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=1200" 
@@ -142,7 +197,6 @@ export default function HomeView({ slides, currentSlide, setCurrentSlide, navega
                 </button>
               </div>
             ) : (
-              // El iframe carga SOLAMENTE cuando el usuario hace clic, mejorando el SEO y velocidad inicial
               <iframe 
                 src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&controls=1&showinfo=0&autoplay=1" 
                 title="Video Promocional Industrias Fredd" 
@@ -168,7 +222,6 @@ export default function HomeView({ slides, currentSlide, setCurrentSlide, navega
         </div>
 
         <div className="featured-responsive-track">
-          {/* Mostramos 4 productos representativos */}
           {PRODUCTOS.slice(0, 4).map((prod) => (
             <div 
               key={prod.id} 
@@ -180,7 +233,6 @@ export default function HomeView({ slides, currentSlide, setCurrentSlide, navega
             >
               <div className="product-img-stage">
                 <img src={prod.imagenes && prod.imagenes[0]} alt={prod.nombre} className="product-stage-img" loading="lazy" />
-                {/* <span className="product-brand-floating-badge">{prod.marca}</span> */}
               </div>
 
               <div className="product-details-chassis">
@@ -226,11 +278,9 @@ export default function HomeView({ slides, currentSlide, setCurrentSlide, navega
         </div>
         
         <div className="gallery-grid">
-          {/* Imagen Principal (Ocupa 2 columnas y 2 filas) */}
           <div className="gallery-item large">
             <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800" alt="Planta de producción 1" loading="lazy" />
           </div>
-          {/* Imágenes secundarias */}
           <div className="gallery-item">
             <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=500" alt="Operarios en fábrica" loading="lazy" />
           </div>

@@ -82,80 +82,167 @@
 }
 
 /* =========================================================================
-   NUEVA SECCIÓN: CATEGORÍAS RÁPIDAS
+   REDISEÑO AVANZADO: CINTA SIN FIN AUTOMATIZADA CON ALTO CONTRASTE
    ========================================================================= */
 .quick-categories-section {
-  max-width: 1200px;
-  margin: -40px auto 64px auto; 
-  padding: 0 20px;
+  max-width: 100%;
+  margin: -40px auto 80px auto; 
+  padding: 0;
   position: relative;
-  z-index: 20;
+  z-index: 40;
+  overflow: hidden;
 }
 
-.categories-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+/* Máscara con degradados en los extremos para un desvanecimiento óptico de lujo */
+.categories-window-mask {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 16px 0;
+}
+
+.categories-window-mask::before,
+.categories-window-mask::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.categories-window-mask::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-main) 20%, transparent);
+}
+
+.categories-window-mask::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-main) 20%, transparent);
+}
+
+/* Track en movimiento infinito perpetuo */
+.categories-ticker-track {
+  display: flex;
   gap: 24px;
+  width: max-content;
+  animation: ticker 35s linear infinite; /* Movimiento suave y constante */
 }
 
-.category-quick-card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-light);
+/* Pausa inteligente al pasar el cursor para priorizar la UX */
+.categories-ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* Tarjeta de Alto Contraste (Cero pérdida visual frente a cualquier fondo) */
+.category-subtle-card {
+  background: var(--bg-card); /* Blanco puro sólido para aislar del fondo del slider */
+  border: 1px solid rgba(17, 24, 39, 0.09); /* Borde oscuro fino de alta definición */
   border-radius: 16px;
-  padding: 24px;
+  padding: 20px 28px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
+  min-width: 260px;
   cursor: pointer;
-  box-shadow: var(--shadow-md);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -6px rgba(17, 24, 39, 0.04);
+  transition: 
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.category-quick-card:hover {
-  transform: translateY(-6px);
-  border-color: #FECACA;
-  box-shadow: var(--shadow-lg);
+/* Hover Cromático Sofisticado: El rojo actúa como un aura perimetral limpia */
+.category-subtle-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--h3-red);
+  box-shadow: 0 12px 30px -10px rgba(227, 6, 19, 0.15); /* Brillo perimetral H3 */
 }
 
-.cat-icon-box {
-  background-color: rgba(227, 6, 19, 0.08);
-  color: var(--h3-red);
-  width: 56px;
-  height: 56px;
+/* Contenedor de Icono de Máxima Claridad */
+.cat-subtle-icon {
+  color: var(--text-main); /* Gris oscuro de alto contraste de base */
+  background: #F3F4F6;
+  width: 46px;
+  height: 46px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: all 0.3s ease;
+  transition: 
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
-.category-quick-card:hover .cat-icon-box {
+.category-subtle-card:hover .cat-subtle-icon {
   background-color: var(--h3-red);
-  color: #FFFFFF;
+  color: #FFFFFF; /* Transmutación limpia a blanco sobre fondo H3 */
+  transform: scale(1.05);
 }
 
-.cat-text-content {
+/* Textos Legibles y Estilizados */
+.cat-subtle-info {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
 }
 
-.cat-text-content h3 {
+.cat-subtle-info h3 {
   margin: 0;
-  font-size: 16px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: 600;
   color: var(--text-main);
+  letter-spacing: -0.01em;
   line-height: 1.2;
+  transition: color 0.3s ease;
 }
 
-.cat-text-content span {
-  font-size: 12px;
+.category-subtle-card:hover h3 {
+  color: var(--h3-red); /* El texto cambia para guiar el clic */
+}
+
+/* Enlace de Acción Contextual */
+.cat-subtle-action {
+  font-size: 11px;
   color: var(--text-muted);
-  font-weight: 600;
+  font-weight: 500;
   display: flex;
   align-items: center;
   gap: 4px;
+  opacity: 0; 
+  transform: translateX(-6px);
+  transition: 
+    opacity 0.3s ease,
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.3s ease;
+}
+
+.arrow-motion {
+  transition: transform 0.3s ease;
+}
+
+.category-subtle-card:hover .cat-subtle-action {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--text-main);
+}
+
+.category-subtle-card:hover .arrow-motion {
+  transform: translateX(3px);
+  color: var(--h3-red);
+}
+
+/* Animación del Ticker Infinito por Hardware */
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(-50% - 12px), 0, 0); /* Calcula exactamente la mitad de la pista */
+  }
 }
 
 /* =========================================================================
@@ -390,13 +477,12 @@
 
 .video-wrapper {
   position: relative;
-  padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+  padding-bottom: 56.25%; 
   height: 0;
   overflow: hidden;
   border-radius: 12px;
 }
 
-/* Capa personalizada con imagen y botón palpitante */
 .video-thumbnail-overlay {
   position: absolute;
   inset: 0;
@@ -412,7 +498,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.6; /* Oscurece la imagen para que el botón resalte */
+  opacity: 0.6; 
   transition: opacity 0.4s ease;
 }
 
@@ -420,7 +506,6 @@
   opacity: 0.4;
 }
 
-/* El botón palpitante (Pulse Effect) */
 .pulsing-play-btn {
   position: absolute;
   width: 80px;
@@ -444,7 +529,7 @@
 }
 
 .play-icon-svg {
-  margin-left: 6px; /* Balance óptico del triángulo de Play */
+  margin-left: 6px; 
 }
 
 @keyframes pulse-glow {
@@ -564,11 +649,9 @@
    RESPONSIVO EXCLUSIVO CELULARES Y TABLETAS
    ========================================================================= */
 @media (max-width: 1024px) {
-  .categories-grid { grid-template-columns: repeat(2, 1fr); }
   .guarantee-container { gap: 40px; }
   .main-heading { font-size: 32px; }
   
-  /* Ajuste galería en Tablet (Mantenemos proporciones estéticas) */
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 200px;
@@ -576,7 +659,6 @@
 }
 
 @media (max-width: 968px) {
-  .quick-categories-section { margin-top: 40px; }
   .mobile-swipe-hint { display: block; }
 
   .featured-responsive-track {
@@ -602,8 +684,41 @@
 }
 
 @media (max-width: 640px) {
-  .categories-grid { grid-template-columns: 1fr; gap: 16px; }
-  .category-quick-card { padding: 16px; }
+  /* Calibración de la Cinta Infinita en Dispositivos Móviles */
+  .quick-categories-section {
+    margin: -20px auto 48px auto;
+  }
+  
+  .categories-window-mask::before,
+  .categories-window-mask::after {
+    width: 60px; /* Reducción de la máscara de degradado en pantallas pequeñas */
+  }
+
+  .category-subtle-card {
+    padding: 14px 20px;
+    min-width: 220px;
+    border-radius: 12px;
+  }
+  
+  .cat-subtle-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+  
+  .cat-subtle-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .cat-subtle-info h3 {
+    font-size: 13px;
+  }
+
+  .cat-subtle-action {
+    opacity: 0.8; 
+    transform: translateX(0);
+  }
   
   .guarantee-section { padding: 56px 16px; }
   .features-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -615,7 +730,6 @@
   .banner-content p { font-size: 16px; }
   .btn-primary-large, .btn-banner-action, .btn-see-more-featured { width: 100%; justify-content: center; }
 
-  /* MASONRY RESPONSIVO MÓVIL: En lugar de apilarlas verticalmente aburridas, creamos un mosaico de 2 columnas asimétrico */
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 140px;
@@ -626,7 +740,6 @@
     grid-row: span 2;
   }
   
-  /* Ajuste botón palpitante móvil */
   .pulsing-play-btn {
     width: 64px;
     height: 64px;
