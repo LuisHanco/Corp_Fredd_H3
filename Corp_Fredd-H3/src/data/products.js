@@ -131,7 +131,7 @@ import img060h3 from '../assets/img/PVC/RECTANGULAR.png';
 import img061h3 from '../assets/img/PVC/PEGAMENTO.png';
 import img062h3 from '../assets/img/PVC/TRAMPAP.png';
 import img063h3 from '../assets/img/PVC/TUBOALCANTARILLADO.png';
-import img064h3 from '../assets/img/PVC/TUBODEPVC AGUA.png';
+import img064h3 from '../assets/img/PVC/TUBODEPVCAgu.png';
 import img065h3 from '../assets/img/PVC/TUBOLUZ.png';
 import img066h3 from '../assets/img/PVC/TUBOPVCDESAGUE.png';
 
@@ -142,7 +142,8 @@ export const CATEGORIAS = [
   { id: 'agua-caliente', nombre: 'Agua Caliente (PPH)' },
   { id: 'agua-fria', nombre: 'Agua Fría y Desagüe (PVC)' },
   { id: 'tanques', nombre: 'Tanques y Biodigestores' },
-  { id: 'electrobombas', nombre: 'Electrobombas' }
+  { id: 'electrobombas', nombre: 'Electrobombas' },
+  { id: 'luz-Electrica', nombre: 'Luz Electrica' },
 ];
 
 // ============================================================================
@@ -664,6 +665,7 @@ export const PRODUCTOS = [
     imagenes: [img058h3,],
     fichaTecnica: fichapvc
   },
+
   {
     id: 'h3-octa-pvc',
     nombre: 'OCTAGONAL',
