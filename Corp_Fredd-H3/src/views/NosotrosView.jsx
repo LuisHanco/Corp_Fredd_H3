@@ -11,12 +11,14 @@ export default function NosotrosView({ navegarA }) {
       ciudad: 'Juliaca - Puno',
       direccion: 'Av. Circunvalacion Mza 1 Lote 15 Urb. Apiraj - San Roman - Juliaca -yarn Puno',
       telefono: '+51 950 013 772',
+      horario: '08:00 am - 07:00 pm',
       detalles: 'Planta matriz, centro de distribución y atención técnica especializada.'
     },
     arequipa: {
       ciudad: 'Arequipa',
       direccion: 'Av. Lima N° 120 - Mariano Melgar Arequipa - Arequipa',
       telefono: '+51 950 013 772',
+      horario: '08:00 am - 07:00 pm',
       detalles: 'Centro de almacenamiento estratégico y logística regional.'
     }
   };
@@ -371,15 +373,15 @@ export default function NosotrosView({ navegarA }) {
                     <Phone size={20} className="branch-card-icon" />
                     <span>{SUCURSALES[tiendaActiva].telefono}</span>
                   </div>
-                  <div className="branch-row">
+                  {/* <div className="branch-row">
                     <Clock size={20} className="branch-card-icon" />
                     <span>{SUCURSALES[tiendaActiva].horario}</span>
-                  </div>
+                  </div> */}
                 </div>
 
-                <div className="branch-card-footer-brief">
+                {/* <div className="branch-card-footer-brief">
                   <p>{SUCURSALES[tiendaActiva].detalles}</p>
-                </div>
+                </div> */}
               </div>
             </div>
 
