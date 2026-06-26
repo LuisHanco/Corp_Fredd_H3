@@ -60,16 +60,15 @@ export default function HomeView({ slides, currentSlide, setCurrentSlide, navega
         navegarA={navegarA} 
       />
 
-{/* 2. SECCIÓN: Accesos Rápidos a Categorías H3 (Minimalismo Sutil y Cambiante) */}
-{/* 2. SECCIÓN: Accesos Rápidos a Categorías H3 (Cinta en Movimiento Infinito y Contraste Premium) */}
+{/* 2. SECCIÓN: Accesos Rápidos a Categorías H3 (Estética Cinética de Vanguardia) */}
 <section className="quick-categories-section animate-fade-up" aria-label="Líneas de Ingeniería H3">
   <div className="categories-window-mask">
     <div className="categories-ticker-track">
       
-      {/* Primer set de tarjetas */}
+      {/* Bloque Maestro */}
       {CATEGORIAS.map((cat) => (
         <div 
-          key={`set1-${cat.id}`} 
+          key={`ticker-1-${cat.id}`} 
           className="category-subtle-card"
           onClick={() => irACategoria(cat.id)}
           role="button"
@@ -88,11 +87,11 @@ export default function HomeView({ slides, currentSlide, setCurrentSlide, navega
         </div>
       ))}
 
-      {/* Segundo set clonado para el efecto de bucle infinito sin saltos */}
+      {/* Bloque Espejo (Optimiza el bucle infinito en Desktop) */}
       {CATEGORIAS.map((cat) => (
         <div 
-          key={`set2-${cat.id}`} 
-          className="category-subtle-card"
+          key={`ticker-2-${cat.id}`} 
+          className="category-subtle-card clone-card"
           onClick={() => irACategoria(cat.id)}
           role="button"
           tabIndex={0}
@@ -113,7 +112,6 @@ export default function HomeView({ slides, currentSlide, setCurrentSlide, navega
     </div>
   </div>
 </section>
-
       {/* 3. Sección de Valor Agregado / Garantía H3 */}
       <section className="guarantee-section animate-fade-up delay-100">
         <div className="guarantee-container">

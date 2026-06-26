@@ -112,15 +112,6 @@
   pointer-events: none;
 }
 
-.categories-window-mask::before {
-  left: 0;
-  background: linear-gradient(to right, var(--bg-main) 20%, transparent);
-}
-
-.categories-window-mask::after {
-  right: 0;
-  background: linear-gradient(to left, var(--bg-main) 20%, transparent);
-}
 
 /* Track en movimiento infinito perpetuo */
 .categories-ticker-track {
@@ -138,7 +129,6 @@
 /* Tarjeta de Alto Contraste (Cero pérdida visual frente a cualquier fondo) */
 .category-subtle-card {
   background: var(--bg-card); /* Blanco puro sólido para aislar del fondo del slider */
-  border: 1px solid rgba(17, 24, 39, 0.09); /* Borde oscuro fino de alta definición */
   border-radius: 16px;
   padding: 20px 28px;
   display: flex;

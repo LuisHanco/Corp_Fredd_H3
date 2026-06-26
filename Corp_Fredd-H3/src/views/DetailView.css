@@ -102,7 +102,7 @@
 .main-image-viewport {
   position: relative;
   width: 100%;
-  padding-top: 100%; /* Cuadrado perfecto 1:1 */
+  padding-top: 100%; 
   background-color: #FFFFFF;
   border-radius: 16px;
   border: 1px solid var(--border-light);
@@ -141,7 +141,7 @@
   z-index: 10;
 }
 
-/* 🔥 SOLUCIÓN ESTRICTA: MINIATURAS DEL PRODUCTO 🔥 */
+/* MINIATURAS DEL PRODUCTO */
 .thumbnails-strip {
   display: flex;
   gap: 12px;
@@ -152,10 +152,9 @@
 .thumbnails-strip::-webkit-scrollbar { display: none; }
 
 .thumb-img {
-  /* En lugar de usar porcentajes o aspect-ratio, forzamos un tamaño exacto inamovible */
-  flex: 0 0 85px; /* Ancho fijo y prohíbe aplastamiento */
-  height: 85px;   /* Altura fija = Cuadrado perfecto */
-  object-fit: contain; /* Ajusta la imagen dentro de la caja sin deformar */
+  flex: 0 0 85px; 
+  height: 85px;   
+  object-fit: contain; 
   background-color: #FFFFFF;
   border-radius: 10px;
   cursor: pointer;
@@ -451,7 +450,7 @@
 .additional-info-text p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin: 0 0 16px 0; }
 
 /* =========================================================================
-   PRODUCTOS SIMILARES (TAMAÑO FIJO ESTRICTO)
+   PRODUCTOS SIMILARES - NUEVO MODO CARRUSEL CON FLECHAS (DESKTOP FIJO)
    ========================================================================= */
 .similares-section {
   max-width: 1140px;
@@ -459,12 +458,18 @@
   padding-top: 16px;
 }
 
+.similares-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
 .similares-header {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 40px;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .similares-tagline {
@@ -491,13 +496,57 @@
   border-radius: 2px;
 }
 
-.similares-responsive-track {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+/* Controles de Flechas */
+.slider-arrow-controls {
+  display: flex;
+  gap: 12px;
 }
 
-.similar-card-premium {
+.arrow-btn {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.arrow-btn:hover {
+  background-color: var(--h3-red);
+  border-color: var(--h3-red);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(227, 6, 19, 0.2);
+}
+
+/* Track del Deslizador */
+.similares-slider-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.similares-responsive-track.carousel-mode {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  padding: 8px 4px 24px 4px;
+}
+
+.similares-responsive-track.carousel-mode::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Tarjeta Base del Carrusel */
+.similares-responsive-track.carousel-mode .similar-card-premium {
+  flex: 0 0 calc(25% - 18px); /* Renderiza exactamente 4 por fila de forma responsiva */
+  min-width: 260px;
   background-color: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: 16px;
@@ -541,20 +590,6 @@
 
 .similar-card-premium:hover .similar-stage-img {
   transform: scale(1.1);
-}
-
-.similar-card-brand {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: var(--h3-red);
-  color: #fff;
-  font-size: 9px;
-  font-weight: 800;
-  padding: 4px 10px;
-  border-radius: 4px;
-  letter-spacing: 0.05em;
-  z-index: 5;
 }
 
 .similar-card-info {
@@ -691,8 +726,9 @@
    ========================================================================= */
 @media (max-width: 1024px) {
   .main-product-card { gap: 40px; padding: 40px; }
-  .similares-responsive-track { grid-template-columns: repeat(3, 1fr); }
-  .similar-card-premium:last-child { display: none; }
+  .similares-responsive-track.carousel-mode .similar-card-premium {
+    flex: 0 0 calc(33.33% - 16px); /* Muestra 3 tarjetas */
+  }
 }
 
 @media (max-width: 968px) {
@@ -707,9 +743,15 @@
   
   .product-main-title { font-size: 28px; }
   .specs-tabs-card { padding: 32px 24px; border-radius: 20px; }
-  
-  .similares-responsive-track { grid-template-columns: repeat(2, 1fr); }
-  .similar-card-premium:last-child { display: flex; }
+}
+
+@media (max-width: 768px) {
+  .similares-header-container {
+    align-items: center;
+  }
+  .similares-responsive-track.carousel-mode .similar-card-premium {
+    flex: 0 0 calc(50% - 12px); /* Muestra 2 tarjetas */
+  }
 }
 
 @media (max-width: 640px) {
@@ -721,7 +763,7 @@
   .full-product-img { padding: 16px; }
   .similar-stage-img { padding: 16px; }
   
-  /* 🔥 SOLUCIÓN ESTRICTA: MÓVIL PARA LAS MINIATURAS 🔥 */
+  /* MINIATURAS EN MÓVIL */
   .thumbnails-strip {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -731,8 +773,8 @@
     -webkit-overflow-scrolling: touch;
   }
   .thumb-img {
-    flex: 0 0 72px; /* Ancho fijo para móvil */
-    height: 72px;   /* Altura fija = cuadrado asegurado */
+    flex: 0 0 72px; 
+    height: 72px;   
     scroll-snap-align: start;
   }
   
@@ -748,23 +790,31 @@
   .tabs-navigation-header { gap: 16px; margin-bottom: 24px; }
   .tab-nav-btn { font-size: 14px; padding: 0 0 12px 0; }
   
-  .similares-header { align-items: flex-start; text-align: left; margin-bottom: 24px; }
+  /* Carrusel Móvil Nativo (Oculta controles físicos innecesarios en touch) */
+  .slider-arrow-controls {
+    display: none;
+  }
+  
+  .similares-header-container {
+    display: block;
+    margin-bottom: 24px;
+  }
+  
+  .similares-header { align-items: flex-start; text-align: left; }
   .similares-divider { margin: 12px 0 0 0; }
   
-  .similares-responsive-track {
+  .similares-responsive-track.carousel-mode {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 16px;
     padding: 4px 4px 24px 4px;
-    scrollbar-width: none;
     margin-right: -16px; 
     padding-right: 16px;
     -webkit-overflow-scrolling: touch;
   }
-  .similares-responsive-track::-webkit-scrollbar { display: none; }
   
-  .similar-card-premium { 
+  .similares-responsive-track.carousel-mode .similar-card-premium { 
     flex: 0 0 auto; 
     width: 75vw; 
     max-width: 280px; 
